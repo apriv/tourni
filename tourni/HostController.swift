@@ -14,6 +14,7 @@ class HostController: UIViewController {
     // Input outlets
     @IBOutlet weak var eventNameTextField: UITextField!
     @IBOutlet weak var numberGroupsTextField: UITextField!
+    @IBOutlet weak var descriptionTextField: UITextField!
     
     
     
@@ -35,6 +36,7 @@ class HostController: UIViewController {
         // Get information from text input fields
         let name = eventNameTextField.text
         let num_groups = numberGroupsTextField.text
+        let description = descriptionTextField.text
         
         // Create database reference for access to database
         let db = Firestore.firestore()
@@ -55,10 +57,10 @@ class HostController: UIViewController {
         defaults.set(game_code_list, forKey: "game_code_list")
         
         // store the new tournament to the database
-        db.collection("tournaments").addDocument(data :[
-            "game_code" : game_code,
+        db.collection("tournaments").document(game_code).setData([
             "name": name,
-            "num_groups": num_groups
+            "num_groups": num_groups,
+            "description" : description
         ]) { err in
             if let err = err {
                 print("Error writing document: \(err)")
