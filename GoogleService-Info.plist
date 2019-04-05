@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>719075646945-9j4afjdb96cnb09fv0a4a3m7t26eevsh.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.719075646945-9j4afjdb96cnb09fv0a4a3m7t26eevsh</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAkBDqID0SrjiQcCPFh-hIv-ELeLKIOutI</string>
+	<key>GCM_SENDER_ID</key>
+	<string>719075646945</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.group13.tourni</string>
+	<key>PROJECT_ID</key>
+	<string>tourni-dfddb</string>
+	<key>STORAGE_BUCKET</key>
+	<string>tourni-dfddb.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:719075646945:ios:82ef1af21c308ca2</string>
+	<key>DATABASE_URL</key>
+	<string>https://tourni-dfddb.firebaseio.com</string>
+</dict>
+</plist>
