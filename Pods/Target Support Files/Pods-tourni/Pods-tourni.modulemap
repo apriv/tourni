@@ -1,0 +1,6 @@
+framework module Pods_tourni {
+  umbrella header "Pods-tourni-umbrella.h"
+
+  export *
+  module * { export * }
+}

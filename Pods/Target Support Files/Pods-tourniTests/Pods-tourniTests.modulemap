@@ -1,0 +1,6 @@
+framework module Pods_tourniTests {
+  umbrella header "Pods-tourniTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
