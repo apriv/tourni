@@ -36,20 +36,23 @@ class ActiveGamesController: UIViewController {
         var game_name_list = [String]()
         
         // get active tournament information
-        db.collection("tournaments").whereField("game_code", arrayContains: game_code_list)
-            .getDocuments() { (querySnapshot, err) in
-                if let err = err {
-                    print("Error getting documents: \(err)")
+        for game_code in game_code_list{
+            
+            let docRef = db.collection("tournaments").document(game_code)
+            
+            docRef.getDocument { (document, error) in
+                if let document = document, document.exists {
+                    let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                    print("Document data: \(dataDescription)")
+                    let name = document.get("name") as! String
+                    game_name_list.append(name)
+                    print(game_name_list)
                 } else {
-                    for document in querySnapshot!.documents {
-                       let name = document.get("name") as! String
-                       game_name_list.append(name)
-                    }
+                    print("Document does not exist")
                 }
-                print(game_name_list)
+            }
+            
         }
-        
-        
         
     }
     
