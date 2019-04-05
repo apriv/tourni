@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		112EFD152257ECC300781533 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 112EFD142257ECC300781533 /* GoogleService-Info.plist */; };
 		64249D555D56A3AC271B39C8 /* Pods_tourniTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD62A2B0E2960F5BB3B628BD /* Pods_tourniTests.framework */; };
 		C31F9D42225566A00049439D /* HostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31F9D41225566A00049439D /* HostController.swift */; };
 		C31F9D44225566E40049439D /* JoinController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31F9D43225566E40049439D /* JoinController.swift */; };
@@ -18,7 +19,6 @@
 		C3C7C7AE225559EF00F311B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3C7C7AC225559EF00F311B4 /* LaunchScreen.storyboard */; };
 		C3C7C7B9225559EF00F311B4 /* tourniTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C7C7B8225559EF00F311B4 /* tourniTests.swift */; };
 		C3C7C7C4225559EF00F311B4 /* tourniUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C7C7C3225559EF00F311B4 /* tourniUITests.swift */; };
-		C3C7C7D222555B1400F311B4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3C7C7D122555B1400F311B4 /* GoogleService-Info.plist */; };
 		E71F1D2727246C185A95EA83 /* Pods_tourniUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 018B43149E40B6C471012550 /* Pods_tourniUITests.framework */; };
 		FEABA12B35608913283E3BED /* Pods_tourni.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64ED51A524B8C7BD7542E086 /* Pods_tourni.framework */; };
 /* End PBXBuildFile section */
@@ -42,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		018B43149E40B6C471012550 /* Pods_tourniUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tourniUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		112EFD142257ECC300781533 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		64ED51A524B8C7BD7542E086 /* Pods_tourni.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tourni.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79D610222159E97520EC31F1 /* Pods-tourniTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tourniTests.release.xcconfig"; path = "Target Support Files/Pods-tourniTests/Pods-tourniTests.release.xcconfig"; sourceTree = "<group>"; };
 		9174008401A47C0696ABE7AC /* Pods-tourniUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tourniUITests.debug.xcconfig"; path = "Target Support Files/Pods-tourniUITests/Pods-tourniUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -64,7 +65,6 @@
 		C3C7C7BF225559EF00F311B4 /* tourniUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tourniUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3C7C7C3225559EF00F311B4 /* tourniUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tourniUITests.swift; sourceTree = "<group>"; };
 		C3C7C7C5225559EF00F311B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C3C7C7D122555B1400F311B4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CD62A2B0E2960F5BB3B628BD /* Pods_tourniTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tourniTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE6B496DD4DE43D8D793BC00 /* Pods-tourniUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tourniUITests.release.xcconfig"; path = "Target Support Files/Pods-tourniUITests/Pods-tourniUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -135,6 +135,7 @@
 		C3C7C7A2225559EE00F311B4 /* tourni */ = {
 			isa = PBXGroup;
 			children = (
+				112EFD142257ECC300781533 /* GoogleService-Info.plist */,
 				C3C7C7A3225559EE00F311B4 /* AppDelegate.swift */,
 				C3C7C7A5225559EE00F311B4 /* ViewController.swift */,
 				C3C7C7A7225559EE00F311B4 /* Main.storyboard */,
@@ -144,7 +145,6 @@
 				C31F9D41225566A00049439D /* HostController.swift */,
 				C3C7C7AF225559EF00F311B4 /* Info.plist */,
 				C31F9D43225566E40049439D /* JoinController.swift */,
-				C3C7C7D122555B1400F311B4 /* GoogleService-Info.plist */,
 			);
 			path = tourni;
 			sourceTree = "<group>";
@@ -286,7 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3C7C7AE225559EF00F311B4 /* LaunchScreen.storyboard in Resources */,
-				C3C7C7D222555B1400F311B4 /* GoogleService-Info.plist in Resources */,
+				112EFD152257ECC300781533 /* GoogleService-Info.plist in Resources */,
 				C3C7C7AB225559EF00F311B4 /* Assets.xcassets in Resources */,
 				C3C7C7A9225559EE00F311B4 /* Main.storyboard in Resources */,
 			);
