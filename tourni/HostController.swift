@@ -1,6 +1,6 @@
 //
 //  HostController.swift
-//  homePages
+//  tourni
 //
 //  Created by April Zhou on 4/3/19.
 //  Copyright © 2019 April Zhou. All rights reserved.
@@ -10,31 +10,60 @@ import Firebase
 
 class HostController: UIViewController {
     
-    @IBOutlet weak var eventNameTextField: UITextField!
     
+    // Input outlets
+    @IBOutlet weak var eventNameTextField: UITextField!
+    @IBOutlet weak var numberGroupsTextField: UITextField!
+    
+    
+    
+    // function called when view gets initialized
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+    }
+    
+    
+    // function to generate game code
+    func randomString(length: Int) -> String {
+        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        return String((0..<length).map{ _ in letters.randomElement()! })
     }
     
     @IBAction func createPressed(_ sender: UIButton) {
-        let name = eventNameTextField.text
         
+        // Get information from text input fields
+        let name = eventNameTextField.text
+        let num_groups = numberGroupsTextField.text
+        
+        // Create database reference for access to database
         let db = Firestore.firestore()
         
-        var ref: DocumentReference? = nil
-
-        ref = db.collection("users").addDocument(data: [
-            "first": name,
-            "middle": "Mathison",
-            "last": "Turing",
-            "born": 1912
+        // generate game code of length 4
+        let game_code = randomString(length: 4)
+        
+        // create reference to "user defaults" -> (data stored on phone)
+        let defaults = UserDefaults.standard
+        
+        // retrieve the stored list from the phone
+        var game_code_list = defaults.object(forKey: "game_code_list") as? [String] ?? [String]()
+        
+        // add the game code to the list of game codes
+        game_code_list.append(game_code)
+        
+        // store the generated game code on the user's phone
+        defaults.set(game_code_list, forKey: "game_code_list")
+        
+        // store the new tournament to the database
+        db.collection("tournaments").addDocument(data :[
+            "game_code" : game_code,
+            "name": name,
+            "num_groups": num_groups
         ]) { err in
             if let err = err {
-                print("Error adding document: \(err)")
+                print("Error writing document: \(err)")
             } else {
-                print("Document added with ID: \(ref!.documentID)")
+                print("Document successfully written!")
             }
         }
         
