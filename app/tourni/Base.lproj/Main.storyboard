@@ -35,10 +35,6 @@
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Events" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fib-YI-yRQ">
                                 <rect key="frame" x="129" y="60" width="117" height="32"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="Wjt-tI-QyW"/>
-                                    <constraint firstAttribute="width" constant="117" id="cj5-yS-eMq"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <color key="textColor" red="0.88235294117647056" green="0.4392156862745098" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -82,10 +78,6 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Join A Event" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OZp-ZR-RLd">
                                 <rect key="frame" x="118" y="60" width="139" height="32"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="CE6-JK-4Ux"/>
-                                    <constraint firstAttribute="width" constant="139" id="nnP-H5-KWQ"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <color key="textColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -107,15 +99,27 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.98039215686274506" green="0.69411764705882351" blue="0.62745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="OZp-ZR-RLd" firstAttribute="centerX" secondItem="y3L-Wp-M5p" secondAttribute="centerX" id="1Zf-Jb-2ne"/>
                             <constraint firstItem="OZp-ZR-RLd" firstAttribute="top" secondItem="s6k-u6-xXg" secondAttribute="top" constant="40" id="E0A-vi-uKh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="s6k-u6-xXg"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="hcX-pE-63Z" appends="YES" id="xXF-S3-RAe"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Join" id="gBD-76-C6a"/>
+                    <connections>
+                        <outlet property="bracketCodeTextfield" destination="coP-kc-Xvk" id="ryH-vS-8n7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z6C-hh-bmW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="hcX-pE-63Z">
+                    <connections>
+                        <action selector="keyboardDisable:" destination="1zX-7D-PjH" id="Ebt-Oi-xSZ"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="248.80000000000001" y="783.95802098950526"/>
         </scene>
@@ -196,30 +200,36 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create A Bracket" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DzY-IL-k9T">
                                 <rect key="frame" x="93.5" y="60" width="188" height="32"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="188" id="fl7-fa-7SL"/>
-                                    <constraint firstAttribute="height" constant="32" id="qrg-Ue-m7T"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <color key="textColor" red="0.066666666666666666" green="0.36078431372549019" blue="0.63921568627450975" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.68561485140931366" green="0.79960043913398693" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="DzY-IL-k9T" firstAttribute="top" secondItem="ONg-kP-bNN" secondAttribute="top" constant="40" id="DFb-D6-Hl7"/>
                             <constraint firstItem="DzY-IL-k9T" firstAttribute="centerX" secondItem="XxF-gw-kyi" secondAttribute="centerX" id="cBd-H3-qT3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ONg-kP-bNN"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="0Qg-0q-UNg" appends="YES" id="Yd5-Qi-Jet"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Host" id="BIL-RL-qDq"/>
                     <connections>
                         <outlet property="descriptionTextField" destination="Yz5-Fq-MqG" id="aMR-3n-G5Q"/>
                         <outlet property="eventNameTextField" destination="kkC-Z0-EDH" id="g3T-pN-XeF"/>
                         <outlet property="numberGroupsTextField" destination="8m5-tm-DJc" id="HJP-bs-dPF"/>
+                        <outlet property="passwordTextField" destination="9CR-Jm-cIT" id="aZQ-Ew-xGV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pQv-UW-lpL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="0Qg-0q-UNg">
+                    <connections>
+                        <action selector="keyboardDisableFunc:" destination="hUl-7Q-2HG" id="9ob-ki-ecr"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="909.60000000000002" y="783.95802098950526"/>
         </scene>
