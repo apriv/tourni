@@ -13,7 +13,7 @@ class HostController: UIViewController {
     
     // Input outlets
     @IBOutlet weak var eventNameTextField: UITextField!
-    @IBOutlet weak var numberGroupsTextField: UITextField!
+    @IBOutlet weak var numParticipantsTextField: UITextField!
     @IBOutlet weak var descriptionTextField: UITextField!
     
     
@@ -35,7 +35,7 @@ class HostController: UIViewController {
         
         // Get information from text input fields
         let name = eventNameTextField.text
-        let num_groups = numberGroupsTextField.text
+        let num_participants = numParticipantsTextField.text
         let description = descriptionTextField.text
         
         // Create database reference for access to database
@@ -48,18 +48,18 @@ class HostController: UIViewController {
         let defaults = UserDefaults.standard
         
         // retrieve the stored list from the phone
-        var game_code_list = defaults.object(forKey: "game_code_list") as? [String] ?? [String]()
+        var hosted_game_code_list = defaults.object(forKey: "hosted_game_code_list") as? [String] ?? [String]()
         
         // add the game code to the list of game codes
-        game_code_list.append(game_code)
+        hosted_game_code_list.append(game_code)
         
         // store the generated game code on the user's phone
-        defaults.set(game_code_list, forKey: "game_code_list")
+        defaults.set(hosted_game_code_list, forKey: "hosted_game_code_list")
         
         // store the new tournament to the database
         db.collection("tournaments").document(game_code).setData([
             "name": name,
-            "num_groups": num_groups,
+            "num_participants": num_participants,
             "description" : description
         ]) { err in
             if let err = err {
