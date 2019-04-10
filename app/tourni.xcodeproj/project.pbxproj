@@ -605,7 +605,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+<<<<<<< HEAD
 				DEVELOPMENT_TEAM = T8LGQ2TCSZ;
+=======
+				DEVELOPMENT_TEAM = 6YY23C3PCU;
+>>>>>>> d5af91a7edd50cb4477619a50e3d51bfbae580a4
 				INFOPLIST_FILE = tourni/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -615,7 +619,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.group13.tourni;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -625,7 +629,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+<<<<<<< HEAD
 				DEVELOPMENT_TEAM = T8LGQ2TCSZ;
+=======
+				DEVELOPMENT_TEAM = 6YY23C3PCU;
+>>>>>>> d5af91a7edd50cb4477619a50e3d51bfbae580a4
 				INFOPLIST_FILE = tourni/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -635,7 +643,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.group13.tourni;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
