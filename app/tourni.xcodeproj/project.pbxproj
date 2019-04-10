@@ -11,8 +11,6 @@
 		64249D555D56A3AC271B39C8 /* Pods_tourniTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD62A2B0E2960F5BB3B628BD /* Pods_tourniTests.framework */; };
 		C31F9D42225566A00049439D /* HostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31F9D41225566A00049439D /* HostController.swift */; };
 		C31F9D44225566E40049439D /* JoinController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31F9D43225566E40049439D /* JoinController.swift */; };
-		C33E028C225979C9000B237B /* Tournament.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33E028B225979C9000B237B /* Tournament.swift */; };
-		C33E028E22597A58000B237B /* Participant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33E028D22597A58000B237B /* Participant.swift */; };
 		C3668A9C225664C0002D9DF4 /* ActiveGamesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3668A9B225664C0002D9DF4 /* ActiveGamesController.swift */; };
 		C3C7C7A4225559EE00F311B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C7C7A3225559EE00F311B4 /* AppDelegate.swift */; };
 		C3C7C7A6225559EE00F311B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C7C7A5225559EE00F311B4 /* ViewController.swift */; };
@@ -53,8 +51,6 @@
 		C0C73DC0A32AAC2D1A3F14C0 /* Pods-tourni.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tourni.debug.xcconfig"; path = "Target Support Files/Pods-tourni/Pods-tourni.debug.xcconfig"; sourceTree = "<group>"; };
 		C31F9D41225566A00049439D /* HostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostController.swift; sourceTree = "<group>"; };
 		C31F9D43225566E40049439D /* JoinController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinController.swift; sourceTree = "<group>"; };
-		C33E028B225979C9000B237B /* Tournament.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tournament.swift; sourceTree = "<group>"; };
-		C33E028D22597A58000B237B /* Participant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Participant.swift; sourceTree = "<group>"; };
 		C3668A9B225664C0002D9DF4 /* ActiveGamesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveGamesController.swift; sourceTree = "<group>"; };
 		C3C7C7A0225559EE00F311B4 /* tourni.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tourni.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3C7C7A3225559EE00F311B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -143,8 +139,6 @@
 				C3C7C7A3225559EE00F311B4 /* AppDelegate.swift */,
 				C3C7C7A5225559EE00F311B4 /* ViewController.swift */,
 				C3C7C7A7225559EE00F311B4 /* Main.storyboard */,
-				C33E028B225979C9000B237B /* Tournament.swift */,
-				C33E028D22597A58000B237B /* Participant.swift */,
 				C3C7C7AA225559EF00F311B4 /* Assets.xcassets */,
 				C3C7C7AC225559EF00F311B4 /* LaunchScreen.storyboard */,
 				C3668A9B225664C0002D9DF4 /* ActiveGamesController.swift */,
@@ -422,10 +416,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C33E028C225979C9000B237B /* Tournament.swift in Sources */,
 				C31F9D42225566A00049439D /* HostController.swift in Sources */,
 				C3668A9C225664C0002D9DF4 /* ActiveGamesController.swift in Sources */,
-				C33E028E22597A58000B237B /* Participant.swift in Sources */,
 				C3C7C7A6225559EE00F311B4 /* ViewController.swift in Sources */,
 				C3C7C7A4225559EE00F311B4 /* AppDelegate.swift in Sources */,
 				C31F9D44225566E40049439D /* JoinController.swift in Sources */,
@@ -605,9 +597,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T8LGQ2TCSZ;
 				INFOPLIST_FILE = tourni/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -625,9 +615,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T8LGQ2TCSZ;
 				INFOPLIST_FILE = tourni/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
