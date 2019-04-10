@@ -13,12 +13,7 @@ class HostController: UIViewController {
     
     // Input outlets
     @IBOutlet weak var eventNameTextField: UITextField!
-<<<<<<< HEAD
     @IBOutlet weak var numParticipantsTextField: UITextField!
-=======
-    @IBOutlet weak var numberGroupsTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
->>>>>>> d5af91a7edd50cb4477619a50e3d51bfbae580a4
     @IBOutlet weak var descriptionTextField: UITextField!
     
     
@@ -26,22 +21,7 @@ class HostController: UIViewController {
     // function called when view gets initialized
     override func viewDidLoad() {
         super.viewDidLoad()
-        eventNameTextField.placeholder = "?"
-        eventNameTextField.keyboardType = UIKeyboardType.alphabet
-        numberGroupsTextField.placeholder = "8"
-        numberGroupsTextField.keyboardType = UIKeyboardType.numberPad
-        passwordTextField.placeholder = "****"
-        passwordTextField.keyboardType = UIKeyboardType.alphabet
-        descriptionTextField.placeholder = "?"
-        descriptionTextField.keyboardType = UIKeyboardType.alphabet
         
-    }
-    
-    @IBAction func keyboardDisableFunc(_ sender: Any) {
-        eventNameTextField.resignFirstResponder()
-        numberGroupsTextField.resignFirstResponder()
-        passwordTextField.resignFirstResponder()
-        descriptionTextField.resignFirstResponder()
     }
     
     
