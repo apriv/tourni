@@ -28,6 +28,7 @@ class ActiveGamesController: UITableViewController {
         
     }
     
+    // Set the number of sections
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -45,6 +46,7 @@ class ActiveGamesController: UITableViewController {
         }
     }
     
+    // Set the titles of each section
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch(section){
             case 0:
