@@ -13,7 +13,12 @@ class HostController: UIViewController {
     
     // Input outlets
     @IBOutlet weak var eventNameTextField: UITextField!
+<<<<<<< HEAD
     @IBOutlet weak var numParticipantsTextField: UITextField!
+=======
+    @IBOutlet weak var numberGroupsTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+>>>>>>> d5af91a7edd50cb4477619a50e3d51bfbae580a4
 
     @IBOutlet weak var descriptionTextField: UITextField!
     
