@@ -1,3 +1,7 @@
 
 *.xcuserstate
 tourni.xcworkspace/xcuserdata/april.xcuserdatad/UserInterfaceState.xcuserstate
+.DS_Store
+app/Pods/Pods.xcodeproj/xcuserdata/administrator.xcuserdatad/xcschemes/xcschememanagement.plist
+app/tourni.xcodeproj/xcuserdata/administrator.xcuserdatad/xcschemes/xcschememanagement.plist
+app/tourni.xcodeproj/xcuserdata/administrator.xcuserdatad/xcschemes/xcschememanagement.plist
