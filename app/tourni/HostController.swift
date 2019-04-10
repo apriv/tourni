@@ -21,7 +21,19 @@ class HostController: UIViewController {
     // function called when view gets initialized
     override func viewDidLoad() {
         super.viewDidLoad()
+        eventNameTextField.placeholder = "?"
+        eventNameTextField.keyboardType = UIKeyboardType.alphabet
+        numberGroupsTextField.placeholder = "8"
+        numberGroupsTextField.keyboardType = UIKeyboardType.numberPad
+        descriptionTextField.placeholder = "?"
+        descriptionTextField.keyboardType = UIKeyboardType.alphabet
         
+    }
+    
+    @IBAction func keyboardDisableFunc(_ sender: Any) {
+        eventNameTextField.resignFirstResponder()
+        numberGroupsTextField.resignFirstResponder()
+        descriptionTextField.resignFirstResponder()
     }
     
     
@@ -48,18 +60,18 @@ class HostController: UIViewController {
         let defaults = UserDefaults.standard
         
         // retrieve the stored list from the phone
-        var game_code_list = defaults.object(forKey: "game_code_list") as? [String] ?? [String]()
+        var hosted_game_code_list = defaults.object(forKey: "hosted_game_code_list") as? [String] ?? [String]()
         
         // add the game code to the list of game codes
-        game_code_list.append(game_code)
+        hosted_game_code_list.append(game_code)
         
         // store the generated game code on the user's phone
-        defaults.set(game_code_list, forKey: "game_code_list")
+        defaults.set(hosted_game_code_list, forKey: "hosted_game_code_list")
         
         // store the new tournament to the database
         db.collection("tournaments").document(game_code).setData([
             "name": name,
-            "num_groups": num_groups,
+            "num_participants": num_groups,
             "description" : description
         ]) { err in
             if let err = err {
