@@ -119,7 +119,7 @@ class ActiveGamesController: UITableViewController {
                     print("Document data: \(dataDescription)")
                     
                     // get the name and description fields from the queried document
-                    let name = document.get("name") as! String
+                    let name = document.get("title") as! String
                     let description = document.get("description") as! String
                     
                     // append those values to our local lists

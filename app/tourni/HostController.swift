@@ -68,6 +68,13 @@ class HostController: UIViewController {
         // store the generated game code on the user's phone
         defaults.set(hosted_game_code_list, forKey: "hosted_game_code_list")
         
+        let groups = [Group(name:"test1", seed:5, status:false),Group(name: "String", seed: 6, status: true)]
+        
+        let tournament = Tournament(title: name!, groups: groups, description: description, game_code: game_code)
+        
+        tournament.store()
+        
+        /*
         // store the new tournament to the database
         db.collection("tournaments").document(game_code).setData([
             "name": name,
@@ -80,6 +87,7 @@ class HostController: UIViewController {
                 print("Document successfully written!")
             }
         }
+         */
         
     }
     
