@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		112EFD152257ECC300781533 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 112EFD142257ECC300781533 /* GoogleService-Info.plist */; };
+		437F48512260EE2F0029A86E /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437F48502260EE2F0029A86E /* Group.swift */; };
 		64249D555D56A3AC271B39C8 /* Pods_tourniTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD62A2B0E2960F5BB3B628BD /* Pods_tourniTests.framework */; };
 		C30B8952225EA98600DC4469 /* Tournament.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30B8951225EA98600DC4469 /* Tournament.swift */; };
 		C31F9D42225566A00049439D /* HostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31F9D41225566A00049439D /* HostController.swift */; };
 		C31F9D44225566E40049439D /* JoinController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31F9D43225566E40049439D /* JoinController.swift */; };
 		C3668A9C225664C0002D9DF4 /* ActiveGamesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3668A9B225664C0002D9DF4 /* ActiveGamesController.swift */; };
 		C3C7C7A4225559EE00F311B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C7C7A3225559EE00F311B4 /* AppDelegate.swift */; };
-		C3C7C7A6225559EE00F311B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C7C7A5225559EE00F311B4 /* ViewController.swift */; };
 		C3C7C7A9225559EE00F311B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3C7C7A7225559EE00F311B4 /* Main.storyboard */; };
 		C3C7C7AB225559EF00F311B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3C7C7AA225559EF00F311B4 /* Assets.xcassets */; };
 		C3C7C7AE225559EF00F311B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3C7C7AC225559EF00F311B4 /* LaunchScreen.storyboard */; };
@@ -44,6 +44,7 @@
 /* Begin PBXFileReference section */
 		018B43149E40B6C471012550 /* Pods_tourniUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tourniUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		112EFD142257ECC300781533 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		437F48502260EE2F0029A86E /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		64ED51A524B8C7BD7542E086 /* Pods_tourni.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tourni.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79D610222159E97520EC31F1 /* Pods-tourniTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tourniTests.release.xcconfig"; path = "Target Support Files/Pods-tourniTests/Pods-tourniTests.release.xcconfig"; sourceTree = "<group>"; };
 		9174008401A47C0696ABE7AC /* Pods-tourniUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tourniUITests.debug.xcconfig"; path = "Target Support Files/Pods-tourniUITests/Pods-tourniUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -56,7 +57,6 @@
 		C3668A9B225664C0002D9DF4 /* ActiveGamesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveGamesController.swift; sourceTree = "<group>"; };
 		C3C7C7A0225559EE00F311B4 /* tourni.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tourni.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3C7C7A3225559EE00F311B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C3C7C7A5225559EE00F311B4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C3C7C7A8225559EE00F311B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C3C7C7AA225559EF00F311B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C3C7C7AD225559EF00F311B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -99,6 +99,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		437F484E2260ED380029A86E /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C3668A9B225664C0002D9DF4 /* ActiveGamesController.swift */,
+				C31F9D41225566A00049439D /* HostController.swift */,
+				C31F9D43225566E40049439D /* JoinController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		437F484F2260ED650029A86E /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C30B8951225EA98600DC4469 /* Tournament.swift */,
+				437F48502260EE2F0029A86E /* Group.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		49D4674349B79D0FA4A87164 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -137,17 +156,14 @@
 		C3C7C7A2225559EE00F311B4 /* tourni */ = {
 			isa = PBXGroup;
 			children = (
-				112EFD142257ECC300781533 /* GoogleService-Info.plist */,
-				C3C7C7A3225559EE00F311B4 /* AppDelegate.swift */,
-				C30B8951225EA98600DC4469 /* Tournament.swift */,
-				C3C7C7A5225559EE00F311B4 /* ViewController.swift */,
-				C3C7C7A7225559EE00F311B4 /* Main.storyboard */,
+				437F484F2260ED650029A86E /* Classes */,
+				437F484E2260ED380029A86E /* View Controllers */,
 				C3C7C7AA225559EF00F311B4 /* Assets.xcassets */,
+				C3C7C7A7225559EE00F311B4 /* Main.storyboard */,
 				C3C7C7AC225559EF00F311B4 /* LaunchScreen.storyboard */,
-				C3668A9B225664C0002D9DF4 /* ActiveGamesController.swift */,
-				C31F9D41225566A00049439D /* HostController.swift */,
+				C3C7C7A3225559EE00F311B4 /* AppDelegate.swift */,
 				C3C7C7AF225559EF00F311B4 /* Info.plist */,
-				C31F9D43225566E40049439D /* JoinController.swift */,
+				112EFD142257ECC300781533 /* GoogleService-Info.plist */,
 			);
 			path = tourni;
 			sourceTree = "<group>";
@@ -422,7 +438,7 @@
 				C30B8952225EA98600DC4469 /* Tournament.swift in Sources */,
 				C31F9D42225566A00049439D /* HostController.swift in Sources */,
 				C3668A9C225664C0002D9DF4 /* ActiveGamesController.swift in Sources */,
-				C3C7C7A6225559EE00F311B4 /* ViewController.swift in Sources */,
+				437F48512260EE2F0029A86E /* Group.swift in Sources */,
 				C3C7C7A4225559EE00F311B4 /* AppDelegate.swift in Sources */,
 				C31F9D44225566E40049439D /* JoinController.swift in Sources */,
 			);

@@ -8,13 +8,6 @@
 import Firebase
 import Foundation
 
-struct Group {
-    var name:String
-    var seed:Int
-    var status:Bool = true
-}
-
-
 struct Tournament {
     var title:String?
     var groups:[Group]?
