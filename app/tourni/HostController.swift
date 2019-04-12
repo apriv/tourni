@@ -10,10 +10,10 @@ import Firebase
 
 class HostController: UIViewController {
     
+    var tournament = Tournament()
     
     // Input outlets
     @IBOutlet weak var eventNameTextField: UITextField!
-    @IBOutlet weak var numberGroupsTextField: UITextField!
     @IBOutlet weak var descriptionTextField: UITextField!
     
     
@@ -23,8 +23,6 @@ class HostController: UIViewController {
         super.viewDidLoad()
         eventNameTextField.placeholder = "?"
         eventNameTextField.keyboardType = UIKeyboardType.alphabet
-        numberGroupsTextField.placeholder = "8"
-        numberGroupsTextField.keyboardType = UIKeyboardType.numberPad
         descriptionTextField.placeholder = "?"
         descriptionTextField.keyboardType = UIKeyboardType.alphabet
         
@@ -32,7 +30,6 @@ class HostController: UIViewController {
     
     @IBAction func keyboardDisableFunc(_ sender: Any) {
         eventNameTextField.resignFirstResponder()
-        numberGroupsTextField.resignFirstResponder()
         descriptionTextField.resignFirstResponder()
     }
     
@@ -43,15 +40,55 @@ class HostController: UIViewController {
         return String((0..<length).map{ _ in letters.randomElement()! })
     }
     
+    // First "Create" button
     @IBAction func createPressed(_ sender: UIButton) {
         
         // Get information from text input fields
-        let name = eventNameTextField.text
-        let num_groups = numberGroupsTextField.text
-        let description = descriptionTextField.text
+        tournament.title = eventNameTextField.text
+        tournament.description = descriptionTextField.text
+    }
+    
+    @IBAction func addGroupButton(_ sender: Any) {
+        tournament.addGroup(group: Group(name: "Test", seed: 5, status: true))
+    }
+    /*
+    // Add group button
+    @IBAction func createPressed(_ sender: UIButton) {
         
-        // Create database reference for access to database
-        let db = Firestore.firestore()
+        
+        // Get information from text input fields
+        let name = groupNameTextField.text
+        let seed = seedTextField.text
+        
+        tournament.addGroup(Group(name: name, seed: seed, status: bool))
+        
+    }
+     */
+     @IBAction func finishButton(_ sender: Any) {
+        // generate game code of length 4
+        let game_code = randomString(length: 4)
+        
+        // create reference to "user defaults" -> (data stored on phone)
+        let defaults = UserDefaults.standard
+        
+        // retrieve the stored list from the phone
+        var hosted_game_code_list = defaults.object(forKey: "hosted_game_code_list") as? [String] ?? [String]()
+        
+        // add the game code to the list of game codes
+        hosted_game_code_list.append(game_code)
+        
+        // store the generated game code on the user's phone
+        defaults.set(hosted_game_code_list, forKey: "hosted_game_code_list")
+        
+        // assign the game code to the tournament
+        tournament.game_code = game_code
+        
+        // write the tournament to the database
+        tournament.store()
+     }
+     /*
+    // Final "Create" button
+    @IBAction func createPressed(_ sender: UIButton) {
         
         // generate game code of length 4
         let game_code = randomString(length: 4)
@@ -68,30 +105,14 @@ class HostController: UIViewController {
         // store the generated game code on the user's phone
         defaults.set(hosted_game_code_list, forKey: "hosted_game_code_list")
         
-        let groups = [Group(name:"test1", seed:5, status:false),Group(name: "String", seed: 6, status: true)]
+        // assign the game code to the tournament
+        tournament.game_code = game_code
         
-        let tournament = Tournament(title: name!, groups: groups, description: description, game_code: game_code)
-        
+        // write the tournament to the database
         tournament.store()
-        
-        /*
-        // store the new tournament to the database
-        db.collection("tournaments").document(game_code).setData([
-            "name": name,
-            "num_participants": num_groups,
-            "description" : description
-        ]) { err in
-            if let err = err {
-                print("Error writing document: \(err)")
-            } else {
-                print("Document successfully written!")
-            }
-        }
-         */
-        
     }
     
-    
+    */
     
     /*
      // MARK: - Navigation

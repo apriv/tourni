@@ -11,15 +11,10 @@ import Firebase
 
 class ActiveGamesController: UITableViewController {
 
-    // initialize a list for stored game names
-    var hosted_tournament_name_list = [String]()
+    // initialize a list for hosted tournaments
+    var hosted_tournament_list = [Tournament]()
     
-    var joined_tournament_name_list = [String]()
-    
-    // Initialize a list for descriptions
-    var hosted_tournament_description_list = [String]()
-    
-    var joined_tournament_description_list = [String]()
+    var joined_tournament_list = [Tournament]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,9 +33,9 @@ class ActiveGamesController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch(section){
         case 0:
-            return self.joined_tournament_name_list.count
+            return joined_tournament_list.count
         case 1:
-            return self.hosted_tournament_name_list.count
+            return hosted_tournament_list.count
         default: return 0
             
         }
@@ -61,12 +56,27 @@ class ActiveGamesController: UITableViewController {
     
     // Set the text for each cell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        // Possible code for empty case
+        /*
+        if (IndexPath.isEmpty()){
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath) // Needs different identifier "LabelCell" is not what we want
+            
+            cell.textLabel?.text = "No active tournaments"
+            
+            return cell
+        }
+        */
+        
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
         
         // Set the title to the tournament name
-        cell.textLabel?.text = self.hosted_tournament_name_list[indexPath.row]
+        cell.textLabel?.text = hosted_tournament_list[indexPath.row].title
         // Set the description to the tournament description
-        cell.detailTextLabel?.text = self.hosted_tournament_description_list[indexPath.row]
+        cell.detailTextLabel?.text = hosted_tournament_list[indexPath.row].description
+        
         
         return cell
     }
@@ -77,22 +87,22 @@ class ActiveGamesController: UITableViewController {
         
         // Reset list values when user leaves so the list can be updated when
         // they return.
-        self.hosted_tournament_name_list = [String]()
-        self.hosted_tournament_description_list = [String]()
+        hosted_tournament_list = [Tournament]()
+        joined_tournament_list = [Tournament]()
     }
     
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        ////////////////Get stored list of game codes/////////////////////////
+        
         // create reference to "user defaults" -> (data stored on phone)
         let defaults = UserDefaults.standard
         
-        // Create database reference for access to database
-        let db = Firestore.firestore()
-        
         // initialize game_code_list
         var hosted_game_code_list = [String]()
+        var joined_game_code_list = [String]()
         
         // if the game code list is valid, read from it
         if UserDefaults.standard.object(forKey: "hosted_game_code_list") == nil {
@@ -101,41 +111,31 @@ class ActiveGamesController: UITableViewController {
             hosted_game_code_list = defaults.object(forKey: "hosted_game_code_list") as? [String] ?? [String]()
         }
         
+        // if the game code list is valid, read from it
+        if UserDefaults.standard.object(forKey: "joined_game_code_list") == nil {
+            UserDefaults.standard.setValue([String](), forKey: "joined_game_code_list")
+        }else{
+            joined_game_code_list = defaults.object(forKey: "joined_game_code_list") as? [String] ?? [String]()
+        }
         
-        // get active tournament information
-        // For each game code in the list of saved codes we query the database for
-        // the information of that tournament
+        ///////////////////Get tournaments asociated with those codes/////////////////////////
+        
+        // get active hosted tournament information
+        // For each game code in the list of saved codes we get the tournament associated with that code
         for game_code in hosted_game_code_list{
-            
-            // create document that we will be querying for with one of the
-            // game codes
-            let docRef = db.collection("tournaments").document(game_code)
-            
-            
-            docRef.getDocument { (document, error) in
-                if let document = document, document.exists {
-                    let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-                    
-                    print("Document data: \(dataDescription)")
-                    
-                    // get the name and description fields from the queried document
-                    let name = document.get("title") as! String
-                    let description = document.get("description") as! String
-                    
-                    // append those values to our local lists
-                    self.hosted_tournament_name_list.append(name)
-                    self.hosted_tournament_description_list.append(description)
-                    
-                    print(self.hosted_tournament_name_list)
-                    
-                    // update the table with our newly retrieved data
-                    self.tableView.reloadData()
-                    
-                } else {
-                    print("Document does not exist")
-                }
+            Tournament.getTournament(gc: game_code){ t in
+                self.hosted_tournament_list.append(t)
+                self.tableView.reloadData()
             }
-            
+        }
+        
+        // get active joined tournament information
+        // For each game code in the list of saved codes we get the tournament associated with that code
+        for game_code in joined_game_code_list{
+            Tournament.getTournament(gc: game_code){ t in
+                self.joined_tournament_list.append(t)
+                self.tableView.reloadData()
+            }
         }
     }
     
