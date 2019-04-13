@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		112EFD152257ECC300781533 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 112EFD142257ECC300781533 /* GoogleService-Info.plist */; };
 		437F48512260EE2F0029A86E /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437F48502260EE2F0029A86E /* Group.swift */; };
+		437F4853226100200029A86E /* ActiveGamesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437F4852226100200029A86E /* ActiveGamesCell.swift */; };
+		437F485522610F340029A86E /* AddGroupsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437F485422610F340029A86E /* AddGroupsController.swift */; };
+		437F485722610F4E0029A86E /* AddGroupsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437F485622610F4E0029A86E /* AddGroupsCell.swift */; };
+		437F4859226114600029A86E /* ConfigureGroupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437F4858226114600029A86E /* ConfigureGroupController.swift */; };
 		64249D555D56A3AC271B39C8 /* Pods_tourniTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD62A2B0E2960F5BB3B628BD /* Pods_tourniTests.framework */; };
 		C30B8952225EA98600DC4469 /* Tournament.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30B8951225EA98600DC4469 /* Tournament.swift */; };
 		C31F9D42225566A00049439D /* HostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31F9D41225566A00049439D /* HostController.swift */; };
@@ -45,6 +49,10 @@
 		018B43149E40B6C471012550 /* Pods_tourniUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tourniUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		112EFD142257ECC300781533 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		437F48502260EE2F0029A86E /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		437F4852226100200029A86E /* ActiveGamesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveGamesCell.swift; sourceTree = "<group>"; };
+		437F485422610F340029A86E /* AddGroupsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupsController.swift; sourceTree = "<group>"; };
+		437F485622610F4E0029A86E /* AddGroupsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupsCell.swift; sourceTree = "<group>"; };
+		437F4858226114600029A86E /* ConfigureGroupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureGroupController.swift; sourceTree = "<group>"; };
 		64ED51A524B8C7BD7542E086 /* Pods_tourni.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tourni.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79D610222159E97520EC31F1 /* Pods-tourniTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tourniTests.release.xcconfig"; path = "Target Support Files/Pods-tourniTests/Pods-tourniTests.release.xcconfig"; sourceTree = "<group>"; };
 		9174008401A47C0696ABE7AC /* Pods-tourniUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tourniUITests.debug.xcconfig"; path = "Target Support Files/Pods-tourniUITests/Pods-tourniUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -103,8 +111,12 @@
 			isa = PBXGroup;
 			children = (
 				C3668A9B225664C0002D9DF4 /* ActiveGamesController.swift */,
+				437F4852226100200029A86E /* ActiveGamesCell.swift */,
 				C31F9D41225566A00049439D /* HostController.swift */,
 				C31F9D43225566E40049439D /* JoinController.swift */,
+				437F485422610F340029A86E /* AddGroupsController.swift */,
+				437F485622610F4E0029A86E /* AddGroupsCell.swift */,
+				437F4858226114600029A86E /* ConfigureGroupController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -436,10 +448,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C30B8952225EA98600DC4469 /* Tournament.swift in Sources */,
+				437F485522610F340029A86E /* AddGroupsController.swift in Sources */,
+				437F4859226114600029A86E /* ConfigureGroupController.swift in Sources */,
 				C31F9D42225566A00049439D /* HostController.swift in Sources */,
 				C3668A9C225664C0002D9DF4 /* ActiveGamesController.swift in Sources */,
 				437F48512260EE2F0029A86E /* Group.swift in Sources */,
+				437F485722610F4E0029A86E /* AddGroupsCell.swift in Sources */,
 				C3C7C7A4225559EE00F311B4 /* AppDelegate.swift in Sources */,
+				437F4853226100200029A86E /* ActiveGamesCell.swift in Sources */,
 				C31F9D44225566E40049439D /* JoinController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

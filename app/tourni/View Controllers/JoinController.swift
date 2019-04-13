@@ -17,7 +17,10 @@ class JoinController: UIViewController {
         
         // Do any additional setup after loading the view.
     }
-    
+
+    @IBAction func joinTournamentButton(_ sender: Any) {
+        Tournament.join(game_code: gameCodeTextField.text!)
+    }
     
     @IBAction func keyboardDisableFunc(_ sender: UITapGestureRecognizer) {
         gameCodeTextField.resignFirstResponder()
