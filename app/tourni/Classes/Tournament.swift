@@ -42,6 +42,11 @@ struct Tournament {
         self.groups!.append(group)
     }
     
+    // function to winner to tournament
+    mutating func addWinner(group: Group){
+        self.winners!.append(group)
+    }
+    
     // function to set title
     mutating func setTitle(t: String){
         self.title = t
@@ -59,7 +64,7 @@ struct Tournament {
         return String((0..<length).map{ _ in letters.randomElement()! })
     }
     
-    // generate tournament, store local code and write to database
+    // generate tournament, store local code and write to database (Should only be called once when tournament is created)
     mutating func generate(){
         
         let game_code = genCode(length: 4)
@@ -78,6 +83,9 @@ struct Tournament {
         
         // assign the game code to the tournament
         self.game_code = game_code
+        
+        // set the winners to default = to the groups
+        self.winners = self.groups;
         
         // write the tournament to the database
         self.store()
