@@ -26,6 +26,12 @@ class ActiveGamesController: UITableViewController {
        
     }
     
+    @IBAction func cellShareButton(_ sender: Any) {
+        
+        
+        print("TEST")
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         switch(indexPath.section){
