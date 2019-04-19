@@ -10,15 +10,12 @@ import UIKit
 
 class BracketController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
     let bracket_scene = UIView()
+    let bb = bracket_backend()
     var tournament = Tournament()
     var groups:Int = 0
+    var rounds:Int = 0
     var matches:[Int] = []
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        //get the count for groups in the winners list
-        //groups = tournamen
-    }
     
     
     
@@ -59,6 +56,11 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("Number of Winners: ")
+        print(tournament.getNumGroups())
+        groups = tournament.getNumWinners()
+        rounds = bb.generate_rounds(g: groups)
+        matches = bb.generate_matches(r: rounds)
         make_rounds()
         panGestureOverBracketView()
     }
@@ -145,12 +147,7 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
     func make_rounds() {
         var r = 1
         var nextRound:Bool = false
-        let winners:[String] = ["team1","team2","team3","team4","team5","team6","team7","team8"]
-        print(winners.count/2)
-        if winners.count/2 == matches[1] {
-            nextRound = true
-        }
-        if nextRound == true{
+        if nextRound == false{
             r = r + 1
             for i in 0..<rounds{
                 let bracket = UITableView()

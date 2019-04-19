@@ -19,10 +19,10 @@ class bracket_backend {
      *parameters: the number of groups in the tournament (Type: Int)
      *returns the number of rounds (Type: Int)
      */
-    func generate_rounds(t: Tournament) -> Int{
+    func generate_rounds(g: Int) -> Int{
         //intialize variables
         var rounds:Int = 0
-        var size:Int = 0
+        var size:Int = g
         var validInput:Bool = true
         //checking if the number of groups is greater than 0
         if size <= 0{ validInput = false}
@@ -48,15 +48,13 @@ class bracket_backend {
      *returns the number of match ups for each round of the tournament (Type: [Int])
      */
     
-    func generate_matches(rounds: Int)->[Int]{
+    func generate_matches(r: Int)->[Int]{
         //intialize all the variables
-        var size:Int = 0
         var match_upList:[Int] = []
-        var numOfMatchUps:Int = size/2
+        var numOfMatchUps:Int = Int(powf(Float(2), Float(r)))/2
         //get the number of rounds for tournament
-        let rounds:Int = 0
         //create enough match ups based on the number of rounds
-        for _ in 0..<rounds{
+        for _ in 0..<r{
             match_upList.append(numOfMatchUps)
             numOfMatchUps = numOfMatchUps/2
             //push data into the [(string, string)]
