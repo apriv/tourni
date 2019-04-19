@@ -56,12 +56,10 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Number of Winners: ")
-        print(tournament.getNumGroups())
         groups = tournament.getNumWinners()
         rounds = bb.generate_rounds(g: groups)
         matches = bb.generate_matches(r: rounds)
-        make_rounds()
+        make_roundsHost()
         panGestureOverBracketView()
     }
     
@@ -144,11 +142,14 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
     
     
     //function to make the correct number of rounds for the tournament
-    func make_rounds() {
-        var r = 1
+    func make_roundsHost() {
         var nextRound:Bool = false
-        if nextRound == false{
-            r = r + 1
+        for i in 0..<matches.count{
+            if groups/2 == matches[i]{
+             nextRound = true
+            }
+        }
+        if nextRound == true{
             for i in 0..<rounds{
                 let bracket = UITableView()
                 //bracket x,y, height, parameters
@@ -179,6 +180,8 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
         }
         
     }
+    
+    
     //automatically generated for UITableViewDataSource and UITableViewDelegate
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return bracketViewDict[tableView]!
