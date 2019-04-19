@@ -15,16 +15,21 @@ class MatchUpHost: UITableViewCell {
     @IBOutlet weak var Group2Label: UILabel!
     @IBOutlet weak var Group2Button: UIButton!
     
-    
-    @IBAction func ChangeTeam1Status(_ sender: UIButton) {
-        //When click on the button, the title on Team2Button changes from "WIN" to "LOSE"
-        
-        
-    }
-    
     func setMatchup(g1: Group, g2: Group){
         Group1Label.text = g1.name
         Group2Label.text = g2.name
+        Group2Button.setTitle("_", forState: .normal)
+        Group1Button.setTitle("_", forState: .normal)
+        
     }
-
+    
+    @IBAction func group1Win(_ sender: UIButton) {
+        sender.setTitle("WIN", forState: .normal)
+        Group2Button.setTitle("LOSE", forState: .normal)
+    }
+    
+    @IBAction func group2Win(_ sender: UIButton) {
+        sender.setTitle("WIN", forState: .normal)
+        Group1Button.setTitle("LOSE", forState: .normal)
+    }
 }
