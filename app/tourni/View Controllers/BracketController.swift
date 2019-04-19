@@ -59,6 +59,7 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
 
+
         Tournament.getTournament(gc: game_code){ t in
             
             self.tournament = t
@@ -160,7 +161,7 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
             }
         }
         if nextRound == true{
-            for i in 0..<r{
+            for i in 0..<rounds{
                 let bracket = UITableView()
                 self.bracket_table_view = bracket
                 //bracket x,y, height, parameters
