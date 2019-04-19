@@ -663,17 +663,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-<<<<<<< HEAD
 				DEVELOPMENT_TEAM = "";
-=======
-				DEVELOPMENT_TEAM = T8LGQ2TCSZ;
->>>>>>> parent of d2156a2... Revert "Added getters in Group"
 				INFOPLIST_FILE = tourni/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.group13.tourni1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.group13.tourni;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -686,17 +682,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-<<<<<<< HEAD
 				DEVELOPMENT_TEAM = "";
-=======
-				DEVELOPMENT_TEAM = T8LGQ2TCSZ;
->>>>>>> parent of d2156a2... Revert "Added getters in Group"
 				INFOPLIST_FILE = tourni/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.group13.tourni1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.group13.tourni;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
