@@ -17,4 +17,9 @@ struct Group {
     func toDictionary() -> [String: AnyObject]{
         return ["name": self.name as AnyObject, "seed": self.seed as AnyObject, "status": self.status as AnyObject]
     }
+    
+    func getSeed()->Int{
+        return self.seed
+    }
+    
 }
