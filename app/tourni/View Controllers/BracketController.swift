@@ -12,6 +12,8 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
     let bracket_scene = UIView()
     let bb = bracket_backend()
     var tournament = Tournament()
+    var game_code = String()
+    var bracket_table_view = UITableView()
     var groups:Int = 0
     var rounds:Int = 0
     var matches:[Int] = []
@@ -56,11 +58,17 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        groups = tournament.getNumWinners()
-        rounds = bb.generate_rounds(g: groups)
-        matches = bb.generate_matches(r: rounds)
-        make_roundsHost()
-        panGestureOverBracketView()
+
+        Tournament.getTournament(gc: game_code){ t in
+            
+            self.tournament = t
+            self.groups = t.getNumWinners()
+            self.rounds = self.bb.generate_rounds(g: self.groups)
+            self.matches = self.bb.generate_matches(r: self.rounds)
+            self.make_roundsHost()
+            self.panGestureOverBracketView()
+            
+        }
     }
     
     
@@ -154,6 +162,7 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
         if nextRound == true{
             for i in 0..<r{
                 let bracket = UITableView()
+                self.bracket_table_view = bracket
                 //bracket x,y, height, parameters
                 bracket.frame = CGRect(x: bracketView_x, y: bracketView_y, width: bracketView_width, height: bracketView_height)
                 bracketView_x+=bracketView_width

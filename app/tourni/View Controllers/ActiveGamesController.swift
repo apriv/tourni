@@ -26,6 +26,8 @@ class ActiveGamesController: UITableViewController {
        
     }
     
+   
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         switch(indexPath.section){
@@ -58,7 +60,7 @@ class ActiveGamesController: UITableViewController {
         if segue.destination is BracketController
         {
             let vc = segue.destination as? BracketController
-            vc?.tournament = self.selected_tournament
+            vc?.game_code = self.selected_tournament.game_code!
         }
     }
     

@@ -33,7 +33,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FZG-ei-WVy">
-                    <rect key="frame" x="143" y="5" width="46" height="32"/>
+                    <rect key="frame" x="153" y="15" width="28" height="13"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="1" green="0.4657072464" blue="0.97467283979999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="12"/>
@@ -42,7 +42,7 @@
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FuE-gt-aMS">
-                    <rect key="frame" x="146" y="45" width="43" height="28"/>
+                    <rect key="frame" x="149" y="57" width="32" height="10"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="1" green="0.8160685598489531" blue="0.096556902103350994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="12"/>
