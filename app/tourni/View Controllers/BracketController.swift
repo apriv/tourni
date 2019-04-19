@@ -143,14 +143,16 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
     
     //function to make the correct number of rounds for the tournament
     func make_roundsHost() {
+        var r:Int = 0
         var nextRound:Bool = false
         for i in 0..<matches.count{
             if groups/2 == matches[i]{
+             r=r+1
              nextRound = true
             }
         }
         if nextRound == true{
-            for i in 0..<rounds{
+            for i in 0..<r{
                 let bracket = UITableView()
                 //bracket x,y, height, parameters
                 bracket.frame = CGRect(x: bracketView_x, y: bracketView_y, width: bracketView_width, height: bracketView_height)
