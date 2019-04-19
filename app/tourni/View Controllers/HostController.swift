@@ -31,6 +31,9 @@ class HostController: UIViewController {
                                                         action: #selector(self.createButtonPressed))
         // sets the button to the top right bar
         self.navigationItem.rightBarButtonItem = createItemButton
+        
+        //backgrounf img
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "gradient_background")!)
     }
 
     // function called when the create button is pressed

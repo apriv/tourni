@@ -19,6 +19,8 @@ class ActiveGamesController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //background
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "gradient_background")!)
        
     }
     

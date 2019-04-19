@@ -16,6 +16,9 @@ class JoinController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        
+        //UI setup
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "gradient_background")!)
     }
 
     @IBAction func joinTournamentButton(_ sender: Any) {

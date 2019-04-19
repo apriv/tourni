@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hA1-YW-hX3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hA1-YW-hX3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,13 +13,15 @@
         <!--Active Games-->
         <scene sceneID="4ZW-0S-3xU">
             <objects>
-                <tableViewController id="jDo-UP-kyt" customClass="ActiveGamesController" customModule="tourni" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Active Games" id="jDo-UP-kyt" customClass="ActiveGamesController" customModule="tourni" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="qsE-0x-vxN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.96862745100000003" green="0.56078431370000004" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="separatorColor" red="0.96862745100000003" green="0.56078431370000004" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="sectionIndexBackgroundColor" red="0.90645790100097656" green="0.37680232524871826" blue="0.55570560693740845" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ActiveGamesCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActiveGamesCell" textLabel="Ahn-tf-IU5" detailTextLabel="gyX-YG-BR2" style="IBUITableViewCellStyleSubtitle" id="ebR-FQ-zb7" customClass="ActiveGamesCell" customModule="tourni" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" restorationIdentifier="ActiveGamesCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActiveGamesCell" textLabel="Ahn-tf-IU5" detailTextLabel="gyX-YG-BR2" style="IBUITableViewCellStyleSubtitle" id="ebR-FQ-zb7" customClass="ActiveGamesCell" customModule="tourni" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ebR-FQ-zb7" id="ASF-gC-3zo">
@@ -46,6 +48,7 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.96862745100000003" green="0.56078431370000004" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="ActiveGamesDescriptionLabel" destination="gyX-YG-BR2" id="E8B-fk-z1o"/>
                                     <outlet property="ActiveGamesTitleLabel" destination="Ahn-tf-IU5" id="M6U-Z9-tFj"/>
@@ -57,16 +60,18 @@
                             <outlet property="delegate" destination="jDo-UP-kyt" id="KBJ-Jr-5CD"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Active Games" id="4mg-Ss-wsf"/>
+                    <navigationItem key="navigationItem" title="Active Games" id="aaN-gr-icu"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zd5-Pc-O6M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-476" y="783.95802098950526"/>
+            <point key="canvasLocation" x="-759" y="1485"/>
         </scene>
-        <!--Join-->
+        <!--Join A Game-->
         <scene sceneID="tAo-vV-yRm">
             <objects>
-                <viewController id="1zX-7D-PjH" customClass="JoinController" customModule="tourni" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Join A Game" id="1zX-7D-PjH" customClass="JoinController" customModule="tourni" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="y3L-Wp-M5p">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -85,41 +90,33 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qww-Zq-v91">
-                                <rect key="frame" x="135" y="368" width="105" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qww-Zq-v91">
+                                <rect key="frame" x="133" y="412" width="112" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.45490196078431372" green="0.72549019607843135" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Scan QR Code ">
+                                <state key="normal" image="scan_button">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2kG-gU-kG6">
-                                <rect key="frame" x="0.0" y="20" width="375" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="zvg-Vt-xj6"/>
-                                </constraints>
-                                <items>
-                                    <navigationItem title="Join A Game" id="GdC-8W-wZ5"/>
-                                </items>
-                            </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q9n-mf-l8j">
-                                <rect key="frame" x="147" y="266" width="81" height="81"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q9n-mf-l8j">
+                                <rect key="frame" x="131" y="285" width="112" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Join"/>
+                                <state key="normal" image="join_button_2"/>
                                 <connections>
                                     <action selector="joinTournamentButton:" destination="1zX-7D-PjH" eventType="touchUpInside" id="3W2-z5-9O4"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.97020254299999997" green="0.79874784700000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.96862745100000003" green="0.56078431370000004" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.96862745098039216" green="0.5607843137254902" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
-                        <viewLayoutGuide key="safeArea" id="s6k-u6-xXg"/>
+                        <viewLayoutGuide key="safeArea" id="Zue-bV-EeS"/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="mFd-RB-5hy" appends="YES" id="S08-QW-GwV"/>
                         </connections>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Join" id="gBD-76-C6a"/>
+                    <navigationItem key="navigationItem" title="Join A Game" id="4fP-BR-TBl"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="gameCodeTextField" destination="coP-kc-Xvk" id="0WU-3q-woJ"/>
                     </connections>
@@ -131,7 +128,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="248.80000000000001" y="783.95802098950526"/>
+            <point key="canvasLocation" x="249" y="1485"/>
         </scene>
         <!--Host Tournament-->
         <scene sceneID="clJ-Lf-6SG">
@@ -172,10 +169,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
-                        <viewLayoutGuide key="safeArea" id="ONg-kP-bNN"/>
+                        <viewLayoutGuide key="safeArea" id="Vil-Uf-1hq"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Host" id="BIL-RL-qDq"/>
+                    <tabBarItem key="tabBarItem" title="Host" image="menu_host" id="BIL-RL-qDq">
+                        <color key="badgeColor" red="0.96862745100000003" green="0.56078431370000004" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" title="Host Tournament" id="iWD-ua-Uce" customClass="NavItemController" customModule="tourni" customModuleProvider="target"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="descriptionTextField" destination="Yz5-Fq-MqG" id="aMR-3n-G5Q"/>
                         <outlet property="eventNameTextField" destination="kkC-Z0-EDH" id="g3T-pN-XeF"/>
@@ -189,13 +190,13 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1708" y="784"/>
+            <point key="canvasLocation" x="1122" y="1488"/>
         </scene>
         <!--Add Teams-->
         <scene sceneID="ThY-v5-XIR">
             <objects>
                 <tableViewController id="Jfd-sI-F6b" customClass="AddGroupsController" customModule="tourni" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="5UC-NN-8Pf">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="5UC-NN-8Pf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -248,7 +249,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="22M-Rs-XCh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2540" y="783.95802098950526"/>
+            <point key="canvasLocation" x="1121" y="2192"/>
         </scene>
         <!--Configure Group-->
         <scene sceneID="a9L-wm-88w">
@@ -288,7 +289,7 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="sD8-2q-2DZ"/>
+                        <viewLayoutGuide key="safeArea" id="0x0-z8-Emb"/>
                     </view>
                     <navigationItem key="navigationItem" title="Configure Group" id="a3Y-Vc-hJe"/>
                     <connections>
@@ -298,16 +299,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tOe-ad-ufa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3468" y="783.95802098950526"/>
+            <point key="canvasLocation" x="1826" y="2192"/>
         </scene>
         <!--Host-->
         <scene sceneID="ehA-oM-K5W">
             <objects>
                 <navigationController id="gih-iq-3wx" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Host" id="3X8-kU-JOI"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="roK-18-v3F">
+                    <tabBarItem key="tabBarItem" title="Host" image="menu_host" id="3X8-kU-JOI">
+                        <color key="badgeColor" red="0.96862745100000003" green="0.56078431370000004" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" id="roK-18-v3F">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.90645790100000001" green="0.37680232520000001" blue="0.55570560690000004" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="hUl-7Q-2HG" kind="relationship" relationship="rootViewController" id="f43-Bu-ZiY"/>
@@ -315,20 +323,24 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dbj-Lw-VmZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="942" y="784"/>
+            <point key="canvasLocation" x="1122" y="788"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Nav bar-->
         <scene sceneID="sQA-dP-Lj7">
             <objects>
-                <tabBarController id="hA1-YW-hX3" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="enr-oS-7Qu">
+                <tabBarController title="Nav bar" id="hA1-YW-hX3" sceneMemberID="viewController">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" alpha="0.80000000000000004" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" itemPositioning="centered" id="enr-oS-7Qu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.96862745100000003" green="0.84313725490000002" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.96862745100000003" green="0.84313725490000002" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="0.96862745098039216" green="0.5607843137254902" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="jDo-UP-kyt" kind="relationship" relationship="viewControllers" id="JR2-wc-tt3"/>
-                        <segue destination="1zX-7D-PjH" kind="relationship" relationship="viewControllers" id="MWe-wY-GR1"/>
+                        <segue destination="b9K-W6-Iej" kind="relationship" relationship="viewControllers" id="JR2-wc-tt3"/>
+                        <segue destination="dFi-Ej-1VW" kind="relationship" relationship="viewControllers" id="MWe-wY-GR1"/>
                         <segue destination="gih-iq-3wx" kind="relationship" relationship="viewControllers" id="wzM-CD-8Fl"/>
                     </connections>
                 </tabBarController>
@@ -336,9 +348,67 @@
             </objects>
             <point key="canvasLocation" x="249" y="14"/>
         </scene>
+        <!--Join-->
+        <scene sceneID="MeY-5L-77Z">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dFi-Ej-1VW" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Join" image="menu_find" id="gBD-76-C6a">
+                        <color key="badgeColor" red="0.96862745098039216" green="0.5607843137254902" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="P4L-Cl-xSg">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.90645790100000001" green="0.37680232520000001" blue="0.55570560690000004" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="1zX-7D-PjH" kind="relationship" relationship="rootViewController" id="EK5-Rm-uj1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gzu-Is-VJH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="249" y="784"/>
+        </scene>
+        <!--Active Games-->
+        <scene sceneID="Gfp-e4-eAg">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="b9K-W6-Iej" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" tag="2" title="Active Games" image="menu_games" springLoaded="YES" id="4mg-Ss-wsf"/>
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XAB-QI-0Sp">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.90645790100000001" green="0.37680232520000001" blue="0.55570560690000004" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wDF-Cd-mmO">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="jDo-UP-kyt" kind="relationship" relationship="rootViewController" id="S5O-wJ-v6D"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4uF-t6-gik" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-759.20000000000005" y="783.95802098950526"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="join_button_2" width="110" height="40"/>
         <image name="live" width="1425" height="779"/>
+        <image name="menu_find" width="32" height="32"/>
+        <image name="menu_games" width="32" height="32"/>
+        <image name="menu_host" width="32" height="32"/>
+        <image name="scan_button" width="112" height="40"/>
     </resources>
-    <color key="tintColor" red="0.035294117647058823" green="0.51764705882352935" blue="0.8901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+    <color key="tintColor" red="0.96862745100000003" green="0.56078431370000004" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
