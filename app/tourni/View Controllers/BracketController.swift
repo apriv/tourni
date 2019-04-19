@@ -195,8 +195,9 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let matchup = tableView.dequeueReusableCell(withIdentifier: "MatchUpHost", for: indexPath) as! MatchUpHost
-        //matchup.backgroundColor = .clear
-        //matchup.selectionStyle = .none
+        
+        matchup.setMatchup(g1: Group(name: "Test", seed: 2, status: false), g2: Group(name: "Test", seed: 2, status: false))
+        
         return matchup
     }
     
