@@ -10,10 +10,10 @@ import UIKit
 
 class MatchUpHost: UITableViewCell {
 
-    @IBOutlet weak var Team1Label: Group1!
-    @IBOutlet weak var Team1Button: UIButton!
-    @IBOutlet weak var Team2Label: Group2!
-    @IBOutlet weak var Team2Button: UIButton!
+    @IBOutlet weak var Group1Label: UILabel!
+    @IBOutlet weak var Group1Button: UIButton!
+    @IBOutlet weak var Group2Label: UILabel!
+    @IBOutlet weak var Group2Button: UIButton!
     
     
     @IBAction func ChangeTeam1Status(_ sender: UIButton) {

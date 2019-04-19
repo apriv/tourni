@@ -9,9 +9,21 @@
 import Foundation
 
 struct MatchUp{
-    var group_1:Group?
-    var group_2:Group?
+    var group_1:Group
+    var group_2:Group
+    
+    
+    func sortGroups(sw: [Group]){
+        
+    }
+    
+    
+    
+    
+    
 }
+
+
 
 
 
