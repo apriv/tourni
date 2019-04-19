@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import QuartzCore
 
 class MatchUpHost: UITableViewCell {
 
@@ -17,9 +18,17 @@ class MatchUpHost: UITableViewCell {
     
     func setMatchup(g1: Group, g2: Group){
         Group1Label.text = g1.name
+        Group1Label.layer.masksToBounds = true
+        Group1Label.layer.cornerRadius = 8
         Group2Label.text = g2.name
+        Group2Label.layer.masksToBounds = true
+        Group2Label.layer.cornerRadius = 8
         Group2Button.setTitle("_", for: .normal)
+        Group2Button.layer.masksToBounds = true
+        Group2Button.layer.cornerRadius = 15
         Group1Button.setTitle("_", for: .normal)
+        Group1Button.layer.masksToBounds = true
+        Group1Button.layer.cornerRadius = 15
         
     }
     
