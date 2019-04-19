@@ -58,6 +58,7 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
         super.viewDidLoad()
         groups = tournament.getNumWinners()
         rounds = bb.generate_rounds(g: groups)
+        //rounds = rounds + 1
         matches = bb.generate_matches(r: rounds)
         make_roundsHost()
         panGestureOverBracketView()
@@ -152,7 +153,7 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
             }
         }
         if nextRound == true{
-            for i in 0..<r{
+            for i in 0..<rounds{
                 let bracket = UITableView()
                 //bracket x,y, height, parameters
                 bracket.frame = CGRect(x: bracketView_x, y: bracketView_y, width: bracketView_width, height: bracketView_height)
