@@ -21,12 +21,10 @@ class MatchUpHost: UITableViewCell {
         
         
     }
-    /*
-     // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    
+    func setMatchup(g1: Group, g2: Group){
+        Group1Label.text = g1.name
+        Group2Label.text = g2.name
     }
-    */
 
 }
