@@ -18,18 +18,18 @@ class MatchUpHost: UITableViewCell {
     func setMatchup(g1: Group, g2: Group){
         Group1Label.text = g1.name
         Group2Label.text = g2.name
-        Group2Button.setTitle("_", forState: .normal)
-        Group1Button.setTitle("_", forState: .normal)
+        Group2Button.setTitle("_", for: .normal)
+        Group1Button.setTitle("_", for: .normal)
         
     }
     
     @IBAction func group1Win(_ sender: UIButton) {
-        sender.setTitle("WIN", forState: .normal)
-        Group2Button.setTitle("LOSE", forState: .normal)
+        sender.setTitle("WIN", for: .normal)
+        Group2Button.setTitle("LOSE", for: .normal)
     }
     
     @IBAction func group2Win(_ sender: UIButton) {
-        sender.setTitle("WIN", forState: .normal)
-        Group1Button.setTitle("LOSE", forState: .normal)
+        sender.setTitle("WIN", for: .normal)
+        Group1Button.setTitle("LOSE", for: .normal)
     }
 }
