@@ -47,6 +47,19 @@ struct Tournament {
         return self.winners!.count
     }
     
+    // removes group from winners and places into losers
+    mutating func makeLoser(group: Group){
+        
+        self.winners! = winners!.filter() { $0.name != group.name }
+        
+        self.addLoser(group: group)
+    }
+    
+    // function to add loser to the tournament
+    mutating func addLoser(group: Group){
+        self.losers!.append(group)
+    }
+    
     // function to winner to tournament
     mutating func addWinner(group: Group){
         self.winners!.append(group)
