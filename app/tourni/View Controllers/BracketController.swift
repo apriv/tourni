@@ -10,9 +10,14 @@ import UIKit
 
 class BracketController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
     let bracket_scene = UIView()
+    let bb = bracket_backend()
+    var tournament = Tournament()
+    var groups:Int = 0
     var rounds:Int = 0
     var matches:[Int] = []
-    var tournament = Tournament()
+    
+    
+    
     
     //variable intilization for the number of rounds, matches
     //FIX FOR DYNAMIC VARIABLE FROM THE DATABASE
@@ -51,7 +56,10 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        make_rounds()
+        groups = tournament.getNumWinners()
+        rounds = bb.generate_rounds(g: groups)
+        matches = bb.generate_matches(r: rounds)
+        make_roundsHost()
         panGestureOverBracketView()
     }
     
@@ -134,17 +142,17 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
     
     
     //function to make the correct number of rounds for the tournament
-    func make_rounds() {
-        var r = 1
+    func make_roundsHost() {
+        var r:Int = 0
         var nextRound:Bool = false
-        let winners:[String] = ["team1","team2","team3","team4","team5","team6","team7","team8"]
-        print(winners.count/2)
-        if winners.count/2 == matches[1] {
-            nextRound = true
+        for i in 0..<matches.count{
+            if groups/2 == matches[i]{
+             r=r+1
+             nextRound = true
+            }
         }
         if nextRound == true{
-            r = r + 1
-            for i in 0..<rounds{
+            for i in 0..<r{
                 let bracket = UITableView()
                 //bracket x,y, height, parameters
                 bracket.frame = CGRect(x: bracketView_x, y: bracketView_y, width: bracketView_width, height: bracketView_height)
@@ -174,6 +182,8 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
         }
         
     }
+    
+    
     //automatically generated for UITableViewDataSource and UITableViewDelegate
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return bracketViewDict[tableView]!
