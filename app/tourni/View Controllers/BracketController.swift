@@ -156,7 +156,7 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
                 bracket.delegate = self
                 bracket.dataSource = self
                 //our own asset must go in here
-                bracket.register(UINib(nibName: "CKBracketCell", bundle: nil), forCellReuseIdentifier: "CKBracketCell")
+                bracket.register(UINib(nibName: "MatchUpHost", bundle: nil), forCellReuseIdentifier: "MatchUpHost")
                 bracket.separatorStyle = .none
                 
                 //to show the correct number of rounds in the bracket
