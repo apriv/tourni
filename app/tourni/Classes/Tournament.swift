@@ -42,6 +42,11 @@ struct Tournament {
         self.groups!.append(group)
     }
     
+    // function to get number of winners
+    func getNumWinners() -> Int {
+        return self.winners!.count
+    }
+    
     // function to winner to tournament
     mutating func addWinner(group: Group){
         self.winners!.append(group)
