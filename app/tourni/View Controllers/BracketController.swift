@@ -12,6 +12,7 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
     let bracket_scene = UIView()
     var rounds:Int = 0
     var matches:[Int] = []
+    var tournament = Tournament()
     
     //variable intilization for the number of rounds, matches
     //FIX FOR DYNAMIC VARIABLE FROM THE DATABASE
