@@ -16,6 +16,8 @@ class ActiveGamesController: UITableViewController {
     
     var joined_tournament_list = [Tournament]()
     
+    var selected_tournament = Tournament()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,7 +26,41 @@ class ActiveGamesController: UITableViewController {
        
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        switch(indexPath.section){
+            
+            case 0:
+                // Set the selected tournament as the selected
+                selected_tournament = joined_tournament_list[indexPath.row]
+                
+                // segue to the bracket
+                self.performSegue(withIdentifier: "toBracket", sender: self)
+                break;
+            
+            case 1:
+                // Set the selected tournament as the selected
+                selected_tournament = hosted_tournament_list[indexPath.row]
+                
+                // segue to the bracket
+                self.performSegue(withIdentifier: "toBracket", sender: self)
+                break;
+            
+            default:
+                break;
+        }
+        
+    }
     
+    // passes the tournament to the bracket controller
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.destination is BracketController
+        {
+            let vc = segue.destination as? BracketController
+            vc?.tournament = self.selected_tournament
+        }
+    }
     
     
     // Set the text for each cell
