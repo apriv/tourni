@@ -2,11 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "gradient_background.png",
+      "filename" : "background_640.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "gradient_background.png",
       "scale" : "2x"
     },
     {

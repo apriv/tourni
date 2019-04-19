@@ -19,7 +19,6 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.96862745100000003" green="0.56078431370000004" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="separatorColor" red="0.96862745100000003" green="0.56078431370000004" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="sectionIndexBackgroundColor" red="0.90645790100097656" green="0.37680232524871826" blue="0.55570560693740845" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" restorationIdentifier="ActiveGamesCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActiveGamesCell" textLabel="Ahn-tf-IU5" detailTextLabel="gyX-YG-BR2" style="IBUITableViewCellStyleSubtitle" id="ebR-FQ-zb7" customClass="ActiveGamesCell" customModule="tourni" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -47,8 +46,9 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <color key="backgroundColor" red="0.96862745100000003" green="0.84313725490000002" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.96862745100000003" green="0.56078431370000004" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.96862745100000003" green="0.84313725490000002" blue="0.58039215690000001" alpha="0.60779644690000001" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="ActiveGamesDescriptionLabel" destination="gyX-YG-BR2" id="E8B-fk-z1o"/>
                                     <outlet property="ActiveGamesTitleLabel" destination="Ahn-tf-IU5" id="M6U-Z9-tFj"/>
@@ -98,7 +98,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q9n-mf-l8j">
-                                <rect key="frame" x="131" y="285" width="112" height="43"/>
+                                <rect key="frame" x="131" y="305" width="112" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="join_button_2"/>
                                 <connections>
@@ -106,7 +106,6 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.96862745100000003" green="0.56078431370000004" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.96862745098039216" green="0.5607843137254902" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="Zue-bV-EeS"/>
@@ -170,6 +169,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="Vil-Uf-1hq"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Fpn-f8-8jd" appends="YES" id="CMA-ec-zCs"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Host" image="menu_host" id="BIL-RL-qDq">
                         <color key="badgeColor" red="0.96862745100000003" green="0.56078431370000004" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -184,9 +186,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pQv-UW-lpL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="y6c-2C-4IE">
+                <tapGestureRecognizer id="Fpn-f8-8jd">
                     <connections>
-                        <action selector="keyboardDisableFunc:" destination="hUl-7Q-2HG" id="uwX-u4-5Tb"/>
+                        <action selector="keyboardDisable:" destination="hUl-7Q-2HG" id="0YA-qt-D6n"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -289,7 +291,11 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="0x0-z8-Emb"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="jqW-Fy-qDs" appends="YES" id="Nuc-za-JrE"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Configure Group" id="a3Y-Vc-hJe"/>
                     <connections>
@@ -298,6 +304,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tOe-ad-ufa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="jqW-Fy-qDs">
+                    <connections>
+                        <action selector="keyboardDisable:" destination="N0r-b9-pPZ" id="LZx-0H-Ifd"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1826" y="2192"/>
         </scene>

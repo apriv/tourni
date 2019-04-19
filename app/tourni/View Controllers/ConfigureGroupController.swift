@@ -32,8 +32,14 @@ class ConfigureGroupController: UIViewController {
         // sets the save button to the top right nav bar
         self.navigationItem.rightBarButtonItem = saveItemButton
         
+        //UI setup
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "gradient_background")!)
     }
     
+    @IBAction func keyboardDisable(_ sender: UITapGestureRecognizer) {
+        GroupNameTextField.resignFirstResponder()
+        SeedTextField.resignFirstResponder()
+    }
     
     
     // called when the save button is pressed

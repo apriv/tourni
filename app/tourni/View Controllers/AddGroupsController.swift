@@ -30,6 +30,8 @@ class AddGroupsController: UITableViewController, AddGroupDelegate {
         // sets the button to the top right bar
         self.navigationItem.rightBarButtonItems = [doneItemButton, addItemButton]
        
+        //UI setup
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "gradient_background")!)
     }
     
     // function called when a group is added

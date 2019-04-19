@@ -47,11 +47,11 @@ class HostController: UIViewController {
         self.performSegue(withIdentifier: "hostToAddGroupsSegue", sender: self)
     }
     
-    
-    @IBAction func keyboardDisableFunc(_ sender: Any) {
+    @IBAction func keyboardDisable(_ sender: UITapGestureRecognizer) {
         eventNameTextField.resignFirstResponder()
         descriptionTextField.resignFirstResponder()
     }
+    
     
     // passes the semi-created tournament to the next view
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
