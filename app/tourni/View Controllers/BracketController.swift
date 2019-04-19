@@ -10,9 +10,17 @@ import UIKit
 
 class BracketController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
     let bracket_scene = UIView()
-    var rounds:Int = 0
-    var matches:[Int] = []
     var tournament = Tournament()
+    var groups:Int = 0
+    var matches:[Int] = []
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //get the count for groups in the winners list
+        //groups = tournamen
+    }
+    
+    
     
     //variable intilization for the number of rounds, matches
     //FIX FOR DYNAMIC VARIABLE FROM THE DATABASE

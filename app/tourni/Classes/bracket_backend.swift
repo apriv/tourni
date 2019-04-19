@@ -24,7 +24,6 @@ class bracket_backend {
         var rounds:Int = 0
         var size:Int = 0
         var validInput:Bool = true
-        
         //checking if the number of groups is greater than 0
         if size <= 0{ validInput = false}
         if(validInput == true){
