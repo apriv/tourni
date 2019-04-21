@@ -246,6 +246,22 @@ struct Tournament {
         }
     }
     
+    static func exists(gc: String, completion: @escaping (_ result: Bool) -> Void) {
+        
+         let db = Firestore.firestore()
+        
+        let docRef = db.collection("tournaments").document(gc)
+        
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                completion(true)
+            } else {
+               completion(false)
+            }
+        }
+        
+    }
+    
     // completion function supposed to return tournament generated from firebase
     static func getTournament(gc: String, completion: @escaping (_ tournament: Tournament) -> Void){ // gc -> game code
         
