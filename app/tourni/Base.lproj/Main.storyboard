@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hA1-YW-hX3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hA1-YW-hX3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -90,6 +90,39 @@
             </objects>
             <point key="canvasLocation" x="-674" y="2211"/>
         </scene>
+        <!--Join Feedback Controller-->
+        <scene sceneID="z4I-Te-Ph8">
+            <objects>
+                <viewController id="1Ra-Za-FpC" customClass="JoinFeedbackController" customModule="tourni" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DGk-ho-Pbp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Succeed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dnZ-9a-1ys">
+                                <rect key="frame" x="140" y="222" width="95" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cMk-SS-qRK">
+                                <rect key="frame" x="165" y="373" width="44" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="jDo-UP-kyt" kind="show" id="2kd-OQ-7wl"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="sHU-Dz-nxj"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Iq5-VL-Akm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="249" y="2211"/>
+        </scene>
         <!--Join A Game-->
         <scene sceneID="tAo-vV-yRm">
             <objects>
@@ -150,6 +183,7 @@
                                 <state key="normal" image="join_button_2"/>
                                 <connections>
                                     <action selector="joinTournamentButton:" destination="1zX-7D-PjH" eventType="touchUpInside" id="3W2-z5-9O4"/>
+                                    <segue destination="1Ra-Za-FpC" kind="show" id="EaH-4W-beH"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -527,7 +561,6 @@
         <!--Active Games-->
         <scene sceneID="Gfp-e4-eAg">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4uF-t6-gik" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="b9K-W6-Iej" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" tag="2" title="Active Games" image="tabBarItem:4mg-Ss-wsf:image" springLoaded="YES" id="4mg-Ss-wsf"/>
                     <toolbarItems/>
@@ -548,6 +581,7 @@
                         <segue destination="jDo-UP-kyt" kind="relationship" relationship="rootViewController" id="S5O-wJ-v6D"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4uF-t6-gik" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-673" y="788"/>
         </scene>
@@ -731,5 +765,8 @@ hSaKJpImlSaaJqImpSa3JromvwAAAAAAAAIBAAAAAAAAAFkAAAAAAAAAAAAAAAAAACbBA
 </mutableData>
         </image>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="2kd-OQ-7wl"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.96862745100000003" green="0.56078431370000004" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
