@@ -15,6 +15,8 @@ class MatchUpHost: UITableViewCell {
     @IBOutlet weak var Group1Button: UIButton!
     @IBOutlet weak var Group2Label: UILabel!
     @IBOutlet weak var Group2Button: UIButton!
+    @IBOutlet weak var winnerIcon1: UIImageView!
+    @IBOutlet weak var winnerIcon2: UIImageView!
     
     func setMatchup(g1: Group, g2: Group){
         Group1Label.text = g1.name
@@ -33,11 +35,13 @@ class MatchUpHost: UITableViewCell {
     }
     
     @IBAction func group1ButtonAction(_ sender: Any) {
-        print("Group 1 button pressed")
+        winnerIcon1.isHidden = false
+        winnerIcon2.isHidden = true
     }
     
     @IBAction func group2ButtonAction(_ sender: Any) {
-        print("Group 2 button pressed")
+        winnerIcon2.isHidden = false
+        winnerIcon1.isHidden = true
     }
     
     @IBAction func group1Win(_ sender: UIButton) {
