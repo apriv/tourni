@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BracketController: UIViewController, UITableViewDataSource, UITableViewDelegate, WinnerUpdate  {
+class BracketController: UIViewController, UITableViewDataSource, UITableViewDelegate, cellInfo  {
     
     let bracket_scene = UIView()
     let bb = bracket_backend()
@@ -245,6 +245,11 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
         
         self.tournament.makeWinner(group: winner)
         
+        //self.tournament.store()
+    }
+    
+    func isHost() -> Bool {
+        return false
     }
 }
 
@@ -265,7 +270,9 @@ extension UIPanGestureRecognizer {
 
 
 // protocol to help us get the updated tournament from the next view
-protocol WinnerUpdate: class
+protocol cellInfo: class
 {
     func updateWinner(winner : Group, loser : Group)
+    
+    func isHost() -> Bool
 }

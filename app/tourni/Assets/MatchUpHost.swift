@@ -23,7 +23,7 @@ class MatchUpHost: UITableViewCell {
     var group2 = Group()
     
     // delegate initialization
-    weak var winnerDelegate:WinnerUpdate?
+    weak var winnerDelegate:cellInfo?
     
     func setMatchup(g1: Group, g2: Group){
         Group1Label.text = g1.name
@@ -40,6 +40,8 @@ class MatchUpHost: UITableViewCell {
         Group1Button.layer.cornerRadius = 15
         self.group1 = g1
         self.group2 = g2
+        
+        
     }
     
     @IBAction func group1ButtonAction(_ sender: Any) {
