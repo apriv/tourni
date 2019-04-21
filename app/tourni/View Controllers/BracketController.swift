@@ -8,7 +8,8 @@
 
 import UIKit
 
-class BracketController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
+class BracketController: UIViewController, UITableViewDataSource, UITableViewDelegate, WinnerUpdate  {
+    
     let bracket_scene = UIView()
     let bb = bracket_backend()
     var tournament = Tournament()
@@ -208,8 +209,8 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
         
         // makes matchups unselectable
         matchup.selectionStyle = UITableViewCell.SelectionStyle.none
-        
-        matchup.setMatchup(g1: tournament.groups![0], g2: Group(name: "Test", seed: 2, status: false))
+        matchup.winnerDelegate = self
+        matchup.setMatchup(g1: tournament.groups![indexPath.row], g2: tournament.groups![indexPath.row + 1])
         
         return matchup
     }
@@ -231,6 +232,12 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
         }
         return 0
     }
+    
+    // function called when a winner is updated (Winner followed by loser)
+    func updateWinner(winner: Group, loser: Group) {
+        
+        print("Testing updated")
+    }
 }
 
 //checking if the user is panning to the left (an extension to the UIPanGestureRecognizer
@@ -247,3 +254,10 @@ extension UIPanGestureRecognizer {
     }
 }
 
+
+
+// protocol to help us get the updated tournament from the next view
+protocol WinnerUpdate: class
+{
+    func updateWinner(winner : Group, loser : Group)
+}

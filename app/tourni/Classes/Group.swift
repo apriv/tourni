@@ -9,8 +9,8 @@
 import Foundation
 
 struct Group {
-    var name:String
-    var seed:Int
+    var name:String?
+    var seed:Int?
     var status:Bool = true
     
     
@@ -19,7 +19,7 @@ struct Group {
     }
     
     func getSeed()->Int{
-        return self.seed
+        return self.seed!
     }
     
 }

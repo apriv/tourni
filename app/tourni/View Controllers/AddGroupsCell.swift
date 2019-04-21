@@ -15,7 +15,7 @@ class AddGroupsCell: UITableViewCell {
     
     func setGroup(group: Group){
         GroupNameCellLabel.text = group.name
-        SeedCellLabel.text = String(group.seed)
+        SeedCellLabel.text = String(group.seed!)
     }
 
 }
