@@ -12,7 +12,7 @@ class AddGroupsController: UITableViewController, AddGroupDelegate {
 
     // tournament variable for this view
     var tournament:Tournament = Tournament()
-    
+    var seed = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +38,7 @@ class AddGroupsController: UITableViewController, AddGroupDelegate {
     func onGroupAdded(t: Tournament) {
         // updates the tournament & reloads the table
         self.tournament = t
+        self.seed += 1
         self.tableView.reloadData()
     }
     
@@ -91,6 +92,7 @@ class AddGroupsController: UITableViewController, AddGroupDelegate {
             
             let vc = segue.destination as? ConfigureGroupController
             vc?.tournament = self.tournament
+            vc?.seed = self.seed
             vc?.delegate = self
         }
     }

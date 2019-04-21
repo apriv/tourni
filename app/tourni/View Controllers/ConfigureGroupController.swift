@@ -12,10 +12,10 @@ class ConfigureGroupController: UIViewController {
 
     // input fields
     @IBOutlet weak var GroupNameTextField: UITextField!
-    @IBOutlet weak var SeedTextField: UITextField!
     
     // delegate initialization
     weak var delegate:AddGroupDelegate?
+    var seed = Int()
     
     // tournament variable for this controller
     var tournament: Tournament = Tournament()
@@ -38,7 +38,6 @@ class ConfigureGroupController: UIViewController {
     
     @IBAction func keyboardDisable(_ sender: UITapGestureRecognizer) {
         GroupNameTextField.resignFirstResponder()
-        SeedTextField.resignFirstResponder()
     }
     
     
@@ -46,7 +45,7 @@ class ConfigureGroupController: UIViewController {
     @objc func saveButtonPressed() {
         
         // adds a new group to the tournament
-        self.tournament.addGroup(group: Group(name: GroupNameTextField.text!, seed: Int(SeedTextField.text!)!, status: true))
+        self.tournament.addGroup(group: Group(name: GroupNameTextField.text!, seed: self.seed, status: true))
         
         // sends the updated tournament to the previous view
        delegate?.onGroupAdded(t: self.tournament)

@@ -111,8 +111,18 @@ struct Tournament {
         // assign the game code to the tournament
         self.game_code = game_code
         
+        
+        // Checks if we need to add a free group
+        
+        let next_seed = self.groups![self.groups!.count - 1].getSeed() + 1
+        
+        while !(_isPowerOf2(self.groups!.count)){
+            self.addGroup(group : Group( name: "FREE", seed: next_seed, status: false))
+        }
+        
         // set the winners to default = to the groups
         self.winners = self.groups;
+        
         
         // write the tournament to the database
         self.store()
