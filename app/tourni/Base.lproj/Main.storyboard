@@ -110,9 +110,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Back"/>
-                                <connections>
-                                    <segue destination="jDo-UP-kyt" kind="show" id="2kd-OQ-7wl"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -183,7 +180,6 @@
                                 <state key="normal" image="join_button_2"/>
                                 <connections>
                                     <action selector="joinTournamentButton:" destination="1zX-7D-PjH" eventType="touchUpInside" id="3W2-z5-9O4"/>
-                                    <segue destination="1Ra-Za-FpC" kind="show" id="EaH-4W-beH"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -765,8 +761,5 @@ hSaKJpImlSaaJqImpSa3JromvwAAAAAAAAIBAAAAAAAAAFkAAAAAAAAAAAAAAAAAACbBA
 </mutableData>
         </image>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="2kd-OQ-7wl"/>
-    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.96862745100000003" green="0.56078431370000004" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
