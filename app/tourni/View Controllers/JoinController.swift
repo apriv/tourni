@@ -7,7 +7,8 @@
 //
 import UIKit
 
-class JoinController: UIViewController {
+class JoinController: UIViewController , UITabBarControllerDelegate{
+    
     
     @IBOutlet weak var gameCodeTextField: UITextField!
     
@@ -60,6 +61,7 @@ class JoinController: UIViewController {
     // back to Active Games View
     func backToActiveGames(alert:UIAlertAction){
         gameCodeTextField.text = ""
+        tabBarController?.selectedIndex=0
     }
     
     //to clean game code field

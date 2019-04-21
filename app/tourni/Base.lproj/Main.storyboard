@@ -478,7 +478,7 @@
         <!--Nav bar-->
         <scene sceneID="sQA-dP-Lj7">
             <objects>
-                <tabBarController title="Nav bar" id="hA1-YW-hX3" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="1" title="Nav bar" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hA1-YW-hX3" sceneMemberID="viewController">
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" alpha="0.80000000000000004" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" itemPositioning="centered" id="enr-oS-7Qu">
