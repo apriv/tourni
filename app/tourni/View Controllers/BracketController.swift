@@ -210,7 +210,11 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
         // makes matchups unselectable
         matchup.selectionStyle = UITableViewCell.SelectionStyle.none
         matchup.winnerDelegate = self
-        matchup.setMatchup(g1: tournament.groups![indexPath.row], g2: tournament.groups![indexPath.row + 1])
+        
+        matchup.setMatchup(g1: tournament.groups![indexPath.row], g2: tournament.groups![(groups - 1) - indexPath.row])
+        
+        
+       
         
         return matchup
     }
@@ -236,7 +240,11 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
     // function called when a winner is updated (Winner followed by loser)
     func updateWinner(winner: Group, loser: Group) {
         
-        print("Testing updated")
+        
+        self.tournament.makeLoser(group: loser)
+        
+        self.tournament.makeWinner(group: winner)
+        
     }
 }
 

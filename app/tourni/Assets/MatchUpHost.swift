@@ -68,3 +68,5 @@ class MatchUpHost: UITableViewCell {
         //Group1Button.setTitle("LOSE", for: .normal)
     }
 }
+
+
