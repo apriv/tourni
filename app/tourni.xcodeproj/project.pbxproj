@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		112EFD152257ECC300781533 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 112EFD142257ECC300781533 /* GoogleService-Info.plist */; };
-		11A26455226CB53E003DE61B /* JoinFeedbackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A26454226CB53E003DE61B /* JoinFeedbackController.swift */; };
 		437F48512260EE2F0029A86E /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437F48502260EE2F0029A86E /* Group.swift */; };
 		437F4853226100200029A86E /* ActiveGamesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437F4852226100200029A86E /* ActiveGamesCell.swift */; };
 		437F485522610F340029A86E /* AddGroupsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437F485422610F340029A86E /* AddGroupsController.swift */; };
@@ -54,7 +53,6 @@
 /* Begin PBXFileReference section */
 		018B43149E40B6C471012550 /* Pods_tourniUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tourniUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		112EFD142257ECC300781533 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		11A26454226CB53E003DE61B /* JoinFeedbackController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinFeedbackController.swift; sourceTree = "<group>"; };
 		437F48502260EE2F0029A86E /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		437F4852226100200029A86E /* ActiveGamesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveGamesCell.swift; sourceTree = "<group>"; };
 		437F485422610F340029A86E /* AddGroupsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupsController.swift; sourceTree = "<group>"; };
@@ -131,7 +129,6 @@
 				437F4858226114600029A86E /* ConfigureGroupController.swift */,
 				C31F9D41225566A00049439D /* HostController.swift */,
 				C31F9D43225566E40049439D /* JoinController.swift */,
-				11A26454226CB53E003DE61B /* JoinFeedbackController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -487,7 +484,6 @@
 				4D4E0846226A585000A2C326 /* MatchUpHost.swift in Sources */,
 				437F48512260EE2F0029A86E /* Group.swift in Sources */,
 				437F485722610F4E0029A86E /* AddGroupsCell.swift in Sources */,
-				11A26455226CB53E003DE61B /* JoinFeedbackController.swift in Sources */,
 				C3C7C7A4225559EE00F311B4 /* AppDelegate.swift in Sources */,
 				437F4853226100200029A86E /* ActiveGamesCell.swift in Sources */,
 				C31F9D44225566E40049439D /* JoinController.swift in Sources */,
