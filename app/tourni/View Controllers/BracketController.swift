@@ -10,15 +10,14 @@ import UIKit
 
 class BracketController: UIViewController, UITableViewDataSource, UITableViewDelegate, cellInfo  {
     
-    let bracket_scene = UIView()
+    var bracket_scene = UIView()
     let bb = bracket_backend()
     var tournament = Tournament()
     var game_code = String()
-    var bracket_table_view = UITableView()
     var groups:Int = 0
     var rounds:Int = 0
     var matches:[Int] = []
-    
+    var initialized = false
     
     
     
@@ -59,18 +58,29 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
+        
         Tournament.getTournament(gc: game_code){ t in
+        
             
             self.tournament = t
             self.groups = t.getNumWinners()
             self.rounds = self.bb.generate_rounds(g: self.groups)
             self.matches = self.bb.generate_matches(r: self.rounds)
+            
             self.make_roundsHost()
+            
             self.panGestureOverBracketView()
             
+            print(self.bracketViewArr.count)
+            
+            for bracket in self.bracketViewArr {
+                bracket.reloadData()
+            }
+            
+            self.initialized = true
+            
         }
+        
     }
     
     
@@ -153,39 +163,63 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
     
     //function to make the correct number of rounds for the tournament
     func make_roundsHost() {
+        
         var r:Int = 0
         var nextRound:Bool = false
+        
+        
+        
         for i in 0..<matches.count{
             if groups/2 == matches[i]{
              r=r+1
              nextRound = true
             }
         }
-        if nextRound == true{
+        
+        
+        
+        if (nextRound == true && !self.initialized){
             for i in 0..<rounds{
+                
+                
                 let bracket = UITableView()
-                self.bracket_table_view = bracket
+                
+                
                 //bracket x,y, height, parameters
                 bracket.frame = CGRect(x: bracketView_x, y: bracketView_y, width: bracketView_width, height: bracketView_height)
                 bracketView_x+=bracketView_width
+                
+                
                 
                 //bracket background color
                 bracket.backgroundColor = .white
                 
                 bracket.delegate = self
                 bracket.dataSource = self
+                
                 //our own asset must go in here
                 bracket.register(UINib(nibName: "MatchUpHost", bundle: nil), forCellReuseIdentifier: "MatchUpHost")
                 bracket.separatorStyle = .none
                 
                 //to show the correct number of rounds in the bracket
-                bracketViewDict[bracket] = matches[i]
                 
+                bracketViewDict[bracket] = matches[i]
+               
                 //adding the bracket to the array
+                
+            
                 bracketViewArr.append(bracket)
                 
+                
+                
+                
+                
+            
                 //show the bracket on the bracket_scene
+                
                 self.bracket_scene.addSubview(bracket)
+                
+                
                 nextRound = false
                 bracket.reloadData()
             }
