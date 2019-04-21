@@ -32,33 +32,41 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FZG-ei-WVy">
-                    <rect key="frame" x="144" y="5" width="40" height="30"/>
+                <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XLR-D2-0Hb">
+                    <rect key="frame" x="0.0" y="45" width="194" height="41"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="1" green="0.4657072464" blue="0.97467283979999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="12"/>
-                    <state key="normal" title="WIN">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <connections>
+                        <action selector="group2ButtonAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="5gX-Gt-Dz9"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rR7-gb-NHB">
+                    <rect key="frame" x="0.0" y="0.0" width="194" height="42"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal">
+                        <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
+                    <connections>
+                        <action selector="group1ButtonAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="EIe-hM-BQN"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FuE-gt-aMS">
-                    <rect key="frame" x="144" y="50" width="40" height="30"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icons_prize" translatesAutoresizingMaskIntoConstraints="NO" id="CaS-UO-Siv">
+                    <rect key="frame" x="154" y="6" width="30" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="1" green="0.8160685598489531" blue="0.096556902103350994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="12"/>
-                    <state key="normal" title="WIN"/>
-                </button>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
-                <outlet property="Group1Button" destination="FZG-ei-WVy" id="9ru-aC-TS4"/>
+                <outlet property="Group1Button" destination="rR7-gb-NHB" id="BsY-hd-0aM"/>
                 <outlet property="Group1Label" destination="ZQN-KO-vTc" id="xE1-XD-SdQ"/>
-                <outlet property="Group2Button" destination="FuE-gt-aMS" id="0v6-Wn-6bc"/>
+                <outlet property="Group2Button" destination="XLR-D2-0Hb" id="3QD-pW-em1"/>
                 <outlet property="Group2Label" destination="cLm-uT-aL9" id="KxD-L1-yWQ"/>
             </connections>
             <point key="canvasLocation" x="-288" y="-268.06596701649175"/>
         </view>
     </objects>
+    <resources>
+        <image name="icons_prize" width="96" height="96"/>
+    </resources>
 </document>

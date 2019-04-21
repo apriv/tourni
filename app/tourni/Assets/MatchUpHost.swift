@@ -32,13 +32,21 @@ class MatchUpHost: UITableViewCell {
         
     }
     
+    @IBAction func group1ButtonAction(_ sender: Any) {
+        print("Group 1 button pressed")
+    }
+    
+    @IBAction func group2ButtonAction(_ sender: Any) {
+        print("Group 2 button pressed")
+    }
+    
     @IBAction func group1Win(_ sender: UIButton) {
-        sender.setTitle("WIN", for: .normal)
-        Group2Button.setTitle("LOSE", for: .normal)
+        //sender.setTitle("WIN", for: .normal)
+        //Group2Button.setTitle("LOSE", for: .normal)
     }
     
     @IBAction func group2Win(_ sender: UIButton) {
-        sender.setTitle("WIN", for: .normal)
-        Group1Button.setTitle("LOSE", for: .normal)
+        //sender.setTitle("WIN", for: .normal)
+        //Group1Button.setTitle("LOSE", for: .normal)
     }
 }
