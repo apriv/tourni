@@ -7,7 +7,8 @@
 //
 import UIKit
 
-class JoinController: UIViewController {
+class JoinController: UIViewController , UITabBarControllerDelegate{
+    
     
     @IBOutlet weak var gameCodeTextField: UITextField!
     
@@ -22,7 +23,50 @@ class JoinController: UIViewController {
     }
 
     @IBAction func joinTournamentButton(_ sender: Any) {
-        Tournament.join(game_code: gameCodeTextField.text!)
+        Tournament.exists(gc: gameCodeTextField.text!){
+            isThere in
+            if (isThere){
+                // game code found
+                self.gameFound()
+            }
+            else {
+                // game code not found
+                self.gameNotFound()
+            }
+        }
+    }
+    
+    // called when game code found
+    func gameFound(){
+        Tournament.join(game_code: self.gameCodeTextField.text!)
+        
+        let alert = UIAlertController(title: "Found", message: "Do you want to join ?", preferredStyle: .alert)
+        let yesBtn = UIAlertAction(title: "Yes", style: .default, handler: self.backToActiveGames)
+        let noBtn = UIAlertAction(title: "Let me think", style: .cancel, handler: self.cleanTextfield)
+        alert.addAction(yesBtn)
+        //alert.addAction(noBtn)
+        self.present(alert,animated: true,completion: nil)
+    }
+    
+    // called when game code not found
+    func gameNotFound(){
+        let alert = UIAlertController(title: "Not Found", message: "The Game does not exist", preferredStyle: .alert)
+        let yesBtn = UIAlertAction(title: "Never mind", style: .default, handler: self.backToActiveGames)
+        let noBtn = UIAlertAction(title: "Try again", style: .cancel, handler: self.cleanTextfield)
+        alert.addAction(yesBtn)
+        alert.addAction(noBtn)
+        self.present(alert,animated: true,completion: nil)
+    }
+    
+    // back to Active Games View
+    func backToActiveGames(alert:UIAlertAction){
+        gameCodeTextField.text = ""
+        tabBarController?.selectedIndex=0
+    }
+    
+    //to clean game code field
+    func cleanTextfield(alert:UIAlertAction){
+        gameCodeTextField.text = ""
     }
     
     @IBAction func keyboardDisableFunc(_ sender: UITapGestureRecognizer) {
