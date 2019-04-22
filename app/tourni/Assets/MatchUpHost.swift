@@ -29,7 +29,6 @@ class MatchUpHost: UITableViewCell {
     
     var winnerSelected: Bool = false
     
-    
     func setMatchup(g1: Group, g2: Group){
         Group1Label.text = g1.name
         Group1Label.layer.masksToBounds = true
@@ -45,8 +44,6 @@ class MatchUpHost: UITableViewCell {
         Group1Button.layer.cornerRadius = 15
         self.group1 = g1
         self.group2 = g2
-        
-        
     }
     
     @IBAction func group1ButtonAction(_ sender: Any) {
