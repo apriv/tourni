@@ -27,10 +27,6 @@ class bracket_backend {
         //checking if the number of groups is greater than 0
         if size <= 0{ validInput = false}
         if(validInput == true){
-            while(isPowerOfTwo(size) == false){
-                //add dummy team to groups, increases the count by one to make the number of groups a power of two
-                //groups = groups + 1
-            }
             //count the number of rounds until there is only one group left (the winner of the tournament)
             while(size > 1){
                 size = size/2
@@ -62,7 +58,6 @@ class bracket_backend {
         print(match_upList)
         return match_upList
     }
-    
 }
 
 
