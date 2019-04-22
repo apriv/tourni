@@ -23,7 +23,10 @@ class MatchUpHost: UITableViewCell {
     var group2 = Group()
     
     // delegate initialization
-    weak var winnerDelegate:cellInfo?
+    weak var delegate:cellInfo?
+    
+    var winnerSelected: Bool = false
+    
     
     func setMatchup(g1: Group, g2: Group){
         Group1Label.text = g1.name
@@ -49,15 +52,32 @@ class MatchUpHost: UITableViewCell {
         winnerIcon2.isHidden = true
         
         // sends the updated tournament to the previous view
-        winnerDelegate?.updateWinner(winner: self.group1, loser: self.group2)
+        delegate?.updateWinner(winner: self.group1, loser: self.group2)
+        
+        // if the winner is not already selected increment the winner selected count in bracket controller
+        if !(winnerSelected){
+            
+            delegate?.incrementWinnerSelectedCount()
+            
+            winnerSelected = true
+        }
+        
     }
     
     @IBAction func group2ButtonAction(_ sender: Any) {
         winnerIcon2.isHidden = false
         winnerIcon1.isHidden = true
         
+        // if the winner is not already selected increment the winner selected count in
+        if !(winnerSelected){
+            
+            delegate?.incrementWinnerSelectedCount()
+            
+            winnerSelected = true
+        }
+        
         // sends the updated tournament to the previous view
-        winnerDelegate?.updateWinner(winner: self.group2, loser: self.group1)
+        delegate?.updateWinner(winner: self.group2, loser: self.group1)
     }
     
 }

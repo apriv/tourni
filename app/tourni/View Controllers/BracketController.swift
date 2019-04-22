@@ -18,6 +18,7 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
     var rounds:Int = 0
     var matches:[Int] = []
     var initialized = false
+    var winnerSelectedCount = 0
     
     
     //variable intilization for the number of rounds, matches
@@ -99,12 +100,23 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
     }
     
     @objc func panGestureOverBracketViewHandler(panGesture recognizer: UIPanGestureRecognizer){
+        
+        
         let translation = recognizer.translation(in: self.view)
+        
+        
         if  recognizer.state == .began ||  recognizer.state == .changed{
+            
             recognizer.view!.center.x = recognizer.view!.center.x + translation.x
+            
             recognizer.setTranslation(CGPoint.zero, in: self.view)
+            
             translationX = translation.x
+            
+            
         }else if recognizer.state == .ended{
+            
+            
             if !recognizer.isLeft(passing_view: self.bracket_scene){//If gesture went right
                 if page == 0{
                     UIView.animate(withDuration: 0.25, animations: {
@@ -131,7 +143,9 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
                     
                 }else{
                     UIView.animate(withDuration: 0.25, animations: {
+                        
                         recognizer.view!.frame.origin.x = CGFloat(0 - (self.bracketView_width  * CGFloat(self.page + 1)))
+                        
                         self.page += 1
                     })
                     
@@ -175,9 +189,7 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
         }
         if (nextRound == true && !self.initialized){
             for i in 0..<currRound{
-                
                 let bracket = UITableView()
-                
                 //bracket x,y, height, parameters
                 bracket.frame = CGRect(x: bracketView_x, y: bracketView_y, width: bracketView_width, height: bracketView_height)
                 bracketView_x+=bracketView_width
@@ -228,7 +240,7 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
         
         // makes matchups unselectable
         matchup.selectionStyle = UITableViewCell.SelectionStyle.none
-        matchup.winnerDelegate = self
+        matchup.delegate = self
         
         matchup.setMatchup(g1: tournament.groups![indexPath.row], g2: tournament.groups![(groups - 1) - indexPath.row])
         
@@ -270,6 +282,18 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
     func isHost() -> Bool {
         return false
     }
+    
+    func incrementWinnerSelectedCount(){
+        
+        self.winnerSelectedCount += 1
+        
+        
+        
+        if (self.winnerSelectedCount >= self.matches[self.rounds - 1]){
+            print("Next round initiated")
+        }
+        
+    }
 }
 
 //checking if the user is panning to the left (an extension to the UIPanGestureRecognizer
@@ -294,4 +318,6 @@ protocol cellInfo: class
     func updateWinner(winner : Group, loser : Group)
     
     func isHost() -> Bool
+    
+    func incrementWinnerSelectedCount()
 }
