@@ -60,7 +60,6 @@
 		4D4E083B226A545800A2C326 /* BracketController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BracketController.swift; sourceTree = "<group>"; };
 		4D4E083D226A547C00A2C326 /* MatchUpHost.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MatchUpHost.xib; sourceTree = "<group>"; };
 		4D4E0840226A557F00A2C326 /* bracket_backend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bracket_backend.swift; sourceTree = "<group>"; };
-		4D4E0844226A571600A2C326 /* MatchUpJoin.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MatchUpJoin.xib; path = /Users/mtaglic/Documents/GitHub/tourni/app/tourni/Assets/MatchUpJoin.xib; sourceTree = "<absolute>"; };
 		4D4E0845226A585000A2C326 /* MatchUpHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchUpHost.swift; sourceTree = "<group>"; };
 		64ED51A524B8C7BD7542E086 /* Pods_tourni.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tourni.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79D610222159E97520EC31F1 /* Pods-tourniTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tourniTests.release.xcconfig"; path = "Target Support Files/Pods-tourniTests/Pods-tourniTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -159,7 +158,6 @@
 			children = (
 				4D4E083D226A547C00A2C326 /* MatchUpHost.xib */,
 				4D4E0845226A585000A2C326 /* MatchUpHost.swift */,
-				4D4E0844226A571600A2C326 /* MatchUpJoin.xib */,
 			);
 			path = Assets;
 			sourceTree = "<group>";

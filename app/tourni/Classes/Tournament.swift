@@ -113,9 +113,7 @@ struct Tournament {
         
         
         // Checks if we need to add a free group
-        
         let next_seed = self.groups![self.groups!.count - 1].getSeed() + 1
-        
         while !(_isPowerOf2(self.groups!.count)){
             self.addGroup(group : Group( name: "FREE", seed: next_seed, status: false))
         }
@@ -123,13 +121,25 @@ struct Tournament {
         // set the winners to default = to the groups
         self.winners = self.groups;
         
-        
         // write the tournament to the database
         self.store()
         
     }
-    
-    
+    // Joins tournament
+    static func join(game_code : String){
+        
+        let defaults = UserDefaults.standard
+        
+        // retrieve the stored list from the phone
+        var joined_game_code_list = defaults.object(forKey: "joined_game_code_list") as? [String] ?? [String]()
+        
+        // add the game code to the list of game codes
+        joined_game_code_list.append(game_code)
+        
+        // store the generated game code on the user's phone
+        defaults.set(joined_game_code_list, forKey: "joined_game_code_list")
+    }
+    //deletes the tournament from the database
     func delete(){
         
         let defaults = UserDefaults.standard
@@ -160,7 +170,6 @@ struct Tournament {
     }
  
     // Delete tournament from database
-    
     func dbDelete(){
         
         let db = Firestore.firestore()
@@ -174,22 +183,6 @@ struct Tournament {
         }
     }
     
-    
-    
-    // Joins tournament
-    static func join(game_code : String){
-        
-        let defaults = UserDefaults.standard
-        
-        // retrieve the stored list from the phone
-        var joined_game_code_list = defaults.object(forKey: "joined_game_code_list") as? [String] ?? [String]()
-        
-        // add the game code to the list of game codes
-        joined_game_code_list.append(game_code)
-        
-        // store the generated game code on the user's phone
-        defaults.set(joined_game_code_list, forKey: "joined_game_code_list")
-    }
     
     
     
@@ -229,8 +222,8 @@ struct Tournament {
     
     // Gets the joined tournaments and returns them in a list
     static func getjoinedTournaments( completion: @escaping (_ tournament: [Tournament]) -> Void){
-       
-        // initialize game_code_list
+    
+        // initialize game code list
         var joined_game_code_list = [String]()
         var joined_tournament_list = [Tournament]()
         
@@ -243,7 +236,6 @@ struct Tournament {
         }else{
             joined_game_code_list = defaults.object(forKey: "joined_game_code_list") as? [String] ?? [String]()
         }
-        
         for game_code in joined_game_code_list{
             Tournament.getTournament(gc: game_code){ t in
                 if let row = joined_tournament_list.index(where: {$0 == t}) {
@@ -257,7 +249,6 @@ struct Tournament {
     }
     
     static func exists(gc: String, completion: @escaping (_ result: Bool) -> Void) {
-        
          let db = Firestore.firestore()
         
         let docRef = db.collection("tournaments").document(gc)

@@ -14,28 +14,25 @@ class ActiveGamesController: UITableViewController {
     // initialize a list for hosted tournaments
     var hosted_tournament_list = [Tournament]()
     
+    // initialize a list for join tournaments
     var joined_tournament_list = [Tournament]()
     
+    // intilaize the selected tournament
     var selected_tournament = Tournament()
     
+    //viewDidLoad Function (the functions that are called when the view is loaded)
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //background
+        //background UIColor
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "gradient_background")!)
        
     }
     
-   
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         switch(indexPath.section){
-            
             case 0:
                 // Set the selected tournament as the selected
                 selected_tournament = joined_tournament_list[indexPath.row]
-                
                 // segue to the bracket
                 self.performSegue(withIdentifier: "toBracket", sender: self)
                 break;
@@ -47,7 +44,6 @@ class ActiveGamesController: UITableViewController {
                 // segue to the bracket
                 self.performSegue(withIdentifier: "toBracket", sender: self)
                 break;
-            
             default:
                 break;
         }
@@ -55,8 +51,7 @@ class ActiveGamesController: UITableViewController {
     }
     
     // passes the tournament to the bracket controller
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-    {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is BracketController
         {
             let vc = segue.destination as? BracketController
@@ -65,48 +60,29 @@ class ActiveGamesController: UITableViewController {
     }
     
     
-    // Set the text for each cell
+    // set the text for each cell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        // Possible code for empty case
-        /*
-        if (IndexPath.isEmpty()){
-            
-            let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath) // Needs different identifier "LabelCell" is not what we want
-            
-            cell.textLabel?.text = "No active tournaments"
-            
-            return cell
-        }
-        */
-        
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "ActiveGamesCell", for: indexPath) as! ActiveGamesCell
         
         switch(indexPath.section){
-            
             case 0:
                 // Set the cell to the tournament
                 cell.setTournament(tournament: joined_tournament_list[indexPath.row])
                 break;
-            
             case 1:
                 // Set the cell to the tournament
                 cell.setTournament(tournament: hosted_tournament_list[indexPath.row])
                 break;
-            
             default:
                 break;
+        
         }
-        
-        
         return cell
     }
     
-    // Delete from table
+    // delete from the table
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
-            
             // delete selected tournament
             switch(indexPath.section){
                 case 0:
