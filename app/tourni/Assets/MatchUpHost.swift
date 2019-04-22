@@ -19,6 +19,8 @@ class MatchUpHost: UITableViewCell {
     @IBOutlet weak var winnerIcon1: UIImageView!
     @IBOutlet weak var winnerIcon2: UIImageView!
     
+    
+    
     var group1 = Group()
     var group2 = Group()
     
@@ -51,8 +53,6 @@ class MatchUpHost: UITableViewCell {
         winnerIcon1.isHidden = false
         winnerIcon2.isHidden = true
         
-        // sends the updated tournament to the previous view
-        delegate?.updateWinner(winner: self.group1, loser: self.group2)
         
         // if the winner is not already selected increment the winner selected count in bracket controller
         if !(winnerSelected){
@@ -62,9 +62,17 @@ class MatchUpHost: UITableViewCell {
             winnerSelected = true
         }
         
+        // sends the updated tournament to the previous view
+        delegate?.updateWinner(winner: self.group1, loser: self.group2)
+        
     }
     
     @IBAction func group2ButtonAction(_ sender: Any) {
+        
+        if (group2.name == "FREE"){
+            return
+        }
+        
         winnerIcon2.isHidden = false
         winnerIcon1.isHidden = true
         

@@ -50,28 +50,23 @@ struct Tournament {
     // removes group from winners and places into losers
     mutating func makeLoser(group: Group){
         
-        self.winners! = winners!.filter() { $0.name != group.name }
+        self.winners! = winners!.filter() { $0 != group }
         
-        self.addLoser(group: group)
+        if !(self.losers!.contains() { $0 == group}){
+            self.losers!.append(group)
+        }
     }
     
     // removes group from losers and places into winners
     mutating func makeWinner(group: Group){
         
-        self.losers! = losers!.filter() { $0.name != group.name }
+        self.losers! = losers!.filter() { $0 != group }
         
-        self.addWinner(group: group)
-    }
-    
-    
-    // function to add loser to the tournament
-    mutating func addLoser(group: Group){
-        self.losers!.append(group)
-    }
-    
-    // function to winner to tournament
-    mutating func addWinner(group: Group){
-        self.winners!.append(group)
+        if !(self.winners!.contains() { $0 == group}){
+            self.winners!.append(group)
+        }
+        
+        print(self.winners!)
     }
     
     // function to set title
@@ -315,58 +310,6 @@ struct Tournament {
                 }
                 completion(tournament)
         }
-        
-        /* Get document without realtime updates
-        
-        let docRef = db.collection("tournaments").document(gc)
-        
-        
-        docRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                
-                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-                
-                print("Document data: \(dataDescription)")
-                
-                // get the name and description fields from the queried document
-                let name = document.get("title") as! String
-                let description = document.get("description") as! String
-                let groups_map_list = document.get("groups") as! [[String: AnyObject]]
-                let winners_map_list = document.get("winners") as! [[String: AnyObject]]
-                let losers_map_list = document.get("losers") as! [[String: AnyObject]]
-                
-                var tournament = Tournament( title: name, description: description, game_code: gc)
-                
-                for dictionary in groups_map_list{
-                    
-                    let g = Group( name: dictionary["name"] as! String, seed: dictionary["seed"] as! Int, status: dictionary["status"] as! Bool)
-                    
-                    tournament.groups!.append(g)
-                    
-                }
-                
-                for dictionary in winners_map_list{
-                    
-                    let g = Group( name: dictionary["name"] as! String, seed: dictionary["seed"] as! Int, status: dictionary["status"] as! Bool)
-                    
-                    tournament.winners!.append(g)
-                    
-                }
-                
-                for dictionary in losers_map_list{
-                    
-                    let g = Group( name: dictionary["name"] as! String, seed: dictionary["seed"] as! Int, status: dictionary["status"] as! Bool)
-                    
-                    tournament.losers!.append(g)
-                    
-                }
-                completion(tournament)
-                
-            } else {
-                print("Document does not exist")
-            }
-        }
-            */
     }
 
     

@@ -19,10 +19,8 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
     var matches:[Int] = []
     var initialized = false
     var winnerSelectedCount = 0
-    
-    
-    //variable intilization for the number of rounds, matches
-    //FIX FOR DYNAMIC VARIABLE FROM THE DATABASE
+    var currRound:Int = 0
+    var currentGroups:[Group] = [Group]()
     
     //bracket view X and Y values
     var bracketView_x = CGFloat(25)
@@ -59,19 +57,22 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
+       
+        
         Tournament.getTournament(gc: game_code){ t in
         
             
             self.tournament = t
-            self.groups = t.getNumWinners()
+            self.groups = t.getNumGroups()
             self.rounds = self.bb.generate_rounds(g: self.groups)
             self.matches = self.bb.generate_matches(r: self.rounds)
             
+            self.currentGroups = t.winners!
             self.make_roundsHost()
             
             self.panGestureOverBracketView()
             
-            print(self.bracketViewArr.count)
+            
             
             for bracket in self.bracketViewArr {
                 bracket.reloadData()
@@ -179,11 +180,13 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
     //function to make the correct number of rounds for the tournament
     func make_roundsHost() {
         var nextRound:Bool = false
-        var currRound:Int = 0
+        
         for i in 0..<matches.count {
-            if groups/2 == matches[i]{
+    
+            if currentGroups.count/2 == matches[i]{
                 currRound = i + 1
                 nextRound = true
+                
                 break
             }
         }
@@ -242,7 +245,7 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
         matchup.selectionStyle = UITableViewCell.SelectionStyle.none
         matchup.delegate = self
         
-        matchup.setMatchup(g1: tournament.groups![indexPath.row], g2: tournament.groups![(groups - 1) - indexPath.row])
+        matchup.setMatchup(g1: currentGroups[indexPath.row], g2: currentGroups[(currentGroups.count - 1) - indexPath.row])
         
         
        
@@ -287,13 +290,35 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
         
         self.winnerSelectedCount += 1
         
-        
-        
-        if (self.winnerSelectedCount >= self.matches[self.rounds - 1]){
-            print("Next round initiated")
+        if (self.winnerSelectedCount >= self.matches[self.currRound - 1]){
+            
+            let alert = UIAlertController(title: "Complete round", message: "Do you want to end this round?", preferredStyle: .alert)
+            
+            let yesBtn = UIAlertAction(title: "Yes", style: .default, handler: self.nextRound)
+            
+            let noBtn = UIAlertAction(title: "No", style: .cancel, handler: self.returnToCurrentRound)
+            
+            alert.addAction(yesBtn)
+            
+            alert.addAction(noBtn)
+            
+            //alert.addAction(noBtn)
+            self.present(alert,animated: true,completion: nil)
         }
         
     }
+    
+    func returnToCurrentRound(alert:UIAlertAction){
+        
+        self.winnerSelectedCount -= 1
+        
+    }
+    
+    func nextRound(alert:UIAlertAction){
+        
+        self.tournament.store()
+    }
+    
 }
 
 //checking if the user is panning to the left (an extension to the UIPanGestureRecognizer
