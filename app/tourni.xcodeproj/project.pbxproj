@@ -17,7 +17,6 @@
 		4D4E083E226A547C00A2C326 /* MatchUpHost.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D4E083D226A547C00A2C326 /* MatchUpHost.xib */; };
 		4D4E0841226A557F00A2C326 /* bracket_backend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4E0840226A557F00A2C326 /* bracket_backend.swift */; };
 		4D4E0846226A585000A2C326 /* MatchUpHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4E0845226A585000A2C326 /* MatchUpHost.swift */; };
-		4D4E0848226A725B00A2C326 /* MatchUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4E0847226A725B00A2C326 /* MatchUp.swift */; };
 		64249D555D56A3AC271B39C8 /* Pods_tourniTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD62A2B0E2960F5BB3B628BD /* Pods_tourniTests.framework */; };
 		C30B8952225EA98600DC4469 /* Tournament.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30B8951225EA98600DC4469 /* Tournament.swift */; };
 		C31F9D42225566A00049439D /* HostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31F9D41225566A00049439D /* HostController.swift */; };
@@ -63,7 +62,6 @@
 		4D4E0840226A557F00A2C326 /* bracket_backend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bracket_backend.swift; sourceTree = "<group>"; };
 		4D4E0844226A571600A2C326 /* MatchUpJoin.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MatchUpJoin.xib; path = /Users/mtaglic/Documents/GitHub/tourni/app/tourni/Assets/MatchUpJoin.xib; sourceTree = "<absolute>"; };
 		4D4E0845226A585000A2C326 /* MatchUpHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchUpHost.swift; sourceTree = "<group>"; };
-		4D4E0847226A725B00A2C326 /* MatchUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchUp.swift; sourceTree = "<group>"; };
 		64ED51A524B8C7BD7542E086 /* Pods_tourni.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tourni.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79D610222159E97520EC31F1 /* Pods-tourniTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tourniTests.release.xcconfig"; path = "Target Support Files/Pods-tourniTests/Pods-tourniTests.release.xcconfig"; sourceTree = "<group>"; };
 		9174008401A47C0696ABE7AC /* Pods-tourniUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tourniUITests.debug.xcconfig"; path = "Target Support Files/Pods-tourniUITests/Pods-tourniUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -137,7 +135,6 @@
 			isa = PBXGroup;
 			children = (
 				C30B8951225EA98600DC4469 /* Tournament.swift */,
-				4D4E0847226A725B00A2C326 /* MatchUp.swift */,
 				437F48502260EE2F0029A86E /* Group.swift */,
 				4D4E0840226A557F00A2C326 /* bracket_backend.swift */,
 			);
@@ -473,7 +470,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D4E0848226A725B00A2C326 /* MatchUp.swift in Sources */,
 				C30B8952225EA98600DC4469 /* Tournament.swift in Sources */,
 				437F485522610F340029A86E /* AddGroupsController.swift in Sources */,
 				4D4E083C226A545800A2C326 /* BracketController.swift in Sources */,

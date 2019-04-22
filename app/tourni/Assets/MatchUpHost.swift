@@ -60,15 +60,6 @@ class MatchUpHost: UITableViewCell {
         winnerDelegate?.updateWinner(winner: self.group2, loser: self.group1)
     }
     
-    @IBAction func group1Win(_ sender: UIButton) {
-        //sender.setTitle("WIN", for: .normal)
-        //Group2Button.setTitle("LOSE", for: .normal)
-    }
-    
-    @IBAction func group2Win(_ sender: UIButton) {
-        //sender.setTitle("WIN", for: .normal)
-        //Group1Button.setTitle("LOSE", for: .normal)
-    }
 }
 
 
