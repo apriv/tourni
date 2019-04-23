@@ -21,6 +21,7 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
     var winnerSelectedCount = 0
     var currRound:Int = 0
     var currentGroups:[Group] = [Group]()
+    var host:Bool = Bool()
     
     //bracket view X and Y values
     var bracketView_x = CGFloat(25)
@@ -283,7 +284,12 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
     }
     
     func isHost() -> Bool {
-        return false
+        if (self.host){
+            return true
+        }else{
+            return false
+        }
+        
     }
     
     func incrementWinnerSelectedCount(){
@@ -326,10 +332,10 @@ extension UIPanGestureRecognizer {
     func isLeft(passing_view: UIView) -> Bool {
         let passing_velocity : CGPoint = velocity(in: passing_view)
         if passing_velocity.x > 0 {
-            print("Gesture went right")
+            
             return false
         } else {
-            print("Gesture went left")
+            
             return true
         }
     }

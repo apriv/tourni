@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddGroupsController: UITableViewController, AddGroupDelegate {
+class AddGroupsController: UITableViewController, UITabBarControllerDelegate {
 
     // tournament variable for this view
     var tournament:Tournament = Tournament()
@@ -17,30 +17,18 @@ class AddGroupsController: UITableViewController, AddGroupDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // creates the add item button
-        let addItemButton = UIBarButtonItem(barButtonSystemItem: .add,
-                                               target: self,
-                                               action: #selector(self.addButtonPressed))
-        
         
         let doneItemButton = UIBarButtonItem(barButtonSystemItem: .done,
                                             target: self,
                                             action: #selector(self.doneButtonPressed))
         
         // sets the button to the top right bar
-        self.navigationItem.rightBarButtonItems = [doneItemButton, addItemButton]
+        self.navigationItem.rightBarButtonItem = doneItemButton
        
         //BG setup
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "gradient_background")!)
     }
     
-    // function called when a group is added
-    func onGroupAdded(t: Tournament) {
-        // updates the tournament & reloads the table
-        self.tournament = t
-        self.seed += 1
-        self.tableView.reloadData()
-    }
     
     // called when the + button is pressed to add a group. Sends the group configure view
     @objc func addButtonPressed() {
@@ -54,6 +42,7 @@ class AddGroupsController: UITableViewController, AddGroupDelegate {
         
         self.tournament.generate()
         self.navigationController?.popViewController(animated: true)
+        tabBarController?.selectedIndex=0
     }
     
     
@@ -83,48 +72,35 @@ class AddGroupsController: UITableViewController, AddGroupDelegate {
         return cell
     }
     
-    
-    // sends the next view the tournament and delegate
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-    {
-        if segue.destination is ConfigureGroupController
-        {
-            
-            let vc = segue.destination as? ConfigureGroupController
-            vc?.tournament = self.tournament
-            vc?.seed = self.seed
-            vc?.delegate = self
-        }
-    }
-    
     // when + new group button pressed
     @IBAction func addGroup(_ sender: UIButton) {
         //1. Create the alert controller.
         let alert = UIAlertController(title: "Add New Group", message: "Please enter a group name", preferredStyle: .alert)
         
         //2. Add the text field. You can configure it however you need.
+        
         alert.addTextField { (textField) in
-            textField.text = "Some default text"
+            textField.text = ""
         }
+ 
         
         // 3. Grab the value from the text field, and print it when the user clicks OK.
         alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { [weak alert] (_) in
             let textField = alert?.textFields![0]
             
-            // do something with the input
-            print("Text field: \(textField?.text ?? "noText" )")
+            // Case where the text field is empty or the group is already created with that name
+            if (textField!.text == "" || self.tournament.groups!.contains(){ $0.name == textField!.text}){
+                return
+            }
             
+            // adds a new group to the tournament
+            self.tournament.addGroup(group: Group(name: textField!.text, seed: self.seed, status: true))
+            self.seed += 1
+            self.tableView.reloadData()
         }))
         
         // 4. Present the alert.
         self.present(alert, animated: true, completion: nil)
     }
     }
-
-
-// protocol to help us get the updated tournament from the next view
-protocol AddGroupDelegate: class
-{
-    func onGroupAdded(t : Tournament)
-}
 

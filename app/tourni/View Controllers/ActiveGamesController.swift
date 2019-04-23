@@ -19,6 +19,9 @@ class ActiveGamesController: UITableViewController {
     
     // intilaize the selected tournament
     var selected_tournament = Tournament()
+
+    // stores value of whether or not you are the host of the selected tournament
+    var host = false
     
     //viewDidLoad Function (the functions that are called when the view is loaded)
     override func viewDidLoad() {
@@ -41,8 +44,13 @@ class ActiveGamesController: UITableViewController {
                 // Set the selected tournament as the selected
                 selected_tournament = hosted_tournament_list[indexPath.row]
                 
+                self.host = true
+                
+                
                 // segue to the bracket
                 self.performSegue(withIdentifier: "toBracket", sender: self)
+                
+                
                 break;
             default:
                 break;
@@ -56,6 +64,7 @@ class ActiveGamesController: UITableViewController {
         {
             let vc = segue.destination as? BracketController
             vc?.game_code = self.selected_tournament.game_code!
+            vc?.host = self.host
         }
     }
     

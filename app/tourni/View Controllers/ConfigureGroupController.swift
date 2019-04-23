@@ -14,7 +14,7 @@ class ConfigureGroupController: UIViewController {
     @IBOutlet weak var GroupNameTextField: UITextField!
     
     // delegate initialization
-    weak var delegate:AddGroupDelegate?
+    //weak var delegate:AddGroupDelegate?
     var seed = Int()
     
     // tournament variable for this controller
@@ -48,7 +48,7 @@ class ConfigureGroupController: UIViewController {
         self.tournament.addGroup(group: Group(name: GroupNameTextField.text!, seed: self.seed, status: true))
         
         // sends the updated tournament to the previous view
-       delegate?.onGroupAdded(t: self.tournament)
+       //delegate?.onGroupAdded(t: self.tournament)
         
         // returns to the previous view
        self.navigationController?.popViewController(animated: true)

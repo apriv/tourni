@@ -47,6 +47,11 @@ class MatchUpHost: UITableViewCell {
     }
     
     @IBAction func group1ButtonAction(_ sender: Any) {
+        
+        if !((delegate?.isHost())!){
+            return
+        }
+        
         winnerIcon1.isHidden = false
         winnerIcon2.isHidden = true
         
@@ -59,12 +64,16 @@ class MatchUpHost: UITableViewCell {
             winnerSelected = true
         }
         
-        // sends the updated tournament to the previous view
+        // sends the winner/loser choice to the bracketController
         delegate?.updateWinner(winner: self.group1, loser: self.group2)
         
     }
     
     @IBAction func group2ButtonAction(_ sender: Any) {
+        
+        if !((delegate?.isHost())!){
+            return
+        }
         
         if (group2.name == "FREE"){
             return
@@ -81,7 +90,7 @@ class MatchUpHost: UITableViewCell {
             winnerSelected = true
         }
         
-        // sends the updated tournament to the previous view
+        // sends the winner/loser choice to the bracketController
         delegate?.updateWinner(winner: self.group2, loser: self.group1)
     }
     

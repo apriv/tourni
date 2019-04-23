@@ -20,9 +20,8 @@ class HostController: UIViewController {
     // function called when view gets initialized
     override func viewDidLoad() {
         super.viewDidLoad()
-        eventNameTextField.placeholder = "?"
+        
         eventNameTextField.keyboardType = UIKeyboardType.alphabet
-        descriptionTextField.placeholder = "?"
         descriptionTextField.keyboardType = UIKeyboardType.alphabet
         
         // creates the create button

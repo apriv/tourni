@@ -66,7 +66,6 @@ struct Tournament {
             self.winners!.append(group)
         }
         
-        print(self.winners!)
     }
     
     // function to set title
@@ -274,7 +273,6 @@ struct Tournament {
                     print("Document data was empty.")
                     return
                 }
-                print("Current data: \(data)")
                 
                 // get the name and description fields from the queried document
                 let name = document.get("title") as! String
