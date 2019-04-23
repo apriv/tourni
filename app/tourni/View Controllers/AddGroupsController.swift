@@ -96,8 +96,25 @@ class AddGroupsController: UITableViewController, AddGroupDelegate {
             vc?.delegate = self
         }
     }
-
+    
+    // when + new group button pressed
+    @IBAction func addGroup(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Add a group", message: "Please enter the group name", preferredStyle: .alert)
+        
+        let addBtn = UIAlertAction(title: "Add", style: .default, handler: self.addPressed)
+        alert.addTextField{(groupNameTextField) ->Void in
+            groupNameTextField.placeholder = "Group Name"
+        }
+        alert.addAction(addBtn)
+        self.present(alert,animated: true,completion: nil)
+    }
+    
+    // when Add in alert pressed
+    func addPressed(alert:UIAlertAction){
+        //add group
+    }
 }
+
 
 // protocol to help us get the updated tournament from the next view
 protocol AddGroupDelegate: class

@@ -45,6 +45,7 @@ class HostController: UIViewController {
         
         // moves to next screen
         self.performSegue(withIdentifier: "hostToAddGroupsSegue", sender: self)
+        
     }
     
     @IBAction func keyboardDisable(_ sender: UITapGestureRecognizer) {
