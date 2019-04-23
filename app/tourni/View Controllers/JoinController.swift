@@ -23,6 +23,7 @@ class JoinController: UIViewController , UITabBarControllerDelegate{
     }
 
     @IBAction func joinTournamentButton(_ sender: Any) {
+        if (gameCodeTextField.text != ""){
         Tournament.exists(gc: gameCodeTextField.text!){
             isThere in
             if (isThere){
@@ -33,6 +34,7 @@ class JoinController: UIViewController , UITabBarControllerDelegate{
                 // game code not found
                 self.gameNotFound()
             }
+        }
         }
     }
     

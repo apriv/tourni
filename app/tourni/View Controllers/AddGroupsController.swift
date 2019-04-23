@@ -30,7 +30,7 @@ class AddGroupsController: UITableViewController, AddGroupDelegate {
         // sets the button to the top right bar
         self.navigationItem.rightBarButtonItems = [doneItemButton, addItemButton]
        
-        //UI setup
+        //BG setup
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "gradient_background")!)
     }
     
@@ -99,21 +99,27 @@ class AddGroupsController: UITableViewController, AddGroupDelegate {
     
     // when + new group button pressed
     @IBAction func addGroup(_ sender: UIButton) {
-        let alert = UIAlertController(title: "Add a group", message: "Please enter the group name", preferredStyle: .alert)
+        //1. Create the alert controller.
+        let alert = UIAlertController(title: "Add New Group", message: "Please enter a group name", preferredStyle: .alert)
         
-        let addBtn = UIAlertAction(title: "Add", style: .default, handler: self.addPressed)
-        alert.addTextField{(groupNameTextField) ->Void in
-            groupNameTextField.placeholder = "Group Name"
+        //2. Add the text field. You can configure it however you need.
+        alert.addTextField { (textField) in
+            textField.text = "Some default text"
         }
-        alert.addAction(addBtn)
-        self.present(alert,animated: true,completion: nil)
+        
+        // 3. Grab the value from the text field, and print it when the user clicks OK.
+        alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { [weak alert] (_) in
+            let textField = alert?.textFields![0]
+            
+            // do something with the input
+            print("Text field: \(textField?.text ?? "noText" )")
+            
+        }))
+        
+        // 4. Present the alert.
+        self.present(alert, animated: true, completion: nil)
     }
-    
-    // when Add in alert pressed
-    func addPressed(alert:UIAlertAction){
-        //add group
     }
-}
 
 
 // protocol to help us get the updated tournament from the next view
