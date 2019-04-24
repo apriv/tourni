@@ -35,6 +35,8 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
     var bracketViewDict:[UITableView:Int] = [:]
     var bracketViewArr:[UITableView] = []
     
+    var bracketViewGroupDict:[UITableView: [Group]] = [:]
+    
     //translation of X and the width of the main UI
     var translationX:CGFloat = 0
     var main_width = UIScreen.main.bounds.width
@@ -61,7 +63,8 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
        
         
         Tournament.getTournament(gc: game_code){ t in
-        
+            
+            
             
             self.tournament = t
             self.groups = t.getNumGroups()
@@ -72,13 +75,8 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
             self.make_roundsHost()
             
             self.panGestureOverBracketView()
-            
-            
-            
-            for bracket in self.bracketViewArr {
-                bracket.reloadData()
-            }
-            
+ 
+            self.bracketViewArr.map() {$0.reloadData()}
             self.initialized = true
             
         }
@@ -212,9 +210,11 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
                 
                 bracketViewDict[bracket] = matches[i]
                
-                //adding the bracket to the array
                 
-            
+                bracketViewGroupDict[bracket] = self.tournament.roundList![i]
+                
+                //adding the bracket to the array
+    
                 bracketViewArr.append(bracket)
                 
                 //show the bracket on the bracket_scene
@@ -246,7 +246,9 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
         matchup.selectionStyle = UITableViewCell.SelectionStyle.none
         matchup.delegate = self
         
-        matchup.setMatchup(g1: currentGroups[indexPath.row], g2: currentGroups[(currentGroups.count - 1) - indexPath.row])
+        
+        
+        matchup.setMatchup(g1: self.bracketViewGroupDict[tableView]![indexPath.row], g2: self.bracketViewGroupDict[tableView]![(self.bracketViewGroupDict[tableView]!.count - 1) - indexPath.row])
         
         
        
@@ -321,6 +323,10 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
     }
     
     func nextRound(alert:UIAlertAction){
+        
+        self.bracketViewArr.map() {$0.reloadData()}
+        
+        self.tournament.roundList!.append(self.tournament.winners!)
         
         self.tournament.store()
     }

@@ -15,6 +15,7 @@ struct Tournament {
     var game_code:String?
     var winners:[Group]?
     var losers:[Group]?
+    var roundList:[[Group]]?
     
     init(
         title: String? = nil,
@@ -22,7 +23,8 @@ struct Tournament {
         description: String? = nil,
         game_code: String? = nil,
         winners: [Group]? = [Group](),
-        losers: [Group]? = [Group]()) {
+        losers: [Group]? = [Group](),
+        roundList:[[Group]]? = [[Group]]()){
         
         self.title = title
         self.groups = groups
@@ -30,6 +32,7 @@ struct Tournament {
         self.game_code = game_code
         self.winners = winners
         self.losers = losers
+        self.roundList = roundList
     }
     
     // function to get the number of groups
@@ -113,7 +116,9 @@ struct Tournament {
         }
         
         // set the winners to default = to the groups
-        self.winners = self.groups;
+        self.winners = self.groups
+        
+        self.roundList!.append(self.groups!)
         
         // write the tournament to the database
         self.store()
@@ -280,6 +285,7 @@ struct Tournament {
                 let groups_map_list = document.get("groups") as! [[String: AnyObject]]
                 let winners_map_list = document.get("winners") as! [[String: AnyObject]]
                 let losers_map_list = document.get("losers") as! [[String: AnyObject]]
+                let temp_round_dict_list = document.get("roundList") as! Data
                 
                 var tournament = Tournament( title: name, description: description, game_code: gc)
                 
@@ -306,6 +312,26 @@ struct Tournament {
                     tournament.losers!.append(g)
                     
                 }
+                
+                
+                do { let round_dict_list = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(temp_round_dict_list)
+                    
+                    
+                    for dictionary_list in round_dict_list as! [[[String : AnyObject]]] {
+                        var group_list = [Group]()
+                        
+                        for dictionary in dictionary_list{
+                            
+                            let g = Group( name: dictionary["name"] as! String, seed: dictionary["seed"] as! Int, status: dictionary["status"] as! Bool)
+                            
+                            group_list.append(g)
+                        }
+                        
+                        tournament.roundList!.append(group_list)
+                    }
+                    
+                }catch{}
+     
                 completion(tournament)
         }
     }
@@ -317,7 +343,17 @@ struct Tournament {
         let groups_dic_list = self.groupstoDictionaryList()
         let winners_dic_list = self.winnerstoDictionaryList()
         let losers_dic_list = self.loserstoDictionaryList()
+        var round_dic_list = [[[String: AnyObject]]]()
         
+        for groupList in self.roundList!{
+            round_dic_list.append(groupList.map(){ $0.toDictionary()})
+        }
+        
+        var temp_round_dic_list = Data()
+        
+        do {
+            temp_round_dic_list = try NSKeyedArchiver.archivedData(withRootObject: round_dic_list, requiringSecureCoding: false)
+        }catch{}
         
         let db = Firestore.firestore()
         
@@ -327,7 +363,8 @@ struct Tournament {
             "groups": groups_dic_list,
             "description" : self.description,
             "winners" : winners_dic_list,
-            "losers" : losers_dic_list
+            "losers" : losers_dic_list,
+            "roundList" : temp_round_dic_list
             
         ]) { err in
             if let err = err {
@@ -350,6 +387,7 @@ struct Tournament {
     func loserstoDictionaryList()-> [[String: AnyObject]]{
         return self.losers!.map{ $0.toDictionary()}
     }
+    
 }
 
 
