@@ -36,10 +36,9 @@ class MatchUpHost: UITableViewCell {
         Group2Label.text = g2.name
         Group2Label.layer.masksToBounds = true
         Group2Label.layer.cornerRadius = 8
-        Group2Button.setTitle("_", for: .normal)
         Group2Button.layer.masksToBounds = true
         Group2Button.layer.cornerRadius = 15
-        Group1Button.setTitle("_", for: .normal)
+        
         Group1Button.layer.masksToBounds = true
         Group1Button.layer.cornerRadius = 15
         self.group1 = g1

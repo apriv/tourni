@@ -17,7 +17,6 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
     var groups:Int = 0
     var rounds:Int = 0
     var matches:[Int] = []
-    var initialized = false
     var winnerSelectedCount = 0
     var currRound:Int = 0
     var currentGroups:[Group] = [Group]()
@@ -65,19 +64,17 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
         Tournament.getTournament(gc: game_code){ t in
             
             
-            
             self.tournament = t
             self.groups = t.getNumGroups()
             self.rounds = self.bb.generate_rounds(g: self.groups)
             self.matches = self.bb.generate_matches(r: self.rounds)
-            
             self.currentGroups = t.winners!
             self.make_roundsHost()
             
             self.panGestureOverBracketView()
  
-            self.bracketViewArr.map() {$0.reloadData()}
-            self.initialized = true
+            self.bracket_scene.setNeedsLayout()
+            self.bracket_scene.setNeedsDisplay()
             
         }
         
@@ -189,7 +186,7 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
                 break
             }
         }
-        if (nextRound == true && !self.initialized){
+        if (nextRound == true){
             for i in 0..<currRound{
                 let bracket = UITableView()
                 //bracket x,y, height, parameters
@@ -214,7 +211,7 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
                 bracketViewGroupDict[bracket] = self.tournament.roundList![i]
                 
                 //adding the bracket to the array
-    
+                
                 bracketViewArr.append(bracket)
                 
                 //show the bracket on the bracket_scene
@@ -223,6 +220,7 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
                 
                 nextRound = false
                 bracket.reloadData()
+               
             }
             
         }

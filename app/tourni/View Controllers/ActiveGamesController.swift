@@ -26,9 +26,10 @@ class ActiveGamesController: UITableViewController {
     //viewDidLoad Function (the functions that are called when the view is loaded)
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         //background UIColor
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "gradient_background")!)
-       
+        
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -122,6 +123,7 @@ class ActiveGamesController: UITableViewController {
         
         // Reset list values when user leaves so the list can be updated when
         // they return.
+        self.host = false
         hosted_tournament_list = [Tournament]()
         joined_tournament_list = [Tournament]()
     }
