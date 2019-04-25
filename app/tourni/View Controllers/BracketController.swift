@@ -278,9 +278,20 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
     }
     
     // function called when a winner is updated (Winner followed by loser)
-    func updateWinner(winner: Group, loser: Group) {
-        
-        
+    func updateWinner(winner: Group, loser: Group, round: Int) {
+       
+        self.tournament.roundList![round - 1] = self.tournament.roundList![round - 1].map(){
+            
+        var group = $0
+            
+        if (group == winner){
+            group.setStatus(status: true)
+        }else if ($0 == loser){
+            group.setStatus(status: false)
+        }
+            return group
+        }
+    
         self.tournament.makeLoser(group: loser)
         
         self.tournament.makeWinner(group: winner)
@@ -319,6 +330,8 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
             
             //alert.addAction(noBtn)
             self.present(alert,animated: true,completion: nil)
+            
+            
         }
         
     }
@@ -327,9 +340,15 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
         
         self.winnerSelectedCount -= 1
         
+        for cell in self.bracketViewArr[self.currRound - 1].visibleCells as! [MatchUpHost]{
+            cell.winnerSelected = false
+        }
     }
     
     func nextRound(alert:UIAlertAction){
+        
+        self.winnerSelectedCount = 0
+        
         self.tournament.roundList!.append(self.tournament.winners!)
         
         self.tournament.store()
@@ -356,7 +375,7 @@ extension UIPanGestureRecognizer {
 // protocol to help us get the updated tournament from the next view
 protocol cellInfo: class
 {
-    func updateWinner(winner : Group, loser : Group)
+    func updateWinner(winner : Group, loser : Group, round: Int)
     
     func isHost() -> Bool
     

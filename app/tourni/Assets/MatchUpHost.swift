@@ -45,6 +45,14 @@ class MatchUpHost: UITableViewCell {
         self.group1 = g1
         self.group2 = g2
         self.round = round
+        
+        if group1.status{
+            winnerIcon1.isHidden = false
+        }
+        
+        if group2.status{
+            winnerIcon2.isHidden = false
+        }
     }
     
     @IBAction func group1ButtonAction(_ sender: Any) {
@@ -66,7 +74,7 @@ class MatchUpHost: UITableViewCell {
         }
         
         // sends the winner/loser choice to the bracketController
-        delegate?.updateWinner(winner: self.group1, loser: self.group2)
+        delegate?.updateWinner(winner: self.group1, loser: self.group2, round: self.round)
         
     }
     
@@ -88,7 +96,7 @@ class MatchUpHost: UITableViewCell {
         }
         
         // sends the winner/loser choice to the bracketController
-        delegate?.updateWinner(winner: self.group2, loser: self.group1)
+        delegate?.updateWinner(winner: self.group2, loser: self.group1, round: self.round)
     }
     
 }

@@ -29,12 +29,14 @@ struct Group {
 }
 
 
-//Overloading for Tournament
-
+//Overloading for Group
 
 func ==(lhs: Group, rhs: Group) -> Bool {
     return lhs.name == rhs.name
 }
+
 func !=(lhs: Group, rhs: Group) -> Bool {
     return !(lhs.name == rhs.name)
 }
+
+
