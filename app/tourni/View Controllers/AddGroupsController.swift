@@ -96,7 +96,7 @@ class AddGroupsController: UITableViewController, UITabBarControllerDelegate {
             }
             
             // adds a new group to the tournament
-            self.tournament.addGroup(group: Group(name: textField!.text, seed: self.seed, status: true))
+            self.tournament.addGroup(group: Group(name: textField!.text, seed: self.seed, status: false))
             self.seed += 1
             self.tableView.reloadData()
         }))

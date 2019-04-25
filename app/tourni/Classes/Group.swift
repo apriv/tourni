@@ -11,7 +11,7 @@ import Foundation
 struct Group {
     var name:String?
     var seed:Int?
-    var status:Bool = true
+    var status:Bool = false
     
     
     func toDictionary() -> [String: AnyObject]{
@@ -20,6 +20,10 @@ struct Group {
     
     func getSeed()->Int{
         return self.seed!
+    }
+    
+    mutating func setStatus(status: Bool){
+        self.status = status
     }
     
 }

@@ -22,7 +22,6 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
     var currentGroups:[Group] = [Group]()
     var host:Bool = Bool()
     var initialized:Bool = false
-    var drawingRound:Int = 0
     
     //bracket view X and Y values
     var bracketView_x = CGFloat(25)
@@ -196,8 +195,7 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
         
         if (nextRound == true){
             for i in startBracketAt..<currRound{
-                
-                self.drawingRound = i
+    
                 
                 let bracket = UITableView()
                 //bracket x,y, height, parameters
@@ -253,7 +251,7 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
         matchup.delegate = self
         
         
-        matchup.setMatchup(g1: self.bracketViewGroupDict[tableView]![indexPath.row], g2: self.bracketViewGroupDict[tableView]![(self.bracketViewGroupDict[tableView]!.count - 1) - indexPath.row], round: self.drawingRound + 1)
+        matchup.setMatchup(g1: self.bracketViewGroupDict[tableView]![indexPath.row], g2: self.bracketViewGroupDict[tableView]![(self.bracketViewGroupDict[tableView]!.count - 1) - indexPath.row], round: self.bracketViewArr.index(of: tableView)! + 1)
         
         
        
