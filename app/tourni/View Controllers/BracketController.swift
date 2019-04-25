@@ -21,6 +21,7 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
     var currRound:Int = 0
     var currentGroups:[Group] = [Group]()
     var host:Bool = Bool()
+    var initialized:Bool = false
     
     //bracket view X and Y values
     var bracketView_x = CGFloat(25)
@@ -62,14 +63,6 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
         
         Tournament.getTournament(gc: game_code){ t in
             
-            self.bracketViewArr.map(){ $0.removeFromSuperview()}
-            
-            self.bracketViewDict = [UITableView:Int]()
-            self.bracketViewArr = [UITableView]()
-            self.bracketViewGroupDict = [UITableView: [Group]]()
-            self.bracket_scene.removeFromSuperview()
-            self.bracket_scene = UIView()
-            
             
             self.tournament = t
             self.groups = t.getNumGroups()
@@ -80,7 +73,8 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
             
             
             self.panGestureOverBracketView()
- 
+            
+            self.initialized = true
             
         }
         
@@ -182,6 +176,8 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
     //function to make the correct number of rounds for the tournament
     func make_roundsHost() {
         var nextRound:Bool = false
+        var startBracketAt:Int = 0
+        
         
         for i in 0..<matches.count {
     
@@ -192,8 +188,13 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
                 break
             }
         }
+        
+        if initialized{
+            startBracketAt = currRound - 1
+        }
+        
         if (nextRound == true){
-            for i in 0..<currRound{
+            for i in startBracketAt..<currRound{
                 let bracket = UITableView()
                 //bracket x,y, height, parameters
                 bracket.frame = CGRect(x: bracketView_x, y: bracketView_y, width: bracketView_width, height: bracketView_height)
@@ -324,8 +325,6 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
     }
     
     func nextRound(alert:UIAlertAction){
-    
-        
         self.tournament.roundList!.append(self.tournament.winners!)
         
         self.tournament.store()
