@@ -28,8 +28,9 @@ class MatchUpHost: UITableViewCell {
     weak var delegate:cellInfo?
     
     var winnerSelected: Bool = false
+    var round: Int = 0
     
-    func setMatchup(g1: Group, g2: Group){
+    func setMatchup(g1: Group, g2: Group, round: Int){
         Group1Label.text = g1.name
         Group1Label.layer.masksToBounds = true
         Group1Label.layer.cornerRadius = 8
@@ -43,11 +44,12 @@ class MatchUpHost: UITableViewCell {
         Group1Button.layer.cornerRadius = 15
         self.group1 = g1
         self.group2 = g2
+        self.round = round
     }
     
     @IBAction func group1ButtonAction(_ sender: Any) {
         
-        if !((delegate?.isHost())!){
+        if !((delegate?.isHost())!) || self.round != delegate?.getCurrentRound(){
             return
         }
         
@@ -70,11 +72,7 @@ class MatchUpHost: UITableViewCell {
     
     @IBAction func group2ButtonAction(_ sender: Any) {
         
-        if !((delegate?.isHost())!){
-            return
-        }
-        
-        if (group2.name == "FREE"){
+        if !((delegate?.isHost())!) || self.round != delegate?.getCurrentRound() || group2.name == "FREE"{
             return
         }
         

@@ -67,6 +67,8 @@ class AddGroupsController: UITableViewController, UITabBarControllerDelegate {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "AddGroupsCell", for: indexPath) as! AddGroupsCell
         
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none
+        
         cell.setGroup(group: self.tournament.groups![indexPath.row])
 
         return cell
