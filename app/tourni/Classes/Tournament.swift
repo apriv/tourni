@@ -84,7 +84,7 @@ struct Tournament {
     
     // function to generate game code
     func genCode(length: Int) -> String {
-        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        let letters = "abcdefghijklmnopqrstuvwxyz0123456789"
         return String((0..<length).map{ _ in letters.randomElement()! })
     }
     
