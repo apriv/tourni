@@ -372,6 +372,8 @@ extension UIPanGestureRecognizer {
 
 
 
+
+
 // protocol to help us get the updated tournament from the next view
 protocol cellInfo: class
 {

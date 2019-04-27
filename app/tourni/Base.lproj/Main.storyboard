@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hA1-YW-hX3">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,41 +15,41 @@
             <objects>
                 <tableViewController title="Active Games" id="jDo-UP-kyt" customClass="ActiveGamesController" customModule="tourni" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="qsE-0x-vxN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.96862745100000003" green="0.56078431370000004" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="separatorColor" red="0.96862745100000003" green="0.56078431370000004" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" restorationIdentifier="ActiveGamesCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActiveGamesCell" textLabel="Ahn-tf-IU5" detailTextLabel="gyX-YG-BR2" style="IBUITableViewCellStyleSubtitle" id="ebR-FQ-zb7" customClass="ActiveGamesCell" customModule="tourni" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ebR-FQ-zb7" id="ASF-gC-3zo">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ahn-tf-IU5">
-                                            <rect key="frame" x="16" y="0.0" width="31.5" height="22.5"/>
+                                            <rect key="frame" x="15.999999999999998" y="0.0" width="31.333333333333332" height="22.333333333333332"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                            <color key="textColor" red="0.92549019610000005" green="0.4823529412" blue="0.62352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" red="0.96862745100000003" green="0.56078431370000004" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gyX-YG-BR2">
-                                            <rect key="frame" x="16" y="22.5" width="57" height="22.5"/>
+                                            <rect key="frame" x="15.999999999999996" y="22.333333333333336" width="56.666666666666664" height="22.333333333333332"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                            <color key="textColor" red="0.92549019610000005" green="0.4823529412" blue="0.62352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" red="0.96862745100000003" green="0.56078431370000004" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Game Code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3e7-cD-P6M">
                                             <rect key="frame" x="266" y="5" width="97" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                            <color key="textColor" red="0.92549019610000005" green="0.4823529412" blue="0.62352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" red="0.96862745100000003" green="0.56078431370000004" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.96862745100000003" green="0.84313725490000002" blue="0.58039215690000001" alpha="0.80292693661971826" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" red="0.96078431369999995" green="0.83921568629999999" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.96862745100000003" green="0.84313725490000002" blue="0.58039215690000001" alpha="0.60779644690000001" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
@@ -64,7 +64,7 @@
                             <outlet property="delegate" destination="jDo-UP-kyt" id="KBJ-Jr-5CD"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Active Games" id="aaN-gr-icu"/>
+                    <navigationItem key="navigationItem" title="Brackets" id="aaN-gr-icu"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -80,7 +80,7 @@
             <objects>
                 <viewController id="NdS-iv-UWb" customClass="BracketController" customModule="tourni" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xgm-IL-lLG">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Duw-ar-geG"/>
@@ -95,14 +95,14 @@
             <objects>
                 <viewController title="Join A Game" id="1zX-7D-PjH" customClass="JoinController" customModule="tourni" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="y3L-Wp-M5p">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J1u-NE-pYw">
-                                <rect key="frame" x="80.5" y="114" width="214" height="124"/>
+                                <rect key="frame" x="80.666666666666686" y="138" width="214" height="124"/>
                                 <subviews>
                                     <textField opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="coP-kc-Xvk">
-                                        <rect key="frame" x="51" y="64" width="112" height="40"/>
+                                        <rect key="frame" x="50.999999999999986" y="64" width="112.00000000000001" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="112" id="RTZ-FR-Akx"/>
                                             <constraint firstAttribute="height" constant="40" id="mj6-QC-2Vt"/>
@@ -131,18 +131,8 @@
                                     <constraint firstItem="JIS-Lc-v45" firstAttribute="centerX" secondItem="J1u-NE-pYw" secondAttribute="centerX" id="sw4-r5-wTK"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qww-Zq-v91">
-                                <rect key="frame" x="131.5" y="321" width="112" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="aJG-fz-Jxe"/>
-                                    <constraint firstAttribute="width" constant="112" id="zn3-Yl-NqQ"/>
-                                </constraints>
-                                <state key="normal" image="scan_button">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q9n-mf-l8j">
-                                <rect key="frame" x="131.5" y="258" width="112" height="43"/>
+                                <rect key="frame" x="131.66666666666666" y="282" width="112" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="112" id="3t2-h8-Om3"/>
                                     <constraint firstAttribute="height" constant="43" id="AXf-hW-nzZ"/>
@@ -159,8 +149,6 @@
                             <constraint firstItem="J1u-NE-pYw" firstAttribute="centerX" secondItem="y3L-Wp-M5p" secondAttribute="centerX" id="1hY-d5-ZYG"/>
                             <constraint firstItem="Q9n-mf-l8j" firstAttribute="centerX" secondItem="y3L-Wp-M5p" secondAttribute="centerX" id="B7C-zh-5aN"/>
                             <constraint firstItem="Q9n-mf-l8j" firstAttribute="top" secondItem="J1u-NE-pYw" secondAttribute="bottom" constant="20" id="Siv-of-eYI"/>
-                            <constraint firstItem="Qww-Zq-v91" firstAttribute="top" secondItem="Q9n-mf-l8j" secondAttribute="bottom" constant="20" id="XQ2-sv-ty0"/>
-                            <constraint firstItem="Qww-Zq-v91" firstAttribute="centerX" secondItem="y3L-Wp-M5p" secondAttribute="centerX" id="jhf-TY-wC9"/>
                             <constraint firstItem="J1u-NE-pYw" firstAttribute="top" secondItem="Zue-bV-EeS" secondAttribute="top" constant="50" id="u69-bm-3L6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Zue-bV-EeS"/>
@@ -182,18 +170,18 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="248.80000000000001" y="1484.7076461769116"/>
+            <point key="canvasLocation" x="249" y="1592"/>
         </scene>
         <!--Host Tournament-->
         <scene sceneID="clJ-Lf-6SG">
             <objects>
                 <viewController id="hUl-7Q-2HG" customClass="HostController" customModule="tourni" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XxF-gw-kyi">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="4v6-K6-oIO">
-                                <rect key="frame" x="47.5" y="114" width="280" height="100"/>
+                                <rect key="frame" x="47.666666666666657" y="138" width="280" height="100"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="Dy0-xe-hoG">
                                         <rect key="frame" x="0.0" y="0.0" width="280" height="30"/>
@@ -295,7 +283,7 @@
             <objects>
                 <tableViewController id="Jfd-sI-F6b" customClass="AddGroupsController" customModule="tourni" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="5UC-NN-8Pf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9Uw-WA-Lwg">
@@ -315,7 +303,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tR8-of-Phv" id="X4y-Ug-Sj5">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Group Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FET-dx-Lfj">
@@ -363,13 +351,13 @@
         <scene sceneID="ehA-oM-K5W">
             <objects>
                 <navigationController id="gih-iq-3wx" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Host" image="menu_host" id="3X8-kU-JOI">
+                    <tabBarItem key="tabBarItem" title="Host" image="host_tab_icon" id="3X8-kU-JOI">
                         <color key="badgeColor" red="0.96862745100000003" green="0.56078431370000004" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" id="roK-18-v3F">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="0.90645790100000001" green="0.37680232520000001" blue="0.55570560690000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -389,12 +377,17 @@
                 <tabBarController storyboardIdentifier="1" title="Nav bar" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hA1-YW-hX3" sceneMemberID="viewController">
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" alpha="0.80000000000000004" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" itemPositioning="centered" id="enr-oS-7Qu">
+                    <tabBar key="tabBar" opaque="NO" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" itemPositioning="centered" id="enr-oS-7Qu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.96862745100000003" green="0.84313725490000002" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="barTintColor" red="0.96862745100000003" green="0.84313725490000002" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="selectedImageTintColor" red="0.96862745098039216" green="0.5607843137254902" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.95686274510000002" green="0.65490196079999996" blue="0.75686274509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="0.96078431369999995" green="0.83921568629999999" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
+                                <color key="value" red="0.94846025485436891" green="0.94846025485436891" blue="0.94846025485436891" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="b9K-W6-Iej" kind="relationship" relationship="viewControllers" id="JR2-wc-tt3"/>
@@ -410,14 +403,14 @@
         <scene sceneID="MeY-5L-77Z">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dFi-Ej-1VW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Join" image="menu_find" id="gBD-76-C6a">
-                        <color key="badgeColor" red="0.96862745098039216" green="0.5607843137254902" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <tabBarItem key="tabBarItem" title="Join" image="join_tab_icon" id="gBD-76-C6a">
+                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="P4L-Cl-xSg">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="0.90645790100000001" green="0.37680232520000001" blue="0.55570560690000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -430,18 +423,18 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gzu-Is-VJH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="249" y="784"/>
+            <point key="canvasLocation" x="249" y="814"/>
         </scene>
-        <!--Active Games-->
+        <!--Brackets-->
         <scene sceneID="Gfp-e4-eAg">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="b9K-W6-Iej" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="2" title="Active Games" image="menu_games" springLoaded="YES" id="4mg-Ss-wsf"/>
+                    <tabBarItem key="tabBarItem" tag="2" title="Brackets" image="activegames_tab_icon" springLoaded="YES" id="4mg-Ss-wsf"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XAB-QI-0Sp">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="0.90645790100000001" green="0.37680232520000001" blue="0.55570560690000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -461,11 +454,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="activegames_tab_icon" width="30" height="30"/>
+        <image name="host_tab_icon" width="32" height="32"/>
         <image name="join_button_2" width="110" height="40"/>
-        <image name="menu_find" width="32" height="32"/>
-        <image name="menu_games" width="32" height="32"/>
+        <image name="join_tab_icon" width="30" height="30"/>
         <image name="menu_host" width="32" height="32"/>
-        <image name="scan_button" width="112" height="40"/>
     </resources>
     <color key="tintColor" red="0.96862745100000003" green="0.56078431370000004" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

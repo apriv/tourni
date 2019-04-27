@@ -32,6 +32,13 @@ class ActiveGamesController: UITableViewController {
         
     }
     
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        if let headerView = view as? UITableViewHeaderFooterView {
+            headerView.contentView.backgroundColor = UIColor(red:0.96, green:0.65, blue:0.76, alpha:1.0)
+            headerView.textLabel?.textColor = .white
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch(indexPath.section){
             case 0:
@@ -175,9 +182,9 @@ class ActiveGamesController: UITableViewController {
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch(section){
         case 0:
-            return "Joined Events"
+            return "Joined Tournaments"
         case 1:
-            return "Hosted Events"
+            return "Hosted Tournaments"
         default: return "Silly devs made a coding error"
             
         }
@@ -186,3 +193,4 @@ class ActiveGamesController: UITableViewController {
 
 
 }
+
