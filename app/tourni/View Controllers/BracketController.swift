@@ -28,7 +28,7 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
     var bracketView_y = CGFloat(100)
     
     //bracket view height and width values
-    var bracketView_height = CGFloat(UIScreen.main.bounds.height - 40)
+    var bracketView_height = CGFloat(UIScreen.main.bounds.height)
     var bracketView_width = CGFloat(UIScreen.main.bounds.width * 0.8)
     
     //bracket view dictionary and array
@@ -43,7 +43,7 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
     var page = 0{
         didSet{
             for table in bracketViewArr{
-                table.frame.origin.y = bracketView_y
+                table.frame.origin.y = bracketView_y + 500
                 table.beginUpdates()
                 table.endUpdates()
             }
@@ -52,8 +52,7 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
     
     //set the height of the matchup
     var matchup_height:CGFloat = 130
-    var matchup_shrinked:CGFloat = 120
-    
+    var matchup_shrinked:CGFloat = 130
     var gesture:UIPanGestureRecognizer?
     
     override func viewDidLoad() {
@@ -83,7 +82,7 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
     
     //function to add a panning gesture over the table view for the bracket
     func panGestureOverBracketView(){
-        bracket_scene.frame = CGRect(x:0,y:20, width: CGFloat(rounds) * main_width, height: self.view.frame.height)
+        bracket_scene.frame = CGRect(x:0,y:0, width: CGFloat(rounds) * main_width, height: self.view.frame.height)
         self.view.addSubview(bracket_scene)
         
         gesture = UIPanGestureRecognizer(target: self, action: #selector(self.panGestureOverBracketViewHandler(panGesture:)))
@@ -154,7 +153,7 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
     }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
-        let size = bracketViewArr.count
+        let size = bracketViewArr.count - 1
         if size <= page + 1{
             return
         }
@@ -177,22 +176,20 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
     func make_roundsHost() {
         var nextRound:Bool = false
         var startBracketAt:Int = 0
-        
-        
+        if currentGroups.count == 1 {
+            currRound = rounds
+            nextRound = true
+        }
         for i in 0..<matches.count {
-    
             if currentGroups.count/2 == matches[i]{
                 currRound = i + 1
                 nextRound = true
-                
                 break
             }
         }
-        
         if initialized{
             startBracketAt = currRound - 1
         }
-        
         if (nextRound == true){
             for i in startBracketAt..<currRound{
     
