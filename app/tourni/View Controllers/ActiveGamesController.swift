@@ -27,6 +27,7 @@ class ActiveGamesController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         //background UIColor
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "gradient_background")!)
         
@@ -141,6 +142,8 @@ class ActiveGamesController: UITableViewController {
     // function called when the view appears on screen
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        self.tabBarController!.tabBar.isHidden = false
         
         Tournament.gethostedTournaments(){ t_list in
             self.hosted_tournament_list = t_list

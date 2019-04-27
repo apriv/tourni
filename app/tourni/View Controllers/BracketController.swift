@@ -43,7 +43,7 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
     var page = 0{
         didSet{
             for table in bracketViewArr{
-                table.frame.origin.y = bracketView_y + 500
+                table.frame.origin.y = bracketView_y + 25
                 table.beginUpdates()
                 table.endUpdates()
             }
@@ -58,7 +58,7 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
+        self.tabBarController!.tabBar.isHidden = true
         
         Tournament.getTournament(gc: game_code){ t in
             
@@ -79,6 +79,13 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
         
     }
     
+   
+    
+    // function called when the user leaves the view
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+    }
     
     //function to add a panning gesture over the table view for the bracket
     func panGestureOverBracketView(){
