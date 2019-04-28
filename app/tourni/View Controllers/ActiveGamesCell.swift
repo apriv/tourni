@@ -10,11 +10,12 @@ import UIKit
 
 class ActiveGamesCell: UITableViewCell {
     
+    // Outlets for cell data
     @IBOutlet weak var ActiveGamesTitleLabel: UILabel!
     @IBOutlet weak var ActiveGamesDescriptionLabel: UILabel!
     @IBOutlet weak var gameCodeLabel: UILabel!
     
-    
+    // Function to set the cell to a tournament
     func setTournament(tournament: Tournament){
         ActiveGamesTitleLabel.text = tournament.title
         ActiveGamesDescriptionLabel.text = tournament.description
