@@ -237,12 +237,27 @@ struct Tournament {
         }
         for game_code in joined_game_code_list{
             Tournament.getTournament(gc: game_code){ t in
-                if let row = joined_tournament_list.index(where: {$0 == t}) {
-                    joined_tournament_list[row] = t
+                
+                if !(t.title == nil){
+                    if let row = joined_tournament_list.index(where: {$0 == t}) {
+                        
+                        joined_tournament_list[row] = t
+                        
+                    }else{
+                        
+                        joined_tournament_list.append(t)
+                        
+                    }
+                    
+                    completion(joined_tournament_list)
+                    
                 }else{
-                    joined_tournament_list.append(t)
+                    
+                    completion(joined_tournament_list)
+                    
                 }
-                completion(joined_tournament_list)
+                
+                
             }
         }
     }
@@ -275,7 +290,7 @@ struct Tournament {
                     return
                 }
                 guard let data = document.data() else {
-                    print("Document data was empty.")
+                    completion(Tournament())
                     return
                 }
                 

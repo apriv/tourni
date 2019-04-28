@@ -78,6 +78,10 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
             
             self.initialized = true
             
+            for tableview in self.bracketViewArr{
+                tableview.reloadData()
+            }
+            
         }
         
     }

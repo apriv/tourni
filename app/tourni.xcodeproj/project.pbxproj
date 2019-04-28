@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		112EFD152257ECC300781533 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 112EFD142257ECC300781533 /* GoogleService-Info.plist */; };
+		4339D99322766F4100825FCE /* ActiveGamesNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4339D99222766F4100825FCE /* ActiveGamesNavController.swift */; };
 		437F48512260EE2F0029A86E /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437F48502260EE2F0029A86E /* Group.swift */; };
 		437F4853226100200029A86E /* ActiveGamesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437F4852226100200029A86E /* ActiveGamesCell.swift */; };
 		437F485522610F340029A86E /* AddGroupsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437F485422610F340029A86E /* AddGroupsController.swift */; };
@@ -52,6 +53,7 @@
 /* Begin PBXFileReference section */
 		018B43149E40B6C471012550 /* Pods_tourniUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tourniUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		112EFD142257ECC300781533 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4339D99222766F4100825FCE /* ActiveGamesNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveGamesNavController.swift; sourceTree = "<group>"; };
 		437F48502260EE2F0029A86E /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		437F4852226100200029A86E /* ActiveGamesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveGamesCell.swift; sourceTree = "<group>"; };
 		437F485422610F340029A86E /* AddGroupsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupsController.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				437F4858226114600029A86E /* ConfigureGroupController.swift */,
 				C31F9D41225566A00049439D /* HostController.swift */,
 				C31F9D43225566E40049439D /* JoinController.swift */,
+				4339D99222766F4100825FCE /* ActiveGamesNavController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -469,6 +472,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C30B8952225EA98600DC4469 /* Tournament.swift in Sources */,
+				4339D99322766F4100825FCE /* ActiveGamesNavController.swift in Sources */,
 				437F485522610F340029A86E /* AddGroupsController.swift in Sources */,
 				4D4E083C226A545800A2C326 /* BracketController.swift in Sources */,
 				4D4E0841226A557F00A2C326 /* bracket_backend.swift in Sources */,

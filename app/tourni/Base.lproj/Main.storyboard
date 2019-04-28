@@ -438,7 +438,7 @@
         <!--Brackets-->
         <scene sceneID="Gfp-e4-eAg">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="b9K-W6-Iej" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="b9K-W6-Iej" customClass="ActiveGamesNavController" customModule="tourni" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" tag="2" title="Brackets" image="activegames_tab_icon" springLoaded="YES" id="4mg-Ss-wsf"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>

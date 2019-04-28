@@ -161,20 +161,22 @@ class ActiveGamesController: UITableViewController {
     // Function called when the view appears on screen
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         // Forces the tab bar to appear
          self.tabBarController!.tabBar.isHidden = false
         
         // Completion calls to generate the list of joined and hosted tournaments
         Tournament.gethostedTournaments(){ t_list in
             self.hosted_tournament_list = t_list
+            
             self.tableView.reloadData()
         }
         
         Tournament.getjoinedTournaments(){ t_list in
             self.joined_tournament_list = t_list
+            
             self.tableView.reloadData()
         }
+        
     }
     
     
