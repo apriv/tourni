@@ -43,7 +43,7 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
     var page = 0{
         didSet{
             for table in bracketViewArr{
-                table.frame.origin.y = bracketView_y + 25
+                table.frame.origin.y = bracketView_y
                 table.beginUpdates()
                 table.endUpdates()
             }
@@ -71,8 +71,10 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
             self.currentGroups = t.winners!
             self.make_roundsHost()
             
+            if !(self.initialized){
+                self.panGestureOverBracketView()
+            }
             
-            self.panGestureOverBracketView()
             
             self.initialized = true
             
@@ -203,16 +205,17 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
             
             if currentGroups.count == 1 {
                 nextRound = false
+                
             }
         }
         
+        
         if (nextRound == true){
             for i in startBracketAt..<currRound{
-    
                 
                 let bracket = UITableView()
                 //bracket x,y, height, parameters
-                bracket.frame = CGRect(x: bracketView_x, y: bracketView_y, width: bracketView_width, height: bracketView_height)
+                bracket.frame = CGRect(x: bracketView_x, y: bracketView_y, width: bracketView_width, height: bracketView_height - 100)
                 bracketView_x+=bracketView_width
                 
                 //bracket background color
@@ -257,14 +260,16 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let matchup = tableView.dequeueReusableCell(withIdentifier: "MatchUpHost", for: indexPath) as! MatchUpHost
+       let matchup = tableView.dequeueReusableCell(withIdentifier: "MatchUpHost", for: indexPath) as! MatchUpHost
         
         // makes matchups unselectable
         matchup.selectionStyle = UITableViewCell.SelectionStyle.none
         matchup.delegate = self
         
-        
-        matchup.setMatchup(g1: self.bracketViewGroupDict[tableView]![indexPath.row], g2: self.bracketViewGroupDict[tableView]![(self.bracketViewGroupDict[tableView]!.count - 1) - indexPath.row], round: self.bracketViewArr.index(of: tableView)! + 1)
+        matchup.setMatchup(
+            g1: self.bracketViewGroupDict[tableView]![indexPath.row],
+            g2: self.bracketViewGroupDict[tableView]![(self.bracketViewGroupDict[tableView]!.count - 1) - indexPath.row],
+            round: self.bracketViewArr.index(of: tableView)! + 1)
         
         
        
@@ -299,10 +304,23 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
             
         if (group == winner){
             group.setStatus(status: true)
-        }else if ($0 == loser){
+        }else if (group == loser){
             group.setStatus(status: false)
         }
             return group
+        }
+        
+        self.bracketViewGroupDict[self.bracketViewArr[round - 1]] = self.bracketViewGroupDict[self.bracketViewArr[round - 1]]!.map(){
+            
+            var group = $0
+            
+            if (group == winner){
+                group.setStatus(status: true)
+            }else if (group == loser){
+                group.setStatus(status: false)
+            }
+            return group
+            
         }
     
         self.tournament.makeLoser(group: loser)

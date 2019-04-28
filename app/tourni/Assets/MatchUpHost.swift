@@ -30,6 +30,7 @@ class MatchUpHost: UITableViewCell {
     var winnerSelected: Bool = false
     var round: Int = 0
     
+    
     func setMatchup(g1: Group, g2: Group, round: Int){
         Group1Label.text = g1.name
         Group1Label.layer.masksToBounds = true
@@ -48,10 +49,18 @@ class MatchUpHost: UITableViewCell {
         
         if group1.status{
             winnerIcon1.isHidden = false
+        }else{
+            winnerIcon1.isHidden = true
         }
         
         if group2.status{
             winnerIcon2.isHidden = false
+        }else{
+            winnerIcon2.isHidden = true
+        }
+        
+        if !(group1.status || group2.status){
+            winnerSelected = false
         }
     }
     
@@ -98,6 +107,7 @@ class MatchUpHost: UITableViewCell {
         // sends the winner/loser choice to the bracketController
         delegate?.updateWinner(winner: self.group2, loser: self.group1, round: self.round)
     }
+    
     
 }
 
