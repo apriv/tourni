@@ -11,76 +11,92 @@ import Firebase
 
 class ActiveGamesController: UITableViewController {
 
-    // initialize a list for hosted tournaments
+    // Initialize a list for hosted tournaments
     var hosted_tournament_list = [Tournament]()
     
-    // initialize a list for join tournaments
+    // Initialize a list for join tournaments
     var joined_tournament_list = [Tournament]()
     
-    // intilaize the selected tournament
+    // Intilaize the selected tournament
     var selected_tournament = Tournament()
 
-    // stores value of whether or not you are the host of the selected tournament
+    // Stores value of whether or not you are the host of the selected tournament
     var host = false
     
-    //viewDidLoad Function (the functions that are called when the view is loaded)
+    // ViewDidLoad Function (the functions that are called when the view is loaded)
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
-        //background UIColor
+        // Background UIColor
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "gradient_background")!)
         
     }
     
+    // Called when displaying table
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         if let headerView = view as? UITableViewHeaderFooterView {
+            
+            // Sets the color of section header background and text
             headerView.contentView.backgroundColor = UIColor(red:0.96, green:0.65, blue:0.76, alpha:1.0)
             headerView.textLabel?.textColor = .white
+            
         }
     }
     
+    // Called when a tournament gets selected from the list
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch(indexPath.section){
             case 0:
+                
                 // Set the selected tournament as the selected
                 selected_tournament = joined_tournament_list[indexPath.row]
-                // segue to the bracket
+                
+                // Segue to the bracket
                 self.performSegue(withIdentifier: "toBracket", sender: self)
+                
                 break;
             
             case 1:
+                
                 // Set the selected tournament as the selected
                 selected_tournament = hosted_tournament_list[indexPath.row]
                 
+                // Indicate that a hosted tournament was selected
                 self.host = true
                 
-                
-                // segue to the bracket
+                // Segue to the bracket
                 self.performSegue(withIdentifier: "toBracket", sender: self)
                 
-                
                 break;
+            
             default:
                 break;
         }
         
     }
     
-    // passes the tournament to the bracket controller
+    // Called when a segue to the bracket is initiated
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is BracketController
         {
             let vc = segue.destination as? BracketController
+            
+            // Sets the game code for the bracket view
             vc?.game_code = self.selected_tournament.game_code!
+            
+            // Sets the host value for the bracket view
             vc?.host = self.host
+            
+            // Sets the tournament title for the bracket view
             vc?.navigationItem.title = self.selected_tournament.title
         }
     }
     
     
-    // set the text for each cell
+    // Set the text for each cell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "ActiveGamesCell", for: indexPath) as! ActiveGamesCell
         
         switch(indexPath.section){
@@ -99,7 +115,7 @@ class ActiveGamesController: UITableViewController {
         return cell
     }
     
-    // delete from the table
+    // Delete from the table
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
             // delete selected tournament
@@ -126,13 +142,15 @@ class ActiveGamesController: UITableViewController {
     
     
     
-    // function called when the user leaves the view
+    // Function called when the user leaves the view
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
+        // Resets the host flag
+        self.host = false
+        
         // Reset list values when user leaves so the list can be updated when
         // they return.
-        self.host = false
         hosted_tournament_list = [Tournament]()
         joined_tournament_list = [Tournament]()
     }
@@ -140,12 +158,14 @@ class ActiveGamesController: UITableViewController {
     
     
     
-    // function called when the view appears on screen
+    // Function called when the view appears on screen
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        // Forces the tab bar to appear
          self.tabBarController!.tabBar.isHidden = false
         
+        // Fompletion calls to generate the list of joined and hosted tournaments
         Tournament.gethostedTournaments(){ t_list in
             self.hosted_tournament_list = t_list
             self.tableView.reloadData()
