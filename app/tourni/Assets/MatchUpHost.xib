@@ -52,11 +52,11 @@
                         <action selector="group1ButtonAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="EIe-hM-BQN"/>
                     </connections>
                 </button>
-                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icons_prize" translatesAutoresizingMaskIntoConstraints="NO" id="CaS-UO-Siv">
+                <imageView hidden="YES" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icons_prize" translatesAutoresizingMaskIntoConstraints="NO" id="CaS-UO-Siv">
                     <rect key="frame" x="154" y="6" width="30" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icons_prize" translatesAutoresizingMaskIntoConstraints="NO" id="rzq-Rq-1tP">
+                <imageView hidden="YES" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icons_prize" translatesAutoresizingMaskIntoConstraints="NO" id="rzq-Rq-1tP">
                     <rect key="frame" x="154" y="50" width="30" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>

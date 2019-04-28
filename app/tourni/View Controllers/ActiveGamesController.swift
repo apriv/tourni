@@ -74,6 +74,7 @@ class ActiveGamesController: UITableViewController {
             let vc = segue.destination as? BracketController
             vc?.game_code = self.selected_tournament.game_code!
             vc?.host = self.host
+            vc?.navigationItem.title = self.selected_tournament.title
         }
     }
     
@@ -143,7 +144,7 @@ class ActiveGamesController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        self.tabBarController!.tabBar.isHidden = false
+         self.tabBarController!.tabBar.isHidden = false
         
         Tournament.gethostedTournaments(){ t_list in
             self.hosted_tournament_list = t_list

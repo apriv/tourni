@@ -24,27 +24,19 @@ class HostController: UIViewController {
         eventNameTextField.keyboardType = UIKeyboardType.alphabet
         descriptionTextField.keyboardType = UIKeyboardType.alphabet
         
-        // creates the create button
-        let createItemButton = UIBarButtonItem(barButtonSystemItem: .compose,
-                                                        target: self,
-                                                        action: #selector(self.createButtonPressed))
-        // sets the button to the top right bar
-        self.navigationItem.rightBarButtonItem = createItemButton
         
         //backgrounf img
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "gradient_background")!)
     }
 
-    // function called when the create button is pressed
-    @objc func createButtonPressed() {
-        
+
+    @IBAction func createButtonPressed(_ sender: Any) {
         // sets the title and description from the inputted text
         self.tournament.setTitle(t: eventNameTextField.text!)
         self.tournament.setDescription(d: descriptionTextField.text!)
         
         // moves to next screen
         self.performSegue(withIdentifier: "hostToAddGroupsSegue", sender: self)
-        
     }
     
     @IBAction func keyboardDisable(_ sender: UITapGestureRecognizer) {

@@ -60,8 +60,9 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
         
         self.tabBarController!.tabBar.isHidden = true
         
+        
+        
         Tournament.getTournament(gc: game_code){ t in
-            
             
             self.tournament = t
             self.groups = t.getNumGroups()
@@ -84,7 +85,6 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
     // function called when the user leaves the view
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        
     }
     
     //function to add a panning gesture over the table view for the bracket
@@ -181,12 +181,15 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
     
     //function to make the correct number of rounds for the tournament
     func make_roundsHost() {
+        
         var nextRound:Bool = false
         var startBracketAt:Int = 0
+        
         if currentGroups.count == 1 {
             currRound = rounds
             nextRound = true
         }
+        
         for i in 0..<matches.count {
             if currentGroups.count/2 == matches[i]{
                 currRound = i + 1
@@ -194,9 +197,15 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
                 break
             }
         }
+        
         if initialized{
             startBracketAt = currRound - 1
+            
+            if currentGroups.count == 1 {
+                nextRound = false
+            }
         }
+        
         if (nextRound == true){
             for i in startBracketAt..<currRound{
     
