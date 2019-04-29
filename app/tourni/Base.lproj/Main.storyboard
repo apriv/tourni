@@ -284,7 +284,7 @@
             </objects>
             <point key="canvasLocation" x="1120.8" y="1487.4384236453202"/>
         </scene>
-        <!--Add Groups-->
+        <!--Add Teams-->
         <scene sceneID="ThY-v5-XIR">
             <objects>
                 <tableViewController id="Jfd-sI-F6b" customClass="AddGroupsController" customModule="tourni" customModuleProvider="target" sceneMemberID="viewController">
@@ -349,7 +349,7 @@
                             <outlet property="delegate" destination="Jfd-sI-F6b" id="SJv-b0-pk2"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Add Groups" id="AG3-hC-mzi"/>
+                    <navigationItem key="navigationItem" title="Add Teams" id="AG3-hC-mzi"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="22M-Rs-XCh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

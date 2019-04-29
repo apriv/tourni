@@ -122,13 +122,13 @@ class ActiveGamesController: UITableViewController {
             switch(indexPath.section){
                 case 0:
                     
-                    joined_tournament_list[indexPath.row].delete()
+                    joined_tournament_list[indexPath.row].deleteJoined()
                     joined_tournament_list.remove(at: indexPath.row)
                     break;
                 
                 case 1:
                     
-                    hosted_tournament_list[indexPath.row].delete()
+                    hosted_tournament_list[indexPath.row].deleteHosted()
                     hosted_tournament_list.remove(at: indexPath.row)
                     break;
                 
@@ -173,7 +173,6 @@ class ActiveGamesController: UITableViewController {
         
         Tournament.getjoinedTournaments(){ t_list in
             self.joined_tournament_list = t_list
-            
             self.tableView.reloadData()
         }
         

@@ -138,14 +138,13 @@ struct Tournament {
         // store the generated game code on the user's phone
         defaults.set(joined_game_code_list, forKey: "joined_game_code_list")
     }
-    //deletes the tournament from the database
-    func delete(){
+    //deletes hosted tournament
+    func deleteHosted(){
         
         let defaults = UserDefaults.standard
         
         // retrieve the stored list from the phone
         var hosted_game_code_list = defaults.object(forKey: "hosted_game_code_list") as? [String] ?? [String]()
-        var joined_game_code_list = defaults.object(forKey: "joined_game_code_list") as? [String] ?? [String]()
         
         // remove the game code from the list if found
         if (hosted_game_code_list.contains(self.game_code!)){
@@ -158,7 +157,19 @@ struct Tournament {
             // remove tournament from database
             self.dbDelete()
             
-        }else if(joined_game_code_list.contains(self.game_code!)){
+        }
+    }
+    
+    //deletes joined tournament
+    func deleteJoined(){
+        
+        let defaults = UserDefaults.standard
+        
+        // retrieve the stored list from the phone
+        var joined_game_code_list = defaults.object(forKey: "joined_game_code_list") as? [String] ?? [String]()
+        
+        // remove the game code from the list if found
+        if(joined_game_code_list.contains(self.game_code!)){
             
             joined_game_code_list = joined_game_code_list.filter() { $0 != self.game_code }
             
@@ -278,6 +289,7 @@ struct Tournament {
                     return
                 }
                 guard let data = document.data() else {
+                    
                     return
                 }
                 
