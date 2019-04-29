@@ -39,7 +39,9 @@ class AddGroupsController: UITableViewController, UITabBarControllerDelegate {
     
     // called when the done button is pressed to complete
     @objc func doneButtonPressed() {
-        
+        if(tournament.getNumGroups() < 2){
+            return
+        }
         self.tournament.generate()
         self.navigationController?.popViewController(animated: true)
         tabBarController?.selectedIndex=0
