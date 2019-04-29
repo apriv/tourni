@@ -148,7 +148,7 @@ struct Tournament {
         var joined_game_code_list = defaults.object(forKey: "joined_game_code_list") as? [String] ?? [String]()
         
         // remove the game code from the list if found
-        if ( hosted_game_code_list.contains(self.game_code!)){
+        if (hosted_game_code_list.contains(self.game_code!)){
             
             hosted_game_code_list = hosted_game_code_list.filter() { $0 != self.game_code }
             
@@ -238,24 +238,12 @@ struct Tournament {
         for game_code in joined_game_code_list{
             Tournament.getTournament(gc: game_code){ t in
                 
-                if !(t.title == nil){
-                    if let row = joined_tournament_list.index(where: {$0 == t}) {
-                        
-                        joined_tournament_list[row] = t
-                        
-                    }else{
-                        
-                        joined_tournament_list.append(t)
-                        
-                    }
-                    
-                    completion(joined_tournament_list)
-                    
+                if let row = joined_tournament_list.index(where: {$0 == t}) {
+                    joined_tournament_list[row] = t
                 }else{
-                    
-                    completion(joined_tournament_list)
-                    
+                    joined_tournament_list.append(t)
                 }
+                completion(joined_tournament_list)
                 
                 
             }
@@ -290,7 +278,6 @@ struct Tournament {
                     return
                 }
                 guard let data = document.data() else {
-                    completion(Tournament())
                     return
                 }
                 
