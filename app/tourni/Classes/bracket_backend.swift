@@ -34,7 +34,6 @@ class bracket_backend {
             }
             
         }
-        print(rounds)
         return rounds
         
     }
@@ -55,7 +54,6 @@ class bracket_backend {
             numOfMatchUps = numOfMatchUps/2
             //push data into the [(string, string)]
         }
-        print(match_upList)
         return match_upList
     }
 }

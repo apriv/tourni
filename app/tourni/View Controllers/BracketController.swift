@@ -72,13 +72,29 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
             self.make_roundsHost()
             
             if !(self.initialized){
+                
                 self.panGestureOverBracketView()
+                
+            }else{
+                
+                for i in 0..<self.matches.count {
+                    if self.currentGroups.count/2 == self.matches[i]{
+                        self.currRound = i + 1
+                        break
+                    }
+                }
+                
+                for i in 0..<self.currRound{
+                    self.bracketViewGroupDict[self.bracketViewArr[i]] = self.tournament.roundList![i]
+                }
+                
             }
             
             
             self.initialized = true
             
             for tableview in self.bracketViewArr{
+                
                 tableview.reloadData()
             }
             
