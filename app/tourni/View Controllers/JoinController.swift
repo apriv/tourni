@@ -7,36 +7,45 @@
 //
 import UIKit
 
-class JoinController: UIViewController , UITabBarControllerDelegate{
-    
+class JoinController: UIViewController , UITabBarControllerDelegate, UITextFieldDelegate{
     
     @IBOutlet weak var gameCodeTextField: UITextField!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
-        
-        //UI setup
+        //background setup
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "gradient_background")!)
+        
+        self.gameCodeTextField.delegate = self // Ser delegate
     }
 
     @IBAction func joinTournamentButton(_ sender: Any) {
         if (gameCodeTextField.text != ""){
-        Tournament.exists(gc: gameCodeTextField.text!){
-            isThere in
-            if (isThere){
-                // game code found
-                self.gameFound()
-            }
-            else {
-                // game code not found
-                self.gameNotFound()
+            Tournament.exists(gc: gameCodeTextField.text!){
+                isThere in
+                if (isThere){
+                    // game code found
+                    self.gameFound()
+                }
+                else {
+                    // game code not found
+                    self.gameNotFound()
+                }
             }
         }
-        }
+        
     }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let countOfChars = string.characters.count +  textField.text!.characters.count - range.length
+        // max char is 5
+        if countOfChars > 5{
+            return false
+        }
+        return true
+    }
+    
     
     // called when game code found
     func gameFound(){

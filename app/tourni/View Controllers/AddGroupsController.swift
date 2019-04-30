@@ -78,17 +78,15 @@ class AddGroupsController: UITableViewController, UITabBarControllerDelegate {
     
     // when + new group button pressed
     @IBAction func addGroup(_ sender: UIButton) {
-        //1. Create the alert controller.
+        // Create the alert controller.
         let alert = UIAlertController(title: "Add New Group", message: "Please enter a group name", preferredStyle: .alert)
         
-        //2. Add the text field. You can configure it however you need.
-        
+        // Add the text field
         alert.addTextField { (textField) in
             textField.text = ""
         }
  
-        
-        // 3. Grab the value from the text field, and print it when the user clicks OK.
+        // Grab the value from the text field, and addGroup
         alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { [weak alert] (_) in
             let textField = alert?.textFields![0]
             
@@ -103,7 +101,7 @@ class AddGroupsController: UITableViewController, UITabBarControllerDelegate {
             self.tableView.reloadData()
         }))
         
-        // 4. Present the alert.
+        // Present the alert.
         self.present(alert, animated: true, completion: nil)
     }
     }
