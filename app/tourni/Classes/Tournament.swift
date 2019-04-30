@@ -9,14 +9,29 @@ import Firebase
 import Foundation
 
 struct Tournament {
+    
+    // Title of the tournament
     var title:String?
+    
+    // List of groups in the tournament
     var groups:[Group]?
+    
+    // Description of the tournament
     var description:String?
+    
+    // Unique game code for tournament
     var game_code:String?
+    
+    // List of current winners in the tournament
     var winners:[Group]?
+    
+    // List of current losers in the tournament
     var losers:[Group]?
+    
+    // List of Group lists corresponding to each round
     var roundList:[[Group]]?
     
+    // Initializer
     init(
         title: String? = nil,
         groups: [Group]? = [Group](),
@@ -35,22 +50,22 @@ struct Tournament {
         self.roundList = roundList
     }
     
-    // function to get the number of groups
+    // Function to get the number of groups
     func getNumGroups() -> Int{
         return self.groups!.count
     }
     
-    // function to add group to tournament
+    // Function to add group to tournament
     mutating func addGroup(group: Group){
         self.groups!.append(group)
     }
     
-    // function to get number of winners
+    // Function to get number of winners
     func getNumWinners() -> Int {
         return self.winners!.count
     }
     
-    // removes group from winners and places into losers
+    // Removes group from winners and places into losers
     mutating func makeLoser(group: Group){
         
         self.winners! = winners!.filter() { $0 != group }
@@ -60,7 +75,7 @@ struct Tournament {
         }
     }
     
-    // removes group from losers and places into winners
+    // Removes group from losers and places into winners
     mutating func makeWinner(group: Group){
         
         self.losers! = losers!.filter() { $0 != group }
@@ -71,41 +86,41 @@ struct Tournament {
         
     }
     
-    // function to set title
+    // Function to set title
     mutating func setTitle(t: String){
         self.title = t
     }
     
-    // function to set description
+    // Function to set description
     mutating func setDescription(d: String){
         self.description = d
     }
     
     
-    // function to generate game code
+    // Function to generate game code
     func genCode(length: Int) -> String {
         let letters = "abcdefghijklmnopqrstuvwxyz0123456789"
         return String((0..<length).map{ _ in letters.randomElement()! })
     }
     
-    // generate tournament, store local code and write to database (Should only be called once when tournament is created)
+    // Generate tournament, store local code and write to database (Should only be called once when tournament is created)
     mutating func generate(){
         
         let game_code = genCode(length: 4)
         
-        // create reference to "user defaults" -> (data stored on phone)
+        // Create reference to "user defaults" -> (data stored on phone)
         let defaults = UserDefaults.standard
         
-        // retrieve the stored list from the phone
+        // Retrieve the stored list from the phone
         var hosted_game_code_list = defaults.object(forKey: "hosted_game_code_list") as? [String] ?? [String]()
         
-        // add the game code to the list of game codes
+        // Add the game code to the list of game codes
         hosted_game_code_list.append(game_code)
         
-        // store the generated game code on the user's phone
+        // Store the generated game code on the user's phone
         defaults.set(hosted_game_code_list, forKey: "hosted_game_code_list")
         
-        // assign the game code to the tournament
+        // Assign the game code to the tournament
         self.game_code = game_code
         
         
@@ -115,65 +130,67 @@ struct Tournament {
             self.addGroup(group : Group( name: "FREE", seed: next_seed, status: false))
         }
         
-        // set the winners to default = to the groups
+        // Set the winners to default = to the groups
         self.winners = self.groups
         
         self.roundList!.append(self.groups!)
         
-        // write the tournament to the database
+        // Write the tournament to the database
         self.store()
         
     }
+    
     // Joins tournament
     static func join(game_code : String){
         
         let defaults = UserDefaults.standard
         
-        // retrieve the stored list from the phone
+        // Retrieve the stored list from the phone
         var joined_game_code_list = defaults.object(forKey: "joined_game_code_list") as? [String] ?? [String]()
         
-        // add the game code to the list of game codes
+        // Add the game code to the list of game codes
         joined_game_code_list.append(game_code)
         
-        // store the generated game code on the user's phone
+        // Store the generated game code on the user's phone
         defaults.set(joined_game_code_list, forKey: "joined_game_code_list")
     }
-    //deletes hosted tournament
+    
+    // Deletes hosted tournament
     func deleteHosted(){
         
         let defaults = UserDefaults.standard
         
-        // retrieve the stored list from the phone
+        // Retrieve the stored list from the phone
         var hosted_game_code_list = defaults.object(forKey: "hosted_game_code_list") as? [String] ?? [String]()
         
-        // remove the game code from the list if found
+        // Remove the game code from the list if found
         if (hosted_game_code_list.contains(self.game_code!)){
             
             hosted_game_code_list = hosted_game_code_list.filter() { $0 != self.game_code }
             
-            // store the generated game code on the user's phone
+            // Store the generated game code on the user's phone
             defaults.set(hosted_game_code_list, forKey: "hosted_game_code_list")
             
-            // remove tournament from database
+            // Remove tournament from database
             self.dbDelete()
             
         }
     }
     
-    //deletes joined tournament
+    // Deletes joined tournament
     func deleteJoined(){
         
         let defaults = UserDefaults.standard
         
-        // retrieve the stored list from the phone
+        // Retrieve the stored list from the phone
         var joined_game_code_list = defaults.object(forKey: "joined_game_code_list") as? [String] ?? [String]()
         
-        // remove the game code from the list if found
+        // Remove the game code from the list if found
         if(joined_game_code_list.contains(self.game_code!)){
             
             joined_game_code_list = joined_game_code_list.filter() { $0 != self.game_code }
             
-            // store the generated game code on the user's phone
+            // Store the generated game code on the user's phone
             defaults.set(joined_game_code_list, forKey: "joined_game_code_list")
             
         }
@@ -200,14 +217,14 @@ struct Tournament {
     // Gets the hosted tournaments and returns them in a list
     static func gethostedTournaments( completion: @escaping (_ tournament: [Tournament]) -> Void){
         
-        // initialize game_code_list
+        // Initialize game_code_list
         var hosted_game_code_list = [String]()
         var hosted_tournament_list = [Tournament]()
         
-        // create reference to "user defaults" -> (data stored on phone)
+        // Create reference to "user defaults" -> (data stored on phone)
         let defaults = UserDefaults.standard
         
-        // if the game code list is valid, read from it
+        // If the game code list is valid, read from it
         if UserDefaults.standard.object(forKey: "hosted_game_code_list") == nil {
             UserDefaults.standard.setValue([String](), forKey: "hosted_game_code_list")
         }else{
@@ -233,14 +250,14 @@ struct Tournament {
     // Gets the joined tournaments and returns them in a list
     static func getjoinedTournaments( completion: @escaping (_ tournament: [Tournament]) -> Void){
     
-        // initialize game code list
+        // Initialize game code list
         var joined_game_code_list = [String]()
         var joined_tournament_list = [Tournament]()
         
-        // create reference to "user defaults" -> (data stored on phone)
+        // Create reference to "user defaults" -> (data stored on phone)
         let defaults = UserDefaults.standard
         
-        // if the game code list is valid, read from it
+        // If the game code list is valid, read from it
         if UserDefaults.standard.object(forKey: "joined_game_code_list") == nil {
             UserDefaults.standard.setValue([String](), forKey: "joined_game_code_list")
         }else{
@@ -261,6 +278,7 @@ struct Tournament {
         }
     }
     
+    // Checks if a tournament with the inputted game code is in the database
     static func exists(gc: String, completion: @escaping (_ result: Bool) -> Void) {
          let db = Firestore.firestore()
         
@@ -276,7 +294,7 @@ struct Tournament {
         
     }
     
-    // completion function supposed to return tournament generated from firebase
+    // Gets tournament with inputted game code from the database and returns it.
     static func getTournament(gc: String, completion: @escaping (_ tournament: Tournament) -> Void){ // gc -> game code
         
         let db = Firestore.firestore()
@@ -303,6 +321,7 @@ struct Tournament {
                 
                 var tournament = Tournament( title: name, description: description, game_code: gc)
                 
+                // Creates a group from the dictionaries obtained from the database
                 for dictionary in groups_map_list{
                     
                     let g = Group( name: dictionary["name"] as! String, seed: dictionary["seed"] as! Int, status: dictionary["status"] as! Bool)
@@ -327,7 +346,7 @@ struct Tournament {
                     
                 }
                 
-                
+                // Converts from "data" type from database
                 do { let round_dict_list = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(temp_round_dict_list)
                     
                     
@@ -350,10 +369,10 @@ struct Tournament {
         }
     }
 
-    
+    // Stores the tournament in the database
     func store() {
         
-        // create list of dictionaries
+        // Create list of dictionaries
         let groups_dic_list = self.groupstoDictionaryList()
         let winners_dic_list = self.winnerstoDictionaryList()
         let losers_dic_list = self.loserstoDictionaryList()
@@ -390,6 +409,7 @@ struct Tournament {
         
     }
     
+    // Helper functions to convert object lists to dictionaries
     func groupstoDictionaryList()-> [[String: AnyObject]]{
         return self.groups!.map{ $0.toDictionary()}
     }
@@ -405,8 +425,7 @@ struct Tournament {
 }
 
 
-//Overloading for Tournament
-
+// Overloading for Tournament
 
 func ==(lhs: Tournament, rhs: Tournament) -> Bool {
     return lhs.game_code == rhs.game_code

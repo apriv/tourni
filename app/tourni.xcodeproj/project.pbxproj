@@ -115,13 +115,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		434DA089227907DB0009B3CD /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				C3C7C7A7225559EE00F311B4 /* Main.storyboard */,
+				C3C7C7AC225559EF00F311B4 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		434DA08A2279081B0009B3CD /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				112EFD142257ECC300781533 /* GoogleService-Info.plist */,
+				C3C7C7AF225559EF00F311B4 /* Info.plist */,
+			);
+			path = Info;
+			sourceTree = "<group>";
+		};
+		434DA08B227908400009B3CD /* App Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				C3C7C7A3225559EE00F311B4 /* AppDelegate.swift */,
+			);
+			path = "App Delegate";
+			sourceTree = "<group>";
+		};
 		437F484E2260ED380029A86E /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C3668A9B225664C0002D9DF4 /* ActiveGamesController.swift */,
 				437F4852226100200029A86E /* ActiveGamesCell.swift */,
-				437F485422610F340029A86E /* AddGroupsController.swift */,
+				C3668A9B225664C0002D9DF4 /* ActiveGamesController.swift */,
 				437F485622610F4E0029A86E /* AddGroupsCell.swift */,
+				437F485422610F340029A86E /* AddGroupsController.swift */,
 				4D4E083B226A545800A2C326 /* BracketController.swift */,
 				437F4858226114600029A86E /* ConfigureGroupController.swift */,
 				C31F9D41225566A00049439D /* HostController.swift */,
@@ -133,9 +159,10 @@
 		437F484F2260ED650029A86E /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				C30B8951225EA98600DC4469 /* Tournament.swift */,
-				437F48502260EE2F0029A86E /* Group.swift */,
 				4D4E0840226A557F00A2C326 /* bracket_backend.swift */,
+				437F48502260EE2F0029A86E /* Group.swift */,
+				4D4E0845226A585000A2C326 /* MatchUpHost.swift */,
+				C30B8951225EA98600DC4469 /* Tournament.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -156,8 +183,8 @@
 		4D4E083F226A548800A2C326 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				C3C7C7AA225559EF00F311B4 /* Assets.xcassets */,
 				4D4E083D226A547C00A2C326 /* MatchUpHost.xib */,
-				4D4E0845226A585000A2C326 /* MatchUpHost.swift */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -187,15 +214,12 @@
 		C3C7C7A2225559EE00F311B4 /* tourni */ = {
 			isa = PBXGroup;
 			children = (
+				434DA08B227908400009B3CD /* App Delegate */,
 				4D4E083F226A548800A2C326 /* Assets */,
 				437F484F2260ED650029A86E /* Classes */,
+				434DA08A2279081B0009B3CD /* Info */,
+				434DA089227907DB0009B3CD /* Storyboards */,
 				437F484E2260ED380029A86E /* View Controllers */,
-				C3C7C7AA225559EF00F311B4 /* Assets.xcassets */,
-				C3C7C7A7225559EE00F311B4 /* Main.storyboard */,
-				C3C7C7AC225559EF00F311B4 /* LaunchScreen.storyboard */,
-				C3C7C7A3225559EE00F311B4 /* AppDelegate.swift */,
-				C3C7C7AF225559EF00F311B4 /* Info.plist */,
-				112EFD142257ECC300781533 /* GoogleService-Info.plist */,
 			);
 			path = tourni;
 			sourceTree = "<group>";
