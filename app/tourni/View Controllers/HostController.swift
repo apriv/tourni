@@ -15,46 +15,50 @@ class HostController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var eventNameTextField: UITextField!
     @IBOutlet weak var descriptionTextField: UITextField!
     
-    // function called when view gets initialized
+    // Function called when view gets initialized
     override func viewDidLoad() {
         super.viewDidLoad()
         
         eventNameTextField.keyboardType = UIKeyboardType.alphabet
         descriptionTextField.keyboardType = UIKeyboardType.alphabet
         
-        //backgrounf img
+        // Sets background image
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "gradient_background")!)
         
-        self.eventNameTextField.delegate = self // set delegate
+        // Set delegate
+        self.eventNameTextField.delegate = self
+        self.descriptionTextField.delegate = self
     }
     
-    // textfield constrain
+    // Textfield constrain
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let countOfChars = string.characters.count +  textField.text!.characters.count - range.length
-        // max char 20
+        // Max char 20
         if countOfChars > 20{
             return false
         }
         return true
     }
     
-
+    // Called when "Create" button is pressed
     @IBAction func createButtonPressed(_ sender: Any) {
-        // sets the title and description from the inputted text
+        
+        // Sets the title and description from the inputted text
         self.tournament.setTitle(t: eventNameTextField.text!)
         self.tournament.setDescription(d: descriptionTextField.text!)
         
-        // moves to next screen
+        // Moves to next screen
         self.performSegue(withIdentifier: "hostToAddGroupsSegue", sender: self)
     }
     
+    // Removes keyboard onlick
     @IBAction func keyboardDisable(_ sender: UITapGestureRecognizer) {
         eventNameTextField.resignFirstResponder()
         descriptionTextField.resignFirstResponder()
     }
     
     
-    // passes the semi-created tournament to the next view
+    // Passes the semi-created tournament to the next view
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         if segue.destination is AddGroupsController

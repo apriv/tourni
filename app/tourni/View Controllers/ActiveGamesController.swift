@@ -118,10 +118,11 @@ class ActiveGamesController: UITableViewController {
     // Delete from the table
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
+            
             // delete selected tournament
             switch(indexPath.section){
                 case 0:
-                    
+                
                     joined_tournament_list[indexPath.row].deleteJoined()
                     joined_tournament_list.remove(at: indexPath.row)
                     break;

@@ -13,11 +13,11 @@ struct Tournament {
     // Title of the tournament
     var title:String?
     
-    // List of groups in the tournament
-    var groups:[Group]?
-    
     // Description of the tournament
     var description:String?
+    
+    // List of groups in the tournament
+    var groups:[Group]?
     
     // Unique game code for tournament
     var game_code:String?

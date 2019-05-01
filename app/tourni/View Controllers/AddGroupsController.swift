@@ -10,52 +10,55 @@ import UIKit
 
 class AddGroupsController: UITableViewController, UITabBarControllerDelegate {
 
-    // tournament variable for this view
+    // Tournament variable for this view
     var tournament:Tournament = Tournament()
+    
+    // Initializes the seed count to one
     var seed = 1
     
+    // Function called when view gets loaded
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        // Creates the "done" button
         let doneItemButton = UIBarButtonItem(barButtonSystemItem: .done,
                                             target: self,
                                             action: #selector(self.doneButtonPressed))
         
-        // sets the button to the top right bar
+        // Sets the button to the top right bar
         self.navigationItem.rightBarButtonItem = doneItemButton
        
-        //BG setup
+        // Sets the background to a gradient image
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "gradient_background")!)
     }
     
     
-    // called when the + button is pressed to add a group. Sends the group configure view
-    @objc func addButtonPressed() {
-        
-        self.performSegue(withIdentifier: "addGroupsToConfig", sender: self)
-    }
-    
-    
-    // called when the done button is pressed to complete
+    // Called when the done button is pressed to complete
     @objc func doneButtonPressed() {
+        
+        // Checks if the number of groups is greater than or equal to 2
         if(tournament.getNumGroups() < 2){
             return
         }
+        
+        // Generates a new tournament
         self.tournament.generate()
+        
+        // Sends the view back a level
         self.navigationController?.popViewController(animated: true)
+        
+        // Sets the tab bar to the Active Games Controller
         tabBarController?.selectedIndex=0
     }
     
     
-    // called when the view appears
+    // Called when the view appears
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
     }
     
     // Table view functions
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -64,11 +67,12 @@ class AddGroupsController: UITableViewController, UITabBarControllerDelegate {
         return self.tournament.getNumGroups()
     }
 
-    // sets the group data for cell
+    // Sets the group data for cell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "AddGroupsCell", for: indexPath) as! AddGroupsCell
         
+        // Makes cells unclickable
         cell.selectionStyle = UITableViewCell.SelectionStyle.none
         
         cell.setGroup(group: self.tournament.groups![indexPath.row])
@@ -76,7 +80,7 @@ class AddGroupsController: UITableViewController, UITabBarControllerDelegate {
         return cell
     }
     
-    // when + new group button pressed
+    // When + new group button pressed
     @IBAction func addGroup(_ sender: UIButton) {
         // Create the alert controller.
         let alert = UIAlertController(title: "Add New Group", message: "Please enter a group name", preferredStyle: .alert)
@@ -95,7 +99,7 @@ class AddGroupsController: UITableViewController, UITabBarControllerDelegate {
                 return
             }
             
-            // adds a new group to the tournament
+            // Adds a new group to the tournament
             self.tournament.addGroup(group: Group(name: textField!.text, seed: self.seed, status: false))
             self.seed += 1
             self.tableView.reloadData()

@@ -15,7 +15,7 @@ class ActiveGamesCell: UITableViewCell {
     @IBOutlet weak var ActiveGamesDescriptionLabel: UILabel!
     @IBOutlet weak var gameCodeLabel: UILabel!
     
-    // Function to set the cell to a tournament
+    // Function to set a tournament to the cell
     func setTournament(tournament: Tournament){
         ActiveGamesTitleLabel.text = tournament.title
         ActiveGamesDescriptionLabel.text = tournament.description

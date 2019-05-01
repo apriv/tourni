@@ -1,8 +1,8 @@
 //
-//  bracket_maker.swift
-//  bracket_maker
+//  BracketController.swift
+//  BracketController
 //
-//  Created by Mario Taglic on 4/6/19.    let bracket_algo = bracket_backend()
+//  Created by Mario Taglic on 4/6/19.
 //  Copyright © 2019 Mario Taglic. All rights reserved.
 //
 
@@ -10,33 +10,56 @@ import UIKit
 
 class BracketController: UIViewController, UITableViewDataSource, UITableViewDelegate, cellInfo  {
     
+    // Initializes the main bracket scene
     var bracket_scene = UIView()
+    
+    // Initializes the bracket backend for function calls
     let bb = bracket_backend()
+    
+    // Initializes a tournament
     var tournament = Tournament()
+    
+    // Initializes a game code
     var game_code = String()
+    
+    // Initializes groups to zero
     var groups:Int = 0
+    
+    // Initializes rounds to zero
     var rounds:Int = 0
+    
+    // Initializes list of matches to be used as the number of matchups per corresponding round
     var matches:[Int] = []
+    
+    // Initializes number of selected winners to zero
     var winnerSelectedCount = 0
+    
+    // Initializes the current round to zero
     var currRound:Int = 0
+    
+    // Initializes the list of groups in current round
     var currentGroups:[Group] = [Group]()
+    
+    // Initializes boolean for whether or not the user is the host
     var host:Bool = Bool()
+    
+    // Boolean to tell whether or not the view has been initialized
     var initialized:Bool = false
     
-    //bracket view X and Y values
+    // Bracket view X and Y values
     var bracketView_x = CGFloat(25)
     var bracketView_y = CGFloat(100)
     
-    //bracket view height and width values
+    // Bracket view height and width values
     var bracketView_height = CGFloat(UIScreen.main.bounds.height)
     var bracketView_width = CGFloat(UIScreen.main.bounds.width * 0.8)
     
-    //bracket view dictionary and array
+    // Bracket view dictionary and array
     var bracketViewDict:[UITableView:Int] = [:]
     var bracketViewArr:[UITableView] = []
     var bracketViewGroupDict:[UITableView: [Group]] = [:]
     
-    //translation of X and the width of the main UI
+    // Translation of X and the width of the main UI
     var translationX:CGFloat = 0
     var main_width = UIScreen.main.bounds.width
     
@@ -50,7 +73,7 @@ class BracketController: UIViewController, UITableViewDataSource, UITableViewDel
         }
     }
     
-    //set the height of the matchup
+    // Set the height of the matchup cell
     var matchup_height:CGFloat = 130
     var matchup_shrinked:CGFloat = 130
     var gesture:UIPanGestureRecognizer?
