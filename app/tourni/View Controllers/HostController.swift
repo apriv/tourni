@@ -43,6 +43,11 @@ class HostController: UIViewController, UITextFieldDelegate {
     // Called when "Create" button is pressed
     @IBAction func createButtonPressed(_ sender: Any) {
         
+        // Checks for empty strings
+        if (eventNameTextField.text! == "" || descriptionTextField.text! == ""){
+            return
+        }
+        
         // Sets the title and description from the inputted text
         self.tournament.setTitle(t: eventNameTextField.text!)
         self.tournament.setDescription(d: descriptionTextField.text!)
